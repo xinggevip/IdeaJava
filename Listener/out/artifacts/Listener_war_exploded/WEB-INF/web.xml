@@ -9,4 +9,7 @@
     <listener>
         <listener-class>com.gaoxing.listener.HttpSessionListenerTest</listener-class>
     </listener>
+    <listener>
+        <listener-class>com.gaoxing.servlet.RequestListnerTest</listener-class>
+    </listener>
 </web-app>
