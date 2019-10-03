@@ -11,7 +11,7 @@ import java.io.IOException;
 public class TestServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("TestServlet-----" + req.getSession().getId());
+        //System.out.println("TestServlet-----" + req.getSession().getId());
         //req.getSession().invalidate();
         //req.getSession().setMaxInactiveInterval(60);// 设置60秒后session过期
         /**
@@ -28,5 +28,8 @@ public class TestServlet extends HttpServlet {
          * 如果不想让session在服务器关闭后还持久化
          * 就在Tomcat/conf/context.xml中把<Manager pathname="" />注释取消
          */
+
+        this.getServletContext().setAttribute("name","Tom1");
+        this.getServletContext().removeAttribute("name");
     }
 }
