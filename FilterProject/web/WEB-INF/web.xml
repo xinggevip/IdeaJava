@@ -11,4 +11,13 @@
         <filter-name>myfilter</filter-name>
         <url-pattern>/MyServlet</url-pattern>
     </filter-mapping>
+
+    <filter>
+        <filter-name>secfilter</filter-name>
+        <filter-class>com.gaoxing.web.filter.SecFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>secfilter</filter-name>
+        <url-pattern>/MyServlet</url-pattern>
+    </filter-mapping>
 </web-app>
