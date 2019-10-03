@@ -11,9 +11,9 @@ import java.io.IOException;
 public class TestServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println(req.getSession().getId());
-        req.getSession().invalidate();
-        req.getSession().setMaxInactiveInterval(60);// 设置60秒后session过期
+        System.out.println("TestServlet-----" + req.getSession().getId());
+        //req.getSession().invalidate();
+        //req.getSession().setMaxInactiveInterval(60);// 设置60秒后session过期
         /**
          * sessionCreated--创建
          * 3062FC7B2789A1E01186A1A8D9056DBE
