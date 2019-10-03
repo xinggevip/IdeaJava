@@ -1,9 +1,9 @@
 public class Nanny implements BabyProtocol{
 
     public void listenCry(){
-        System.out.println("±£Ä·È¥ºåÓ¤¶ù");
+        System.out.println("ä¿å§†å»å“„å©´å„¿");
     }
     public void listenHungry(){
-        System.out.println("±£Ä·È¥Î¹Ó¤¶ù");
+        System.out.println("ä¿å§†å»å–‚å©´å„¿");
     }
 }

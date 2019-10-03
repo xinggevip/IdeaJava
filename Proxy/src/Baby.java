@@ -1,12 +1,12 @@
 public class Baby {
     public BabyProtocol proxy = null;
     public void cry(){
-        // �ñ�ķȥ��Ӥ��
+        // 让保姆去哄婴儿
         this.proxy.listenCry();
     }
 
     public void huangry(){
-        // �ñ�ķȥιӤ��
+        // 让保姆去喂婴儿
         this.proxy.listenHungry();
     }
 }
