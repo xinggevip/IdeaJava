@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="85600e4a-0adf-4b17-b868-457bdf2fdd30" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Baby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Baby.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Nanny.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Nanny.java" afterDir="false" />
-    </list>
+    <list default="true" id="85600e4a-0adf-4b17-b868-457bdf2fdd30" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,6 +16,7 @@
     <session id="340891704">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -123,8 +121,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="155" />
-    <option name="y" value="31" />
+    <option name="x" value="18" />
+    <option name="y" value="57" />
     <option name="width" value="1615" />
     <option name="height" value="995" />
   </component>
@@ -651,15 +649,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1570103328056</updated>
-      <workItem from="1570103331611" duration="2030000" />
+      <workItem from="1570103331611" duration="2278000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2030000" />
+    <option name="totallyTimeSpent" value="2278000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="124" y="25" width="1292" height="796" extended-state="0" />
+    <frame x="15" y="46" width="1292" height="796" extended-state="0" />
     <layout>
       <window_info id="JRebel" side_tool="true" />
       <window_info id="Favorites" side_tool="true" />
@@ -677,7 +675,7 @@
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32880846" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32880846" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
