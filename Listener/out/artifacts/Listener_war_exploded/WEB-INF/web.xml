@@ -6,4 +6,7 @@
     <listener>
         <listener-class>com.gaoxing.listener.ServletContextListenerTest</listener-class>
     </listener>
+    <listener>
+        <listener-class>com.gaoxing.listener.HttpSessionListenerTest</listener-class>
+    </listener>
 </web-app>
