@@ -5,6 +5,7 @@ import com.gaoxing.jdbc.util.JdbcUtil;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -49,6 +50,19 @@ public class GoodsDao {
 		return goods;
 		
 	}
-	
 
+
+	public Long getCount() throws SQLException {
+		String sql = "select count(*) from goods";
+		Long count = (Long)qr.query(sql, new ScalarHandler());
+		return count;
+	}
+
+	public List<Goods> getPageData(Integer index, Integer pageCount) throws SQLException {
+		String sql = "select * from (select * from goods ORDER BY id DESC) goods limit ?,?";
+		List<Goods> list = null;
+		list = qr.query(sql,new BeanListHandler<Goods>(Goods.class),index,pageCount);
+		//Collections.reverse(list); // 集合反转
+		return list;
+	}
 }

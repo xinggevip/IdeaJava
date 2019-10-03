@@ -1,24 +1,21 @@
 package com.gaoxing.web;
 
+import com.gaoxing.domain.Category;
+import com.gaoxing.domain.Goods;
+import com.gaoxing.domain.PageBean;
+import com.gaoxing.service.CategoryService;
+import com.gaoxing.service.GoodsService;
+import org.apache.commons.beanutils.BeanUtils;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.beanutils.BeanUtils;
-
-import com.gaoxing.domain.Category;
-import com.gaoxing.domain.Goods;
-import com.gaoxing.service.CategoryService;
-import com.gaoxing.service.GoodsService;
 
 @WebServlet("/GoodServlet")
 public class GoodServlet extends BaseServlet {
@@ -30,7 +27,17 @@ public class GoodServlet extends BaseServlet {
 			// 商品集合反转
 			Collections.reverse(allGoods);
 			System.out.println(allGoods);
-			request.setAttribute("allGoods", allGoods);
+			// request.setAttribute("allGoods", allGoods);
+			PageBean pageBean = new PageBean();
+			pageBean.setGoodsList(allGoods);
+			pageBean.setTotalCount(10);
+			pageBean.setTotalPage(10);
+			pageBean.setCurrentPage(1);
+			request.setAttribute("pageBean",pageBean);
+			// 当前页商品
+			// 当前是那一页
+			// 共多少页
+			// 共多少纪录
 			return "admin/main.jsp";
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -38,7 +45,26 @@ public class GoodServlet extends BaseServlet {
 		}
 		return null;
 	}
-	
+
+	public String getPageData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 1.获取当前页码
+		String currentPage = request.getParameter("currentPage");
+		// 2.把页码给业务层
+		GoodsService goodsService = new GoodsService();
+		PageBean pageBean = null;
+		try {
+			pageBean = goodsService.getPageBean(currentPage);
+			System.out.println(pageBean);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		// 3.把pageBean写到域当中
+		request.setAttribute("pageBean",pageBean);
+		// 4.转发
+		return "admin/main.jsp";
+	}
+
+
 	public String delGoods(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 根据id删除商品
 		String id = request.getParameter("id");
@@ -46,7 +72,7 @@ public class GoodServlet extends BaseServlet {
 		GoodsService goodsService = new GoodsService();
 		try {
 			goodsService.deleteGoods(id);
-			return "GoodServlet?action=getListGoods";
+			return "GoodServlet?action=getPageData&currentPage=1";
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -86,7 +112,7 @@ public class GoodServlet extends BaseServlet {
 			System.out.println(goods);
 			GoodsService goodsService = new GoodsService();
 			goodsService.addGoods(goods);
-			return "GoodServlet?action=getListGoods";
+			return "GoodServlet?action=getPageData&currentPage=1";
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -144,7 +170,7 @@ public class GoodServlet extends BaseServlet {
 			GoodsService goodsService = new GoodsService();
 			goodsService.updateGoods(goods);
 			// 4.转发
-			return "GoodServlet?action=getListGoods";
+			return "GoodServlet?action=getPageData&currentPage=1";
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

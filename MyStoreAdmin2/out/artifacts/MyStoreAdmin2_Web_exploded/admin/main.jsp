@@ -61,7 +61,7 @@
 		</ul>
 
 
-		<c:forEach items="${allGoods }" var="goods" varStatus="status">
+		<c:forEach items="${pageBean.goodsList }" var="goods" varStatus="status">
 		
 		<ul class="list_goods_ul">
 			<li>${status.index + 1}</li>
@@ -82,11 +82,11 @@
 	<script>
     //分页
     $("#page").paging({
-        pageNo:5,
-        totalPage: 10,
-        totalSize: 300,
+        pageNo:${pageBean.currentPage},// 当前页
+        totalPage: ${pageBean.totalPage}, // 共多少页
+        totalSize: ${pageBean.totalCount}, // 共多少条纪录
         callback: function(num) {
-            alert(num);
+            $(window).attr('location',"${ctx}/GoodServlet?action=getPageData&currentPage=" + num);
         }
     });
 
