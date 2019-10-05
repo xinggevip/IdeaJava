@@ -23,6 +23,23 @@
 		<property name="hibernate.format_sql">true</property>
 		<!-- 自动创建表 -->
 		<property name="hibernate.hbm2ddl.auto">update</property>
+		<!--加入事务-->
+		<property name="hibernate.connection.autocommit">true</property>
+		<!--C3P0配置-->
+		<property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>
+		<property name="hibernate.c3p0.max_size">20</property>
+		<property name="hibernate.c3p0.min_size">5</property>
+		<property name="hibernate.c3p0.timeout">120</property>
+		<property name="automaticTestTable">Test</property>
+		<property name="hibernate.c3p0.max_statements">100</property>
+		<property name="hibernate.c3p0.idle_test_period">120</property>
+		<property name="hibernate.c3p0.acquire_increment">1</property>
+		<property name="c3p0.testConnectionOnCheckout">true</property>
+		<property name="c3p0.idleConnectionTestPeriod">18000</property>
+		<property name="c3p0.maxIdleTime">25000</property>
+		<property name="c3p0.idle_test_period">120</property>
+
+		<!-- 加载映射文件 -->
 		<mapping resource="com/gaoxing/domain/Customer.hbm.xml"/>
 
 	</session-factory>
