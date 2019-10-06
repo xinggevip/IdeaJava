@@ -27,8 +27,12 @@
 		<property name="hibernate.connection.autocommit">true</property>
 		<!--C3P0配置-->
 		<property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>
+		<!-- 在连接池中可用的数据库连接的最大数目 -->
 		<property name="hibernate.c3p0.max_size">20</property>
+		<!-- 在连接池中可用的数据库连接的最小数目 -->
 		<property name="hibernate.c3p0.min_size">5</property>
+		<!-- 设定数据库连接的过期时间，单位为秒
+		 如果连接池中的某个数据库连接处于空闲状态的时间超过了timeout时间，就会从连接池中清除-->
 		<property name="hibernate.c3p0.timeout">120</property>
 		<property name="automaticTestTable">Test</property>
 		<property name="hibernate.c3p0.max_statements">100</property>
@@ -37,7 +41,12 @@
 		<property name="c3p0.testConnectionOnCheckout">true</property>
 		<property name="c3p0.idleConnectionTestPeriod">18000</property>
 		<property name="c3p0.maxIdleTime">25000</property>
+		<!-- 每120秒检查所有连接池中的空闲连接，以秒为单位 -->
 		<property name="c3p0.idle_test_period">120</property>
+		<!-- 设置事务的隔离级别 -->
+		<property name="hibernate.connection.isolation">4</property>
+		<!-- 创建session绑定到当前线程 -->
+		<property name="current_session_context_class">thread</property>
 
 		<!-- 加载映射文件 -->
 		<mapping resource="com/gaoxing/domain/Customer.hbm.xml"/>

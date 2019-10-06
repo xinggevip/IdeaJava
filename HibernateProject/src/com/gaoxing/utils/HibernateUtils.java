@@ -17,4 +17,10 @@ public class HibernateUtils {
         Session session = sessionFactory.openSession();
         return session;
     }
+
+    public static Session getCurrentSession(){
+        // 3.获取session对象 类似于获取连接对象
+        Session session = sessionFactory.getCurrentSession();
+        return session;
+    }
 }
