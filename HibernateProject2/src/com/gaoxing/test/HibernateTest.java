@@ -124,11 +124,11 @@ public class HibernateTest {
         customer.getLinkmens().add(linkman);
         // 关联
         // 单项维护
-        /*currentSession.save(customer);*/
+        //currentSession.save(linkman);
         linkman.setCustomer(customer); // 两句效果一致
         // 双向维护  让一方放弃外键维护
         // inverse="true" true让一方放弃外键维护 false让一方不放弃外键维护 默认不放弃 适用于双向关联的情景，如果双向关联其中一方不放弃外键维护，就会造成更新两次
-        /*currentSession.save(customer);*/
+        /*currentSession.save(linkman);*/
         /*linkman.setCustomer(customer);*/
 
         transaction.commit();
