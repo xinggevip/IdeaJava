@@ -19,7 +19,7 @@
         <property name="link_position" column="link_position"></property>
         <property name="link_memo" column="link_memo"></property>
 
-        <many-to-one name="customer" class="com.gaoxing.domain.Customer" column="link_cust_id"></many-to-one>
+        <many-to-one name="customer" class="com.gaoxing.domain.Customer" column="link_cust_id" lazy="false"></many-to-one> <!-- 懒加载默认开启，可以关掉，关掉后可以在事务提交后继续打印 -->
 
 
     </class>

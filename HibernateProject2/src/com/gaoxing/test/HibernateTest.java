@@ -48,4 +48,17 @@ public class HibernateTest {
 
         transaction.commit();
     }
+
+    @Test
+    public void test2(){
+        Session currentSession = HibernateUtils.getCurrentSession();
+        Transaction transaction = currentSession.beginTransaction();
+
+        Linkman linkman = currentSession.get(Linkman.class, 1L);
+
+        transaction.commit();
+
+        System.out.println(linkman.getLink_name());
+        System.out.println(linkman.getCustomer().getCust_name());
+    }
 }
