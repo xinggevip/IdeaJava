@@ -51,6 +51,8 @@
 		<!-- 加载映射文件 -->
 		<mapping resource="com/gaoxing/domain/customer.hbm.xml"/>
 		<mapping resource="com/gaoxing/domain/linkman.hbm.xml"/>
+		<mapping resource="com/gaoxing/domain/user.hbm.xml"/>
+		<mapping resource="com/gaoxing/domain/role.hbm.xml"/>
 
 
 	</session-factory>
