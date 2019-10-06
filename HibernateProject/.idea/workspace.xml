@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac7de323-3421-4bea-9012-ab591cfa810e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/gaoxing/test/HibernateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gaoxing/test/HibernateTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -94,13 +93,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="1091" />
+          <entry key="java" value="1176" />
           <entry key="xml" value="78" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1091" />
+          <entry key="JAVA" value="1176" />
           <entry key="XML" value="78" />
         </counts>
       </usages-collector>
@@ -111,8 +110,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/gaoxing/test/HibernateTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="130" column="28" selection-start-line="130" selection-start-column="28" selection-end-line="130" selection-end-column="28" />
+            <state relative-caret-position="438">
+              <caret line="155" column="39" selection-start-line="155" selection-start-column="39" selection-end-line="155" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -179,8 +178,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="412" />
-    <option name="y" value="118" />
+    <option name="x" value="952" />
+    <option name="y" value="85" />
     <option name="width" value="1845" />
     <option name="height" value="950" />
   </component>
@@ -211,6 +210,13 @@
               <item name="HibernateProject" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="gaoxing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HibernateProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HibernateProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gaoxing" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="HibernateProject" type="b2602c69:ProjectViewProjectNode" />
@@ -256,23 +262,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.HibernateTest.test7">
-    <configuration name="HibernateTest.test3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="HibernateProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.gaoxing.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.gaoxing.test" />
-      <option name="MAIN_CLASS_NAME" value="com.gaoxing.test.HibernateTest" />
-      <option name="METHOD_NAME" value="test3" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.HibernateTest.test8">
     <configuration name="HibernateTest.test4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HibernateProject" />
       <extension name="coverage">
@@ -337,20 +327,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="HibernateTest.test8" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HibernateProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gaoxing.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.gaoxing.test" />
+      <option name="MAIN_CLASS_NAME" value="com.gaoxing.test.HibernateTest" />
+      <option name="METHOD_NAME" value="test8" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="JUnit.HibernateTest.test3" />
       <item itemvalue="JUnit.HibernateTest.test4" />
       <item itemvalue="JUnit.HibernateTest.test5" />
       <item itemvalue="JUnit.HibernateTest.test6" />
       <item itemvalue="JUnit.HibernateTest.test7" />
+      <item itemvalue="JUnit.HibernateTest.test8" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.HibernateTest.test8" />
         <item itemvalue="JUnit.HibernateTest.test7" />
         <item itemvalue="JUnit.HibernateTest.test6" />
         <item itemvalue="JUnit.HibernateTest.test5" />
         <item itemvalue="JUnit.HibernateTest.test4" />
-        <item itemvalue="JUnit.HibernateTest.test3" />
       </list>
     </recent_temporary>
   </component>
@@ -369,20 +375,11 @@
       <workItem from="1570279778229" duration="790000" />
       <workItem from="1570285413980" duration="1502000" />
       <workItem from="1570286945289" duration="5243000" />
-      <workItem from="1570325525280" duration="1107000" />
+      <workItem from="1570325525280" duration="1783000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="HibernateTest - 2019.10.05 at 23h 48m 09s.xml">
-      <configuration name="HibernateTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HibernateTest - 2019.10.05 at 23h 48m 18s.xml">
-      <configuration name="HibernateTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HibernateTest_test1 - 2019.10.05 at 23h 49m 12s.xml">
-      <configuration name="HibernateTest.test1" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="HibernateTest_test2 - 2019.10.05 at 23h 49m 26s.xml">
       <configuration name="HibernateTest.test2" configurationId="JUnit" />
     </history-entry>
@@ -404,15 +401,23 @@
     <history-entry file="HibernateTest_test7 - 2019.10.06 at 09h 40m 25s.xml">
       <configuration name="HibernateTest.test7" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="HibernateTest_test7 - 2019.10.06 at 09h 51m 20s.xml">
+      <configuration name="HibernateTest.test7" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HibernateTest_test7 - 2019.10.06 at 09h 51m 44s.xml">
+      <configuration name="HibernateTest.test7" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HibernateTest_test8 - 2019.10.06 at 09h 58m 02s.xml">
+      <configuration name="HibernateTest.test8" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18910000" />
+    <option name="totallyTimeSpent" value="19586000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="45" y="8" width="1476" height="780" extended-state="0" />
-    <editor active="true" />
+    <frame x="762" y="68" width="1476" height="760" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49868765" visible="true" weight="0.21861777" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49868765" visible="true" weight="0.20239775" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Persistence" order="2" side_tool="true" />
       <window_info id="JRebel" order="3" sideWeight="0.5013123" side_tool="true" weight="0.18736693" />
@@ -423,7 +428,7 @@
       <window_info id="设计师" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22376543" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.098726116" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.5708215" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -746,8 +751,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/gaoxing/test/HibernateTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="130" column="28" selection-start-line="130" selection-start-column="28" selection-end-line="130" selection-end-column="28" />
+        <state relative-caret-position="438">
+          <caret line="155" column="39" selection-start-line="155" selection-start-column="39" selection-end-line="155" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

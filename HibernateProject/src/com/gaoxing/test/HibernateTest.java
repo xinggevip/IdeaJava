@@ -4,7 +4,10 @@ import com.gaoxing.domain.Customer;
 import com.gaoxing.utils.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import org.junit.Test;
+
+import java.util.List;
 
 public class HibernateTest {
 
@@ -138,4 +141,27 @@ public class HibernateTest {
         // 关闭资源
         session.close();
     }
+
+    // 获取所有记录
+    @Test
+    public void test8(){
+        // 获取连接对象
+        Session session = HibernateUtils.openSession();
+        // 开启事务
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("from com.gaoxing.domain.Customer");
+        List<Customer> list = query.list();
+        for (Customer customer : list) {
+            System.out.println(customer);
+        }
+
+
+        // 提交事务
+        transaction.commit();
+        // 关闭资源
+        session.close();
+    }
+
+
 }
