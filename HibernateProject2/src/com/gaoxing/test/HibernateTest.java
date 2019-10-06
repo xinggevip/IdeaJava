@@ -94,4 +94,22 @@ public class HibernateTest {
 
         transaction.commit();
     }
+
+    // 级联删除
+    @Test
+    public void test4(){
+        Session currentSession = HibernateUtils.getCurrentSession();
+        Transaction transaction = currentSession.beginTransaction();
+        /**
+         * 默认删除
+         * 打断两个表之间的关系 link_cust_id = null
+         * 再去删除记录，并没有级联删除
+         *
+         * 想要级联删除，必须配置
+         */
+        Customer customer = currentSession.get(Customer.class, 3L);
+        currentSession.delete(customer);
+
+        transaction.commit();
+    }
 }
