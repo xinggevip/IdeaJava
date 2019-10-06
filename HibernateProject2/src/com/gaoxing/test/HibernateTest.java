@@ -112,4 +112,25 @@ public class HibernateTest {
 
         transaction.commit();
     }
+
+    // 更新
+    @Test
+    public void test5(){
+        Session currentSession = HibernateUtils.getCurrentSession();
+        Transaction transaction = currentSession.beginTransaction();
+
+        Customer customer = currentSession.get(Customer.class, 2L);
+        Linkman linkman = currentSession.get(Linkman.class, 1L);
+        customer.getLinkmens().add(linkman);
+        // 关联
+        // 单项维护
+        /*currentSession.save(customer);*/
+        linkman.setCustomer(customer); // 两句效果一致
+        // 双向维护  让一方放弃外键维护
+        // inverse="true" true让一方放弃外键维护 false让一方不放弃外键维护 默认不放弃 适用于双向关联的情景，如果双向关联其中一方不放弃外键维护，就会造成更新两次
+        /*currentSession.save(customer);*/
+        /*linkman.setCustomer(customer);*/
+
+        transaction.commit();
+    }
 }

@@ -61,14 +61,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="244" />
-          <entry key="xml" value="65" />
+          <entry key="java" value="436" />
+          <entry key="xml" value="66" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="244" />
-          <entry key="XML" value="65" />
+          <entry key="JAVA" value="436" />
+          <entry key="XML" value="66" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -97,8 +97,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/gaoxing/test/HibernateTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="107" column="22" selection-start-line="107" selection-start-column="22" selection-end-line="107" selection-end-column="22" />
+            <state relative-caret-position="197">
+              <caret line="129" column="72" selection-start-line="129" selection-start-column="72" selection-end-line="129" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -121,8 +121,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/gaoxing/domain/customer.hbm.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="20" column="56" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
+            <state relative-caret-position="76">
+              <caret line="20" column="72" selection-start-line="20" selection-start-column="72" selection-end-line="20" selection-end-column="72" />
             </state>
           </provider>
         </entry>
@@ -130,7 +130,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/gaoxing/domain/linkman.hbm.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
+            <state relative-caret-position="133">
               <caret line="21" column="156" selection-start-line="21" selection-start-column="156" selection-end-line="21" selection-end-column="156" />
             </state>
           </provider>
@@ -188,11 +188,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="86" />
-    <option name="y" value="92" />
-    <option name="width" value="1625" />
-    <option name="height" value="945" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-214" />
+    <option name="y" value="192" />
+    <option name="width" value="1938" />
+    <option name="height" value="910" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -267,7 +267,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.HibernateTest.test4">
+  <component name="RunManager" selected="JUnit.HibernateTest.test5">
     <configuration name="HibernateTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HibernateProject2" />
       <extension name="coverage">
@@ -332,6 +332,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="HibernateTest.test5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HibernateProject2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gaoxing.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.gaoxing.test" />
+      <option name="MAIN_CLASS_NAME" value="com.gaoxing.test.HibernateTest" />
+      <option name="METHOD_NAME" value="test5" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat 9.0.12" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.12" ALTERNATIVE_JRE_ENABLED="false">
       <deployment>
         <artifact name="HibernateProject2:war exploded">
@@ -359,9 +375,11 @@
       <item itemvalue="JUnit.HibernateTest.test2" />
       <item itemvalue="JUnit.HibernateTest.test3" />
       <item itemvalue="JUnit.HibernateTest.test4" />
+      <item itemvalue="JUnit.HibernateTest.test5" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.HibernateTest.test5" />
         <item itemvalue="JUnit.HibernateTest.test4" />
         <item itemvalue="JUnit.HibernateTest.test3" />
         <item itemvalue="JUnit.HibernateTest.test2" />
@@ -381,7 +399,7 @@
       <updated>1570362552927</updated>
       <workItem from="1570362556891" duration="4347000" />
       <workItem from="1570367011937" duration="50000" />
-      <workItem from="1570367130572" duration="3345000" />
+      <workItem from="1570367130572" duration="4663000" />
     </task>
     <task id="LOCAL-00001" summary="Hibernate一对多配置&amp;插入记录">
       <created>1570366146140</created>
@@ -408,12 +426,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="HibernateTest_test2 - 2019.10.06 at 21h 22m 29s.xml">
-      <configuration name="HibernateTest.test2" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HibernateTest_test2 - 2019.10.06 at 21h 23m 07s.xml">
-      <configuration name="HibernateTest.test2" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="HibernateTest_test2 - 2019.10.06 at 21h 24m 11s.xml">
       <configuration name="HibernateTest.test2" configurationId="JUnit" />
     </history-entry>
@@ -438,16 +450,22 @@
     <history-entry file="HibernateTest_test4 - 2019.10.06 at 22h 01m 26s.xml">
       <configuration name="HibernateTest.test4" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="HibernateTest_test5 - 2019.10.06 at 22h 11m 47s.xml">
+      <configuration name="HibernateTest.test5" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HibernateTest_test5 - 2019.10.06 at 22h 13m 23s.xml">
+      <configuration name="HibernateTest.test5" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7742000" />
+    <option name="totallyTimeSpent" value="9060000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="69" y="74" width="1300" height="756" extended-state="0" />
+    <frame x="164" y="78" width="1300" height="728" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Persistence" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21336554" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22624798" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="JRebel" order="2" side_tool="true" />
       <window_info id="UI Designer" order="3" />
@@ -457,7 +475,7 @@
       <window_info id="设计师" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4503205" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.14932886" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -542,13 +560,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gaoxing/domain/linkman.hbm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="21" column="156" selection-start-line="21" selection-start-column="156" selection-end-line="21" selection-end-column="156" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/gaoxing/domain/Customer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
@@ -559,17 +570,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gaoxing/domain/linkman.hbm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="21" column="156" selection-start-line="21" selection-start-column="156" selection-end-line="21" selection-end-column="156" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/gaoxing/domain/customer.hbm.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="20" column="56" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
+        <state relative-caret-position="76">
+          <caret line="20" column="72" selection-start-line="20" selection-start-column="72" selection-end-line="20" selection-end-column="72" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/gaoxing/test/HibernateTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="107" column="22" selection-start-line="107" selection-start-column="22" selection-end-line="107" selection-end-column="22" />
+        <state relative-caret-position="197">
+          <caret line="129" column="72" selection-start-line="129" selection-start-column="72" selection-end-line="129" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
