@@ -23,7 +23,7 @@
          class:集合中对象的全路径
          column:集合中对象的外键
          -->
-        <set name="roles" table="user_role">
+        <set name="roles" table="user_role" cascade="save-update"> <!-- inverse放弃主键维护权  cascade级联操作-->
             <key column="user_id"></key>
             <many-to-many class="com.gaoxing.domain.Role" column="role_id"></many-to-many>
         </set>

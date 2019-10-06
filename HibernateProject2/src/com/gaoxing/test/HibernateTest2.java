@@ -28,23 +28,24 @@ public class HibernateTest2 {
         Role role3 = new Role();
         role3.setRole_name("工程师");
 
-        // 配置关系
+        // 配置关系 单向维护
         user1.getRoles().add(role1);
         user1.getRoles().add(role2);
         user2.getRoles().add(role2);
         user2.getRoles().add(role3);
-
-        /*role1.getUsers().add(user1);
+        // 双向维护  必须有一方放弃外键维护权
+        // 被动的一方一般选择放弃外键维护权
+        role1.getUsers().add(user1);
         role2.getUsers().add(user1);
         role2.getUsers().add(user2);
-        role3.getUsers().add(user2);*/
+        role3.getUsers().add(user2);
 
-        // 保存
+        // 级联保存
         currentSession.save(user1);
         currentSession.save(user2);
-        currentSession.save(role1);
+        /*currentSession.save(role1);
         currentSession.save(role2);
-        currentSession.save(role3);
+        currentSession.save(role3);*/
 
         transaction.commit();
     }
