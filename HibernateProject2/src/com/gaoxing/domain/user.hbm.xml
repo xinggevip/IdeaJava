@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <!-- 类与表进行映射 -->
+    <class name="com.gaoxing.domain.User" table="user">
+        <!-- 建立类属性哪一个是主键，还要和数据库中的主键进行对应 -->
+        <id name="user_id" column="user_id">
+            <generator class="native"></generator>
+        </id>
+        <!-- 建立类中的普通属性和数据库当中的字段进行关联 -->
+        <property name="user_code" column="user_code"></property>
+        <property name="user_name" column="user_name"></property>
+        <property name="user_password" column="user_password"></property>
+        <property name="user_state" column="user_state"></property>
+
+        <!-- 多对多关系
+         name:当前集合属性名称
+         table:多对多中间表 表名
+         <key column=""><key> 当前表的外键
+         <many-to-many class="com.gaoxing.domain.User" column="user_id">
+         class:集合中对象的全路径
+         column:集合中对象的外键
+         -->
+        <set name="roles">
+            <key column="user_id"></key>
+            <many-to-many class="com.gaoxing.domain.Role" column="role_id"></many-to-many>
+        </set>
+
+
+    </class>
+</hibernate-mapping>
