@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <!-- 类与表进行映射 -->
+    <class name="com.gaoxing.domain.Customer" table="customer">
+        <!-- 建立类属性哪一个是主键，还要和数据库中的主键进行对应 -->
+        <id name="cust_id" column="cust_id">
+            <generator class="native"></generator>
+        </id>
+        <!-- 建立类中的普通属性和数据库当中的字段进行关联 -->
+        <property name="cust_name" column="cust_name"></property>
+        <property name="cust_source" column="cust_source"></property>
+        <property name="cust_industry" column="cust_industry"></property>
+        <property name="cust_level" column="cust_level"></property>
+        <property name="cust_phone" column="cust_phone"></property>
+        <property name="cust_mobile" column="cust_mobile"></property>
+
+        <!-- 一对多配置 -->
+        <set name="linkmens"> <!-- set属性名称 -->
+            <key column="link_cust_id"></key> <!-- 外键 -->
+            <one-to-many class="com.gaoxing.domain.Linkman"></one-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
