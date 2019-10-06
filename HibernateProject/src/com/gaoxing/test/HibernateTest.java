@@ -119,4 +119,23 @@ public class HibernateTest {
         // 关闭资源
         session.close();
     }
+
+    // savaOrUpdate
+    @Test
+    public void test7(){
+        // 获取连接对象
+        Session session = HibernateUtils.openSession();
+        // 开启事务
+        Transaction transaction = session.beginTransaction();
+        Customer customer = new Customer();
+        customer.setCust_id(35L);
+        customer.setCust_name("6688");
+        customer.setCust_level("5");
+        // 没有设置id 为保存操作 设置id为更新操作
+        session.saveOrUpdate(customer);
+        // 提交事务
+        transaction.commit();
+        // 关闭资源
+        session.close();
+    }
 }
