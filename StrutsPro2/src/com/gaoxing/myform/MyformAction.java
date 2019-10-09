@@ -20,7 +20,15 @@ public class MyformAction extends ActionSupport {
         System.out.println(nick);
         System.out.println(Arrays.toString(hobbies));
 
+        // 往域中存数据
+        // request
+        context.put("reqName","reqValue");
+        // session
+        context.getSession().put("sessionName","ApplicationValue");
+        // application
+        context.getApplication().put("ApplicationName","ApplicationValue");
+
         System.out.println("接收到表单");
-        return null;
+        return SUCCESS;
     }
 }

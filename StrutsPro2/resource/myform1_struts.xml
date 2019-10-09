@@ -6,12 +6,10 @@
 
 <!-- START SNIPPET: xworkSample -->
 <struts>
-    <!-- 默认情况不支持动态方法调用 通过常量修改 支持 -->
-    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+
     <package name="method2" extends="struts-default">
         <action name="myform" class="com.gaoxing.myform.MyformAction">
-            <!-- 默认值只允许delete方法访问，需要手动设置允许访问其他方法 -->
-            <allowed-methods>add,update,find,delete,execute</allowed-methods>
+            <result name="success">/res.jsp</result>
         </action>
     </package>
 
