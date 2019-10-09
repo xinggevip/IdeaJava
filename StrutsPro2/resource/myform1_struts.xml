@@ -8,6 +8,10 @@
 <struts>
 
     <package name="method2" extends="struts-default">
+        <!-- 先到自己的action中找结果页 如果没有则在全局去找 -->
+        <global-results>
+            <result name="login">/login.jsp</result>
+        </global-results>
         <action name="myform" class="com.gaoxing.myform.MyformAction">
             <result name="success">/res.jsp</result>
         </action>

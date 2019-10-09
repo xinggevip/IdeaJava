@@ -25,6 +25,6 @@ public class MyformAction2 extends ActionSupport {
         request.setAttribute("reqName","reqValue");
         request.getSession().setAttribute("sessionName","ApplicationValue");
         ServletActionContext.getServletContext().setAttribute("ApplicationName","ApplicationValue");
-        return null;
+        return LOGIN;
     }
 }
