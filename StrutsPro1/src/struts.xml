@@ -6,11 +6,18 @@
 
 <!-- START SNIPPET: xworkSample -->
 <struts>
-    <package name="struts" extends="struts-default">
+    <!-- 只有接收jsp和aaa路径才可以访问action -->
+    <package name="struts1" extends="struts-default" namespace="/jsp">
         <action name="hello" class="com.gaoxing.struts.HelloAction">
             <result name="success">/success.jsp</result>
         </action>
     </package>
+    <package name="struts2" extends="struts-default" namespace="/aaa">
+        <action name="hello" class="com.gaoxing.struts.HelloAction">
+            <result name="success">/success.jsp</result>
+        </action>
+    </package>
+
 </struts>
 
 <!-- END SNIPPET: xworkSample -->
