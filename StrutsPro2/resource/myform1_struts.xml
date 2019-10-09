@@ -11,6 +11,9 @@
         <action name="myform" class="com.gaoxing.myform.MyformAction">
             <result name="success">/res.jsp</result>
         </action>
+        <action name="myform2" class="com.gaoxing.myform.MyformAction2">
+            <result name="success">/res.jsp</result>
+        </action>
     </package>
 
 </struts>
