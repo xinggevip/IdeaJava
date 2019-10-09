@@ -6,6 +6,11 @@
     <filter>
         <filter-name>action2</filter-name>
         <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
+        <!-- 配置常量 只能以action结尾才能接收到请求 -->
+        <!--<init-param>-->
+            <!--<param-name>struts.action.extension</param-name>-->
+            <!--<param-value>action</param-value>-->
+        <!--</init-param>-->
     </filter>
 
     <filter-mapping>

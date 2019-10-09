@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<!-- START SNIPPET: xworkSample -->
+<struts>
+    <!-- 配置常量，只能以.action结尾才能发送请求 -->
+    <!--<constant name="struts.action.extension" value="action"/>-->
+    <!-- 只有接收jsp和aaa路径才可以访问action -->
+    <package name="struts1" extends="struts-default">
+        <action name="hello" class="com.gaoxing.struts.HelloAction">
+            <result name="success">/success.jsp</result>
+        </action>
+    </package>
+
+</struts>
+
+        <!-- END SNIPPET: xworkSample -->
+

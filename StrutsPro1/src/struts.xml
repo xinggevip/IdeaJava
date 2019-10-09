@@ -6,8 +6,10 @@
 
 <!-- START SNIPPET: xworkSample -->
 <struts>
+    <!-- 配置常量，只能以.action结尾才能发送请求 -->
+    <!--<constant name="struts.action.extension" value="action"/>-->
     <!-- 只有接收jsp和aaa路径才可以访问action -->
-    <package name="struts1" extends="struts-default" namespace="/jsp">
+    <!--<package name="struts1" extends="struts-default" namespace="/jsp">
         <action name="hello" class="com.gaoxing.struts.HelloAction">
             <result name="success">/success.jsp</result>
         </action>
@@ -16,7 +18,10 @@
         <action name="hello" class="com.gaoxing.struts.HelloAction">
             <result name="success">/success.jsp</result>
         </action>
-    </package>
+    </package>-->
+
+    <!-- 引入外部文件 -->
+    <include file="cuntom_struts1.xml"/>
 
 </struts>
 
