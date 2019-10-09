@@ -13,6 +13,12 @@
         <action name="hello" class="com.gaoxing.struts.HelloAction">
             <result name="success">/success.jsp</result>
         </action>
+        <action name="hello2" class="com.gaoxing.struts.HelloAction2">
+            <result name="success">/success.jsp</result>
+        </action>
+        <action name="hello3" class="com.gaoxing.struts.HelloAction3">
+            <result name="success">/hello.jsp</result>
+        </action>
     </package>
 
 </struts>
