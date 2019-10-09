@@ -22,7 +22,8 @@
 
     <!-- 引入外部文件 -->
     <include file="cuntom_struts1.xml"/>
-    <include file="method_struts.xml"/>
+    <!--<include file="method_struts.xml"/>-->
+    <include file="method2_struts.xml"/>
 
 </struts>
 

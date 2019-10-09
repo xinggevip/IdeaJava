@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<!-- START SNIPPET: xworkSample -->
+<struts>
+
+    <package name="method2" extends="struts-default">
+        <action name="goods_*" class="com.gaoxing.struts.MethodAction" method="{1}">
+            <!-- 默认值只允许delete方法访问，需要手动设置允许访问其他方法 -->
+            <allowed-methods>add,update,find,delete</allowed-methods>
+        </action>
+    </package>
+
+</struts>
