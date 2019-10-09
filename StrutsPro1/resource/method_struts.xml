@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<!-- START SNIPPET: xworkSample -->
+<struts>
+
+    <package name="method" extends="struts-default">
+        <action name="add" class="com.gaoxing.struts.MethodAction" method="add"></action>
+        <action name="delete" class="com.gaoxing.struts.MethodAction" method="delete"></action>
+        <action name="update" class="com.gaoxing.struts.MethodAction" method="update"></action>
+        <action name="find" class="com.gaoxing.struts.MethodAction" method="find"></action>
+    </package>
+
+</struts>
