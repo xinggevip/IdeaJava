@@ -7,7 +7,9 @@
 <!-- START SNIPPET: xworkSample -->
 <struts>
     <package name="struts" extends="struts-default">
-        <action name="hello" class="com.gaoxing.struts.HelloAction"/>
+        <action name="hello" class="com.gaoxing.struts.HelloAction">
+            <result name="success">/success.jsp</result>
+        </action>
     </package>
 </struts>
 
