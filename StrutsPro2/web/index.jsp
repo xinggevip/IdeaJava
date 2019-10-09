@@ -49,5 +49,17 @@
     <input type="submit" value="提交">
   </form>
 
+  <hr>
+
+  <h3>domain属性接收参数</h3>
+  <form action="${ctx}/myform4.action">
+    用户名：<input type="text" placeholder="请输入用户名..." name="user.username"><br/>
+    年 龄：<input type="text" placeholder="请输入年龄..." name="user.age"><br/>
+    爱 好：<input type="checkbox"  value="足球" name="user.hobby">足球
+    <input type="checkbox"  value="篮球" name="user.hobby">篮球
+    <input type="checkbox"  value="乒乓球" name="user.hobby">乒乓球
+    <input type="submit" value="提交">
+  </form>
+
   </body>
 </html>
