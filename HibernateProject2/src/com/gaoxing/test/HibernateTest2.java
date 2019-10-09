@@ -49,4 +49,35 @@ public class HibernateTest2 {
 
         transaction.commit();
     }
+
+    @Test
+    public void test2(){
+        // 关系操作 操作内部集合
+        Session currentSession = HibernateUtils.getCurrentSession();
+        Transaction transaction = currentSession.beginTransaction();
+
+        // 用户9添加新的角色8
+        User user = currentSession.get(User.class, 9L);
+        Role role = currentSession.get(Role.class, 8L);
+        user.getRoles().add(role);
+
+        currentSession.save(user);
+
+        transaction.commit();
+    }
+
+    @Test
+    public void test3(){
+        // 把用户10的角色6 换成角色7
+        Session currentSession = HibernateUtils.getCurrentSession();
+        Transaction transaction = currentSession.beginTransaction();
+
+        User user10 = currentSession.get(User.class, 10L);
+        Role role6 = currentSession.get(Role.class, 6L);
+        Role role7 = currentSession.get(Role.class, 7L);
+        user10.getRoles().remove(role6);
+        user10.getRoles().add(role7);
+
+        transaction.commit();
+    }
 }

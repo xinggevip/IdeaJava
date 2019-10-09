@@ -18,7 +18,7 @@
         <property name="cust_mobile" column="cust_mobile"></property>
 
         <!-- 一对多配置 -->
-        <set name="linkmens" cascade="save-update,delete" inverse="true"> <!-- set属性名称 -->
+        <set name="linkmens" cascade="save-update,delete" inverse="false"> <!-- set属性名称 -->
             <key column="link_cust_id"></key> <!-- 外键 -->
             <one-to-many class="com.gaoxing.domain.Linkman"></one-to-many>
         </set>
