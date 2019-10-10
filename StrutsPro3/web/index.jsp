@@ -16,6 +16,6 @@
     <title>index</title>
   </head>
   <body>
-  <a href="${cxt}/hello.action">跳转</a>
+  <a href="${cxt}/hello.action?name=book&price=888.0">跳转</a>
   </body>
 </html>
