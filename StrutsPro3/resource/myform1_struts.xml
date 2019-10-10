@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<!-- START SNIPPET: xworkSample -->
+<struts>
+
+    <package name="method2" extends="struts-default">
+        <!-- 先到自己的action中找结果页 如果没有则在全局去找 -->
+        <global-results>
+            <result name="login">/login.jsp</result>
+            <!--<result name="input">/error.jsp</result>-->
+            <result name="input">/index.jsp</result>
+        </global-results>
+        <action name="hello" class="com.gaoxing.web.HelloAction">
+            <result name="success">/res.jsp</result>
+        </action>
+    </package>
+
+</struts>
