@@ -38,4 +38,26 @@ public class OgnlTest {
         System.out.println(name);
 
     }
+
+    @Test
+    public void test3() throws OgnlException {
+        // ognl使用
+        OgnlContext ognlContext = new OgnlContext();
+        // 存数据  非根对象
+        Goods goods = new Goods();
+        goods.setName("豆腐干");
+        goods.setPrice(888.0);
+        // 非根对象不能直接取字段 取得时候就是存得内容
+        ognlContext.put("goods",goods);
+
+        // 获取root
+        Object root = ognlContext.getRoot();
+        // 1.表达式 #key
+        // 2.ognlContext
+        // 3.root
+        Goods obj = (Goods)Ognl.getValue("#goods", ognlContext, root);
+        System.out.println(obj.getName());
+        System.out.println(obj.getPrice());
+
+    }
 }
