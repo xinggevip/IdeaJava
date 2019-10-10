@@ -6,7 +6,7 @@
 
 <!-- START SNIPPET: xworkSample -->
 <struts>
-
+    <constant name="struts.devMode" value="true"/> <!-- 当前处于开发阶段 -->
     <package name="method2" extends="struts-default">
         <!-- 先到自己的action中找结果页 如果没有则在全局去找 -->
         <global-results>
@@ -15,7 +15,7 @@
             <result name="input">/index.jsp</result>
         </global-results>
         <action name="hello" class="com.gaoxing.web.HelloAction">
-            <result name="success">/res.jsp</result>
+            <result name="success">/success.jsp</result>
         </action>
     </package>
 

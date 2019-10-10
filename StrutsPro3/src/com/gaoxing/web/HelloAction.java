@@ -31,7 +31,12 @@ public class HelloAction extends ActionSupport implements ModelDriven<Goods> {
         // 往域中写入数据
         // req
         ActionContext.getContext().put("reqName","reqValue");
-        return null;
+        // session
+        ActionContext.getContext().getSession().put("sessionName","sessionValue");
+        // application
+        ActionContext.getContext().getApplication().put("ApplicationName","ApplicationValue");
+
+        return SUCCESS;
     }
 
 }
