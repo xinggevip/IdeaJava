@@ -7,6 +7,7 @@
 <!-- START SNIPPET: xworkSample -->
 <struts>
     <constant name="struts.devMode" value="true"/> <!-- 当前处于开发阶段 -->
+    <constant name="struts.ognl.allowStaticMethodAccess" value="true"/> <!-- 开启允许网页访问静态方法 -->
     <package name="method2" extends="struts-default">
         <!-- 先到自己的action中找结果页 如果没有则在全局去找 -->
         <global-results>

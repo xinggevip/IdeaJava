@@ -26,7 +26,7 @@ public class HelloAction extends ActionSupport implements ModelDriven<Goods> {
         valueStack.push(goods1);  // 简写 效果同上一句
         // 出栈
         // valueStack.getRoot().pop();
-        valueStack.pop(); // 简写 效果同上一句
+        // valueStack.pop(); // 简写 效果同上一句
 
         // 往域中写入数据
         // req
