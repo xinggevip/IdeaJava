@@ -29,6 +29,9 @@
         <action name="myform5" class="com.gaoxing.myform.MyformAction5">
             <result name="success">/res.jsp</result>
         </action>
+        <action name="myform6" class="com.gaoxing.myform.MyformAction6">
+            <result name="success">/res.jsp</result>
+        </action>
     </package>
 
 </struts>
