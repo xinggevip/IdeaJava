@@ -25,5 +25,16 @@
     <input type="submit" value="提交">
 </form>
 
+<hr>
+
+<form action="${ctx}/myform7.action">
+    名称：<input type="text" placeholder="请输入商品名称..." name="goodsMap['one'].name"><br/>
+    价格：<input type="text" placeholder="请输入商品价格..." name="goodsMap['one'].price"><br/>
+    <hr/>
+    名称：<input type="text" placeholder="请输入商品名称..." name="goodsMap['two'].name"><br/>
+    价格：<input type="text" placeholder="请输入商品价格..." name="goodsMap['two'].price"><br/>
+    <input type="submit" value="提交">
+</form>
+
 </body>
 </html>
