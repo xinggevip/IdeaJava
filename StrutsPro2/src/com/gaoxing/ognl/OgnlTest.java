@@ -60,4 +60,20 @@ public class OgnlTest {
         System.out.println(obj.getPrice());
 
     }
+
+    // 调用方法
+    @Test
+    public void test4() throws OgnlException {
+        OgnlContext ognlContext = new OgnlContext();
+        Object root = ognlContext.getRoot();
+
+        // 调用对象普通方法
+        Object value = Ognl.getValue("'hello'.length()", ognlContext, root);
+        System.out.println(value); // 5
+
+        // 调用静态方法  类前加@，静态方法前加@
+        Object value2 = Ognl.getValue("@java.lang.Math@random()", ognlContext, root);
+        System.out.println(value2); // 0.07167026175006008
+
+    }
 }
