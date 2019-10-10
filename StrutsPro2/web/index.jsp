@@ -10,11 +10,14 @@
   String ctx = request.getContextPath();
   pageContext.setAttribute("ctx", ctx);
 %>
+<%@ taglib uri="/struts-tags" prefix="s"%>
+
 <html>
   <head>
     <title>$Title$</title>
   </head>
   <body>
+  <s:fielderror/>
   <h3>ActionContext</h3>
   <form action="${ctx}/myform.action">
     用户名：<input type="text" placeholder="请输入用户名..." name="username"><br/>

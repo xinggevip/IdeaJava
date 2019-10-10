@@ -11,6 +11,8 @@
         <!-- 先到自己的action中找结果页 如果没有则在全局去找 -->
         <global-results>
             <result name="login">/login.jsp</result>
+            <!--<result name="input">/error.jsp</result>-->
+            <result name="input">/index.jsp</result>
         </global-results>
         <action name="myform" class="com.gaoxing.myform.MyformAction">
             <result name="success">/res.jsp</result>

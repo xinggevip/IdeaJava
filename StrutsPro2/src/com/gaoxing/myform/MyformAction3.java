@@ -2,19 +2,20 @@ package com.gaoxing.myform;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import java.util.Date;
 import java.util.List;
 
 
 public class MyformAction3 extends ActionSupport {
     private String username;
-    private Integer age;
+    private Date age;
     private List hobby;
 
     public void setUsername(String username) {
         this.username = username;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(Date age) {
         this.age = age;
     }
 
