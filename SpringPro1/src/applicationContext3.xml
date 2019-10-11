@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- 属性注入 -->
-    <bean id="student" class="com.gaoxing.demo4.Student">
+    <bean id="student" class="com.gaoxing.demo4.Student" p:dog-ref="dog">
         <constructor-arg name="name" value="jeak"/>
         <constructor-arg name="age" value="18"/>
-        <property name="dog" ref="dog"/>
+        <!--<property name="dog" ref="dog"/>-->
     </bean>
-    <bean id="dog" class="com.gaoxing.demo4.Dog">
-        <property name="name" value="wc"/>
+    <bean id="dog" class="com.gaoxing.demo4.Dog" p:name="大黄" p:age="10" p:color="yellow">
+        <!--<property name="name" value="wc"/>
+        <property name="age" value="18"/>
+        <property name="color" value="blue"/>-->
+
     </bean>
 
 </beans>
