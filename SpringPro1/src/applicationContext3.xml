@@ -12,6 +12,41 @@
         <!--<property name="dog" ref="dog"/>-->
         <property name="dog" value="#{dog2}"/>
         <property name="dogName" value="#{dog2.getName()}"/>
+        <!-- 数组类型属性注入 -->
+        <!-- 字符串数组 -->
+        <property name="attr">
+            <list>
+                <value>H</value>
+                <value>e</value>
+                <value>l</value>
+                <value>l</value>
+                <value>o</value>
+            </list>
+        </property>
+        <!-- List类型属性注入 -->
+        <property name="list">
+            <list>
+                <value>今天</value>
+                <value>天气</value>
+                <value>不错</value>
+            </list>
+        </property>
+        <!-- set类型属性注入 -->
+        <property name="mySet">
+            <set>
+                <value>这里是</value>
+                <value>set</value>
+                <value>集合</value>
+            </set>
+        </property>
+        <!-- map类型属性注入 -->
+        <property name="myMap">
+            <map>
+                <entry key="key1" value="value1"/>
+                <entry key="key2" value="value2"/>
+                <entry key="key3" value="value3"/>
+            </map>
+        </property>
     </bean>
     <bean id="dog" class="com.gaoxing.demo4.Dog" p:name="大黄" p:age="10" p:color="yellow">
         <!--<property name="name" value="wc"/>
