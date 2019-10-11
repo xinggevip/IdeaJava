@@ -8,6 +8,10 @@
     <bean id="student" class="com.gaoxing.demo4.Student">
         <constructor-arg name="name" value="jeak"/>
         <constructor-arg name="age" value="18"/>
+        <property name="dog" ref="dog"/>
+    </bean>
+    <bean id="dog" class="com.gaoxing.demo4.Dog">
+        <property name="name" value="wc"/>
     </bean>
 
 </beans>
