@@ -15,5 +15,15 @@ public class UserTest {
         userDao.save();
         userDao.delete();
     }
+
+    @Test
+    public void test2(){
+        // 依赖注入：给spring管理类当中依赖的属性通过配置文件进行赋值的过程
+        // 加载配置文件
+        ApplicationContext applicationContext =
+            new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserDaoOracleImpl userDao = (UserDaoOracleImpl)applicationContext.getBean("userDao");
+        System.out.println(userDao.name);
+    }
 }
 

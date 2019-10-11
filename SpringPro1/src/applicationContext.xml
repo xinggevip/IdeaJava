@@ -4,5 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-        <bean id="userDao" class="com.gaoxing.demo1.UserDaoOracleImpl"></bean>
+        <bean id="userDao" class="com.gaoxing.demo1.UserDaoOracleImpl">
+            <!--
+                name:要注入属性的名称
+                value:注入（赋值）值
+             -->
+            <property name="name" value="Tom"/>
+        </bean>
 </beans>
