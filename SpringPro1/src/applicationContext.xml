@@ -11,7 +11,13 @@
              -->
             <property name="name" value="Tom"/>
         </bean>
-        <bean id="person" class="com.gaoxing.demo2.Person" init-method="init" destroy-method="destroy">
+        <bean id="person" class="com.gaoxing.demo2.Person"
+              init-method="init"
+              destroy-method="destroy"
+              scope="prototype"
+        >
+            <!-- scope默认属性为singleton 单例设计模式创建对象，对象地址相同 -->
+            <!-- scope的属性改为prototype，多例模式创建，对象地址不同 -->
             <property name="name" value="小黑"/>
         </bean>
 </beans>

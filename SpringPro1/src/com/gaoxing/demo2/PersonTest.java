@@ -14,7 +14,7 @@ public class PersonTest {
         Person p = (Person)applicationContext.getBean("person");
         System.out.println(p.name); // 小黑
 
-        // 关闭工厂，所有对象都会销毁 自动调用destroy方法
+        // （单例设计模式）关闭工厂，所有对象都会销毁 自动调用destroy方法
         ((ClassPathXmlApplicationContext) applicationContext).close(); // destroy
     }
 }
