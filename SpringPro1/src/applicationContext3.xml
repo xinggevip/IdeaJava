@@ -6,8 +6,8 @@
 
     <!-- 属性注入 -->
     <bean id="student" class="com.gaoxing.demo4.Student">
-        <property name="name" value="Tom"/>
-        <property name="age" value="18"/>
+        <constructor-arg name="name" value="jeak"/>
+        <constructor-arg name="age" value="18"/>
     </bean>
 
 </beans>

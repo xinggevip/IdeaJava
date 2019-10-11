@@ -10,6 +10,6 @@ public class StudentTest {
         ApplicationContext applicationContext =
                 new ClassPathXmlApplicationContext("applicationContext.xml");
         Student student = (Student)applicationContext.getBean("student");
-        System.out.println(student); // Student(name=Tom, age=18)
+        System.out.println(student); // Student{name='jeak', age=18}
     }
 }

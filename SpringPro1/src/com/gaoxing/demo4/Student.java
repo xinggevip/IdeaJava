@@ -4,11 +4,8 @@ public class Student {
     private String name;
     private Integer age;
 
-    public void setName(String name) {
+    public Student(String name, Integer age) {
         this.name = name;
-    }
-
-    public void setAge(Integer age) {
         this.age = age;
     }
 
