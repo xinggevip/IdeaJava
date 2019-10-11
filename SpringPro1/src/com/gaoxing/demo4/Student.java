@@ -4,6 +4,11 @@ public class Student {
     private String name;
     private Integer age;
     private Dog dog;
+    private String dogName;
+
+    public void setDogName(String dogName) {
+        this.dogName = dogName;
+    }
 
     public void setDog(Dog dog) {
         this.dog = dog;
@@ -20,6 +25,7 @@ public class Student {
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", dog=" + dog +
+                ", dogName='" + dogName + '\'' +
                 '}';
     }
 }

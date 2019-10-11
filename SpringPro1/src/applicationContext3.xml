@@ -6,15 +6,24 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- 属性注入 -->
-    <bean id="student" class="com.gaoxing.demo4.Student" p:dog-ref="dog">
+    <bean id="student" class="com.gaoxing.demo4.Student">
         <constructor-arg name="name" value="jeak"/>
         <constructor-arg name="age" value="18"/>
         <!--<property name="dog" ref="dog"/>-->
+        <property name="dog" value="#{dog2}"/>
+        <property name="dogName" value="#{dog2.getName()}"/>
     </bean>
     <bean id="dog" class="com.gaoxing.demo4.Dog" p:name="大黄" p:age="10" p:color="yellow">
         <!--<property name="name" value="wc"/>
         <property name="age" value="18"/>
         <property name="color" value="blue"/>-->
+
+    </bean>
+
+    <bean id="dog2" class="com.gaoxing.demo4.Dog">
+        <property name="name" value="#{'wccc'}"/>
+        <property name="age" value="#{180}"/>
+        <property name="color" value="#{'blue'}"/>
 
     </bean>
 

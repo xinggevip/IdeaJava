@@ -5,6 +5,10 @@ public class Dog {
     private Integer age;
     private String color;
 
+    public String getName() {
+        return name;
+    }
+
     public void setAge(Integer age) {
         this.age = age;
     }
