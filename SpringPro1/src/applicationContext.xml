@@ -11,4 +11,7 @@
              -->
             <property name="name" value="Tom"/>
         </bean>
+        <bean id="person" class="com.gaoxing.demo2.Person" init-method="init" destroy-method="destroy">
+            <property name="name" value="小黑"/>
+        </bean>
 </beans>
