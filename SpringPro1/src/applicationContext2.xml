@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 1.无参构造器创建对象 -->
+    <!--<bean id="user" class="com.gaoxing.demo3.User"></bean>-->
+    <!-- 2.静态工厂实例化 -->
+    <bean id="user" class="com.gaoxing.demo3.User" factory-method="creatUser"></bean>
+    <!-- 3.实例化工厂实例化 -->
+    <bean id="user2" class="com.gaoxing.demo3.User" factory-bean="user"></bean>
+
+
+</beans>

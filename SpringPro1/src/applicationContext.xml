@@ -21,12 +21,8 @@
             <property name="name" value="小黑"/>
         </bean>
 
-        <!-- 1.无参构造器创建对象 -->
-        <!--<bean id="user" class="com.gaoxing.demo3.User"></bean>-->
-        <!-- 2.静态工厂实例化 -->
-        <bean id="user" class="com.gaoxing.demo3.User" factory-method="creatUser"></bean>
-        <!-- 3.实例化工厂实例化 -->
-        <bean id="user2" class="com.gaoxing.demo3.User" factory-bean="user"></bean>
+        <!-- 导入其他配置文件 -->
+        <import resource="applicationContext2.xml"/>
 
 
 </beans>
