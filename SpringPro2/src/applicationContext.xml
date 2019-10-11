@@ -7,4 +7,6 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!-- 配置组件扫描  哪个包下的类型使用组合扫描 指定注解扫描包 -->
+    <context:component-scan base-package="com.gaoxing.demo1"/>
 </beans>
