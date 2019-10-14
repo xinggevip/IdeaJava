@@ -11,4 +11,5 @@
     <aop:aspectj-autoproxy/>
     <bean id="goodsDao" class="com.gaoxing.demo1.GoodsDaoImpl"></bean>
     <bean id="goodsAspect" class="com.gaoxing.demo1.GoodsDaoAspect"></bean>
+    <bean id="userDao" class="com.gaoxing.demo1.UserDao"></bean>
 </beans>

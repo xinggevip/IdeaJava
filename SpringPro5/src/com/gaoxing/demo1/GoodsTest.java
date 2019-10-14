@@ -12,12 +12,16 @@ import javax.annotation.Resource;
 public class GoodsTest {
     @Resource(name = "goodsDao")
     private GoodsDao goodsDao;
+    @Resource(name = "userDao")
+    private UserDao userDao;
     @Test
     public void test(){
         goodsDao.save();
         goodsDao.update();
         goodsDao.delete();
         goodsDao.find();
+
+        userDao.save();
     }
     /**
      * 日志
@@ -27,7 +31,13 @@ public class GoodsTest {
      * delete----之前
      * 删除操作
      * delete----之后
+     * 日志
      * 查找操作
      * 最终通知
+     * 日志
+     * UserDao--save
+     *
+     * 有接口使用技术为jdk动态代理
+     * 无接口使用的技术为Cglib
      */
 }

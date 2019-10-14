@@ -6,7 +6,7 @@ import org.aspectj.lang.annotation.*;
 @Aspect
 public class GoodsDaoAspect {
     // 前置通知
-    @Before(value = "execution(* com.gaoxing.demo1.GoodsDaoImpl.save(..))")
+    @Before(value = "GoodsDaoAspect.pointcute1() || GoodsDaoAspect.pointcute4() || GoodsDaoAspect.pointcute5()")
     public void log(){
         System.out.println("日志");
     }
@@ -33,5 +33,18 @@ public class GoodsDaoAspect {
     public void afterM(){
         System.out.println("最终通知");
     }
+
+    // 给全路径起别名
+    @Pointcut(value = "execution(* com.gaoxing.demo1.GoodsDaoImpl.save(..))")
+    private void pointcute1(){}
+    @Pointcut(value = "execution(* com.gaoxing.demo1.GoodsDaoImpl.update(..))")
+    private void pointcute2(){}
+    @Pointcut(value = "execution(* com.gaoxing.demo1.GoodsDaoImpl.delete(..))")
+    private void pointcute3(){}
+    @Pointcut(value = "execution(* com.gaoxing.demo1.GoodsDaoImpl.find(..))")
+    private void pointcute4(){}
+    @Pointcut(value = "execution(* com.gaoxing.demo1.UserDao.save(..))")
+    private void pointcute5(){}
+
 
 }
