@@ -11,10 +11,11 @@ import javax.annotation.Resource;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext.xml")
 public class AopTest {
-    @Resource(name = "userDao")
+    @Resource(name = "goodsDao")
     private GoodsDao goodsDao;
     @Test
     public void test1(){
         this.goodsDao.save();
+        this.goodsDao.updata();
     }
 }

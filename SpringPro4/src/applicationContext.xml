@@ -6,7 +6,21 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop.xsd">
-    <bean id="userDao" class="com.gaoxing.demo1.GoodsDaoImpl">
+    <bean id="goodsDao" class="com.gaoxing.demo1.GoodsDaoImpl">
 
     </bean>
+
+    <bean id="myaspect" class="com.gaoxing.demo2.Myaspect">
+
+    </bean>
+
+    <!-- 配置AOP -->
+    <aop:config>
+        <!-- 切点：给哪个方法增强 -->
+        <aop:pointcut id="savepoint" expression="execution(* com.gaoxing.demo1.GoodsDaoImpl.save(..))"/>
+        <!-- 配置切面 ：增强的功能是什么-->
+        <aop:aspect ref="myaspect">
+            <aop:before method="check" pointcut-ref="savepoint"/>
+        </aop:aspect>
+    </aop:config>
 </beans>
