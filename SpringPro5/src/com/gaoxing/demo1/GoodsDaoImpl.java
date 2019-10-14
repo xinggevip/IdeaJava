@@ -20,5 +20,6 @@ public class GoodsDaoImpl implements GoodsDao {
     @Override
     public void find() {
         System.out.println("查找操作");
+//        int i = 1 / 0;
     }
 }

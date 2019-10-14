@@ -19,4 +19,15 @@ public class GoodsTest {
         goodsDao.delete();
         goodsDao.find();
     }
+    /**
+     * 日志
+     * 保存操作
+     * 更新操作
+     * 后置通知update----res
+     * delete----之前
+     * 删除操作
+     * delete----之后
+     * 查找操作
+     * 最终通知
+     */
 }
