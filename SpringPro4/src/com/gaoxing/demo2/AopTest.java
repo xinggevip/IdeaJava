@@ -17,5 +17,7 @@ public class AopTest {
     public void test1(){
         this.goodsDao.save();
         this.goodsDao.updata();
+        this.goodsDao.delete();
+        this.goodsDao.find();
     }
 }
