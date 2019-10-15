@@ -16,6 +16,6 @@ public class SpringJdbcTest2 {
     private JdbcTemplate jdbcTemplate;
     @Test
     public void test1(){
-        jdbcTemplate.update("insert into account values (null,?,?)","高星",999d);
+        jdbcTemplate.update("insert into account values (null,?,?)","高星3",999d);
     }
 }
