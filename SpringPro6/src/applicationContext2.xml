@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd"
+>
+
+
+    <!-- 配置连接池 -->
+
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <!--druid-->
+    <bean id="druid" class="com.alibaba.druid.pool.DruidDataSource">
+        <!-- context方式加载属性文件，属性文件当中的文件不能和name名称一样  bean-class方式加载属性文件没有此要求-->
+        <property name="driverClassName" value="${jdbc.driverClass}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+
+    <bean id="accountDao" class="com.gaoxing.demo3.AccountDaoImpl">
+        <!--<property name="jdbcTemplate" ref="jdbcTemplate"/>-->
+        <property name="dataSource" ref="druid"/> <!-- 自动创建template -->
+    </bean>
+
+    <bean id="accountService" class="com.gaoxing.demo3.AccountServiceImpl">
+        <property name="accountDao" ref="accountDao"/>
+    </bean>
+
+    <!--配置事务管理器-->
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="druid"/>
+    </bean>
+
+    <!--事务增强-->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="*" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!--把增加织入到对应的方法里-->
+    <aop:config>
+        <aop:pointcut id="pointcut"
+                      expression="execution(* com.gaoxing.demo3.AccountServiceImpl.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut"/>
+    </aop:config>
+
+
+
+</beans>
