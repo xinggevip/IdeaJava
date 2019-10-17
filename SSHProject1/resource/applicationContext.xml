@@ -11,10 +11,16 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!-- 默认是单例模式创建对象，把action的改成多例，因为每个人的请求都不一样 -->
+    <!-- action scope="prototype" -->
     <bean id="accountAction" class="com.gaoxing.web.AccountAction" scope="prototype">
         <property name="accountService" ref="accountService"/>
     </bean>
-    <bean id="accountService" class="com.gaoxing.service.AccountServiceImpl"></bean>
+    <!-- service -->
+    <bean id="accountService" class="com.gaoxing.service.AccountServiceImpl">
+        <property name="accountDao" ref="accountDao"/>
+    </bean>
+    <!-- dao -->
+    <bean id="accountDao" class="com.gaoxing.dao.AccountDaoImpl"></bean>
 
 
 </beans>
