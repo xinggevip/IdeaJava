@@ -49,5 +49,6 @@
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.12" level="application_server_libraries" />
     <orderEntry type="library" name="ssh" level="project" />
     <orderEntry type="library" name="antlr-2.7.7" level="project" />
+    <orderEntry type="library" name="javassist-3.22.0-GA" level="project" />
   </component>
 </module>
