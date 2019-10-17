@@ -12,8 +12,8 @@
   </head>
   <body>
   <form action="${pageContext.request.contextPath}/account_save.action">
-    name:<input type="text">
-    monmey:<input type="text">
+    name:<input type="text" name="name">
+    monmey:<input type="text" name="money">
     <input type="submit" value="提交">
   </form>
   </body>

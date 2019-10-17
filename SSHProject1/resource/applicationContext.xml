@@ -10,7 +10,7 @@
         http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <!--<bean id="accountService" class="com.itlike.service.AccountServiceImpl"></bean>-->
+    <bean id="accountService" class="com.gaoxing.service.AccountServiceImpl"></bean>
 
 
 </beans>
