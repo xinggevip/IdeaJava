@@ -57,4 +57,12 @@ public class MyController {
         // User{user_name='xinggevip', user_age='18', user_hobby=[看柯南, 看非诚勿扰, 写博客], dog=Dog{name='大黄', color='黄色'}}
         return "/second.jsp";
     }
+
+    // List集合接收参数
+    @RequestMapping("/myform6")
+    public String myform6(User user){
+        System.out.println(user);
+        // User{user_name='xinggevip', user_age='18', user_hobby=[看柯南, 看非诚勿扰, 写博客], dog=Dog{name='大黄', color='黄色'}, dogList=[Dog{name='黑猫', color='黑色'}, Dog{name='白兔', color='白色'}]}
+        return "/second.jsp";
+    }
 }
