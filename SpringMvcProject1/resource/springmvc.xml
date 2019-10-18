@@ -18,5 +18,9 @@
 
     <!-- 注解扫描 -->
     <context:component-scan base-package="com.gaoxing"/>
-
+    <!-- 视图解析器配置  定义前缀和后缀 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/myjsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
 </beans>

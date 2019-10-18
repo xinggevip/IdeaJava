@@ -14,7 +14,8 @@ public class MyController {
         // 请求过来后，跳转到另一个界面，往另一个界面传一些数据
         modelAndView.addObject("name","gaoxing");
 
-        modelAndView.setViewName("/result.jsp");
+        // modelAndView.setViewName("/result.jsp");
+        modelAndView.setViewName("customer1");
 
         return modelAndView;
     }
