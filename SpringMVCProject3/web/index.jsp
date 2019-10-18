@@ -12,5 +12,7 @@
   </head>
   <body>
   <a href="${pageContext.request.contextPath}/first?id=1&name=gaoxing">发送请求</a>
+  <br/>
+  <a href="${pageContext.request.contextPath}/second?id=2&name=xinggevip">发送请求2</a>
   </body>
 </html>
