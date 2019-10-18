@@ -1,8 +1,20 @@
 package com.gaoxing.domain;
 
+import java.util.Arrays;
+
 public class User {
     private String user_name;
     private String user_age;
+
+    public String[] getUser_hobby() {
+        return user_hobby;
+    }
+
+    public void setUser_hobby(String[] user_hobby) {
+        this.user_hobby = user_hobby;
+    }
+
+    private String user_hobby[];
 
     public String getUser_name() {
         return user_name;
@@ -25,6 +37,7 @@ public class User {
         return "User{" +
                 "user_name='" + user_name + '\'' +
                 ", user_age='" + user_age + '\'' +
+                ", user_hobby=" + Arrays.toString(user_hobby) +
                 '}';
     }
 }
