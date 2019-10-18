@@ -5,6 +5,8 @@ import java.util.Arrays;
 public class User {
     private String user_name;
     private String user_age;
+    private String user_hobby[];
+    private Dog dog;
 
     public String[] getUser_hobby() {
         return user_hobby;
@@ -14,7 +16,13 @@ public class User {
         this.user_hobby = user_hobby;
     }
 
-    private String user_hobby[];
+    public Dog getDog() {
+        return dog;
+    }
+
+    public void setDog(Dog dog) {
+        this.dog = dog;
+    }
 
     public String getUser_name() {
         return user_name;
@@ -38,6 +46,7 @@ public class User {
                 "user_name='" + user_name + '\'' +
                 ", user_age='" + user_age + '\'' +
                 ", user_hobby=" + Arrays.toString(user_hobby) +
+                ", dog=" + dog +
                 '}';
     }
 }

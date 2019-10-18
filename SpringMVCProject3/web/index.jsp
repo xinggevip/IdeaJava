@@ -42,6 +42,22 @@
     <input type="checkbox" name="user_hobby" value="写博客">写博客
     <input type="submit" value="提交">
   </form>
+
+  <h3>包装类接收参数</h3>
+  <form action="${pageContext.request.contextPath}/myform5">
+    name:<input type="text" name="user_name"/><br/>
+    age:<input type="text" name="user_age"/><br/>
+    爱好:
+    <input type="checkbox" name="user_hobby" value="看柯南">看柯南
+    <input type="checkbox" name="user_hobby" value="看非诚勿扰">看非诚勿扰
+    <input type="checkbox" name="user_hobby" value="写博客">写博客
+    <br/>
+    ----宠物----
+    <br/>
+    宠物名称：<input type="text" name="dog.name"> <br/>
+    宠物颜色：<input type="text" name="dog.color"> <br/>
+    <input type="submit" value="提交">
+  </form>
   
   </body>
 </html>

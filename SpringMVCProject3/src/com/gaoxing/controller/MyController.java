@@ -49,4 +49,12 @@ public class MyController {
         System.out.println(user);
         return "/second.jsp";
     }
+
+    // 包装类接收参数
+    @RequestMapping("/myform5")
+    public String myform5(User user){
+        System.out.println(user);
+        // User{user_name='xinggevip', user_age='18', user_hobby=[看柯南, 看非诚勿扰, 写博客], dog=Dog{name='大黄', color='黄色'}}
+        return "/second.jsp";
+    }
 }
