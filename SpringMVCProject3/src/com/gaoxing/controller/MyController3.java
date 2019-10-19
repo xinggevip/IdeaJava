@@ -61,4 +61,27 @@ public class MyController3 {
         return "/second.jsp";
     }
 
+
+    /**
+     * put请求错误处理：
+     * 1.在目标jsp页面设置  isErrorPage="true"  return "/second.jsp";
+     * 2.设置重定向 return "redirect:/localsecond/" + id;
+     * 从tomcat8开始直接return jsp页面报405错误
+     */
+    @RequestMapping(value = "testRestForm/{id}",method = {RequestMethod.PUT})
+    public String testRestForm(@PathVariable Integer id){
+        System.out.println("来到了testRestForm------------");
+        System.out.println(id);
+        return "redirect:/localsecond/" + id;
+    }
+
+    @RequestMapping(value = "/localsecond/{id}")
+    public String testRestForm1(@PathVariable Integer id){
+        System.out.println("来到了localsecond------------");
+        System.out.println(id);
+        return "/second.jsp";
+    }
+
+
+
 }

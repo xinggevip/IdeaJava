@@ -58,5 +58,15 @@
 <h3>@PathVariable接收rest参数</h3>
 <a href="${pageContext.request.contextPath}/rest/1">请求方式rest</a>
 
+<br/>
+<hr/>
+
+<h3>发送PUT与DELETE请求</h3>
+<form action="${pageContext.request.contextPath}/testRestForm/100" method="post">
+    <input type="hidden" name="_method" value="put">
+    <input type="submit" value="提交">
+</form>
+
+
 </body>
 </html>
