@@ -1,10 +1,7 @@
 package com.gaoxing.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MyController3 {
@@ -85,15 +82,21 @@ public class MyController3 {
 
     /**
      * @RequestHeader注解 获取请求头信息
+     * @CookieValue注解  获取指定cookie
      */
     @RequestMapping(value = "testHeader")
     public String testHeader(
             @RequestHeader("Host") String host,
-            @RequestHeader("Referer") String referer
+            @RequestHeader("Referer") String referer,
+            @RequestHeader("Cookie") String cookie,  // 获取所有Cookie
+            @CookieValue("JSESSIONID") String jsessionid // 获取指定cookie
+
     ){
         System.out.println("来到了testHeader------------");
         System.out.println(host); // localhost:8080
         System.out.println(referer); // http://localhost:8080/requestmapping.jsp
+        System.out.println(cookie); // JSESSIONID=22C09F32D64537633251BFF1F6E17950
+        System.out.println(jsessionid); // 22C09F32D64537633251BFF1F6E17950
         return "second.jsp";
     }
 
