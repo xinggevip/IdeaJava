@@ -52,5 +52,11 @@
     <input type="submit" value="提交">
 </form>
 
+<br/>
+<hr/>
+
+<h3>@PathVariable接收rest参数</h3>
+<a href="${pageContext.request.contextPath}/rest/1">请求方式rest</a>
+
 </body>
 </html>

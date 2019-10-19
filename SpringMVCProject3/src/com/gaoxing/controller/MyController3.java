@@ -1,6 +1,7 @@
 package com.gaoxing.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -50,6 +51,13 @@ public class MyController3 {
     @RequestMapping(value = "testTant*")
     public String testtant(){
         System.out.println("来到了testTant------------");
+        return "/second.jsp";
+    }
+
+    @RequestMapping(value = "rest/{id}")
+    public String testrest(@PathVariable Integer id){
+        System.out.println("来到了rest------------");
+        System.out.println(id); // 1
         return "/second.jsp";
     }
 
