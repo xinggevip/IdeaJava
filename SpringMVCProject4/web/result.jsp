@@ -14,5 +14,7 @@
 <h1>Result-------</h1>
 <p>${name}</p>
 <p>${requestScope.name}</p>
+<h2>取对象属性</h2>
+<p>${requestScope.goods.name}----${requestScope.goods.price}</p>
 </body>
 </html>
