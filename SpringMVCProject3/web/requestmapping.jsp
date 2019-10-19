@@ -13,5 +13,12 @@
 <body>
 <a href="${pageContext.request.contextPath}/testrequestmapping1">请求方式1</a><br/>
 <a href="${pageContext.request.contextPath}/testrequestmapping2">请求方式2</a><br/>
+
+<hr/>
+
+<form action="${pageContext.request.contextPath}/testMethod" method="post">
+    name:<input type="text" name="name">
+    <input type="submit" value="提交">
+</form>
 </body>
 </html>
