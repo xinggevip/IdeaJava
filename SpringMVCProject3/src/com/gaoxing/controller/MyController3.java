@@ -28,4 +28,10 @@ public class MyController3 {
         System.out.println("来到了testMethod------------");
         return "/second.jsp";
     }
+
+@RequestMapping(value = "testParams",params = {"name=gaoxing","age!=1"})
+    public String testparams(){
+        System.out.println("来到了testParams------------");
+        return "/second.jsp";
+    }
 }

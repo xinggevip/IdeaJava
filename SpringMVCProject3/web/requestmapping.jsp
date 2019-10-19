@@ -20,5 +20,15 @@
     name:<input type="text" name="name">
     <input type="submit" value="提交">
 </form>
+
+<br/>
+<hr/>
+
+<form action="${pageContext.request.contextPath}/testParams" method="post">
+    name:<input type="text" name="name">
+    age:<input type="text" name="age">
+    <input type="submit" value="提交">
+</form>
+
 </body>
 </html>
