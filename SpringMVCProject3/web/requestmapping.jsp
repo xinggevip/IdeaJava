@@ -16,6 +16,7 @@
 
 <hr/>
 
+<h3>@RequestMapping之methods属性</h3>
 <form action="${pageContext.request.contextPath}/testMethod" method="post">
     name:<input type="text" name="name">
     <input type="submit" value="提交">
@@ -24,7 +25,18 @@
 <br/>
 <hr/>
 
+<h3>@RequestMapping之params属性</h3>
 <form action="${pageContext.request.contextPath}/testParams" method="post">
+    name:<input type="text" name="name">
+    age:<input type="text" name="age">
+    <input type="submit" value="提交">
+</form>
+
+<br/>
+<hr/>
+
+<h3>@RequestMapping之headers属性</h3>
+<form action="${pageContext.request.contextPath}/testHeaders">
     name:<input type="text" name="name">
     age:<input type="text" name="age">
     <input type="submit" value="提交">

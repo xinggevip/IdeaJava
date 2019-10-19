@@ -29,9 +29,16 @@ public class MyController3 {
         return "/second.jsp";
     }
 
-@RequestMapping(value = "testParams",params = {"name=gaoxing","age!=1"})
+    @RequestMapping(value = "testParams",params = {"name=gaoxing","age!=1"})
     public String testparams(){
         System.out.println("来到了testParams------------");
         return "/second.jsp";
     }
+
+    @RequestMapping(value = "testHeaders",headers = {"Host=localhost:8080","Referer=http://localhost:8080/requestmapping.jsp"})
+    public String testheaders(){
+        System.out.println("来到了testHeaders------------");
+        return "/second.jsp";
+    }
+
 }
