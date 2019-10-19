@@ -2,6 +2,7 @@ package com.gaoxing.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -81,6 +82,21 @@ public class MyController3 {
         System.out.println(id);
         return "/second.jsp";
     }
+
+    /**
+     * @RequestHeader注解 获取请求头信息
+     */
+    @RequestMapping(value = "testHeader")
+    public String testHeader(
+            @RequestHeader("Host") String host,
+            @RequestHeader("Referer") String referer
+    ){
+        System.out.println("来到了testHeader------------");
+        System.out.println(host); // localhost:8080
+        System.out.println(referer); // http://localhost:8080/requestmapping.jsp
+        return "second.jsp";
+    }
+
 
 
 

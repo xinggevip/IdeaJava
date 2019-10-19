@@ -67,6 +67,12 @@
     <input type="submit" value="提交">
 </form>
 
+<br/>
+<hr/>
+
+<h3>测试RequestHeader</h3>
+<a href="${pageContext.request.contextPath}/testHeader">测试testHeader</a>
+
 
 </body>
 </html>
