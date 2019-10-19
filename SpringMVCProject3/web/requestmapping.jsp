@@ -42,5 +42,15 @@
     <input type="submit" value="提交">
 </form>
 
+<br/>
+<hr/>
+
+<h3>@RequestMapping之tant地址通配符写法</h3>
+<form action="${pageContext.request.contextPath}/testTant">
+    name:<input type="text" name="name">
+    age:<input type="text" name="age">
+    <input type="submit" value="提交">
+</form>
+
 </body>
 </html>

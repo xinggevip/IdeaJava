@@ -41,4 +41,16 @@ public class MyController3 {
         return "/second.jsp";
     }
 
+    /**
+     *  通配符
+     *  ?代表匹配任意一个字符
+     *  *代表匹配任意个任意字符
+     */
+    // @RequestMapping(value = "testTant?")
+    @RequestMapping(value = "testTant*")
+    public String testtant(){
+        System.out.println("来到了testTant------------");
+        return "/second.jsp";
+    }
+
 }
