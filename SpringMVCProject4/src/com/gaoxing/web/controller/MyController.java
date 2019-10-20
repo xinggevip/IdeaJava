@@ -109,11 +109,33 @@ public class MyController {
         return "result3.jsp";
     }
 
+    /**
+     * 在RequestMapping映射方法前自动执行
+     * 并提前传入model
+     */
+    @ModelAttribute
+    public void testModelAttribute(Model model){
+        System.out.println("ModelAttribute执行了");
+        model.addAttribute("name","gaoxing");
+
+        /* 名字和接收的别名一样会被覆盖 */
+        Goods goods = new Goods();
+        goods.setName("goodsName1");
+        goods.setPrice("goodsPrice2");
+        model.addAttribute("mygoods",goods);
+
+        /* 名字不一样会存到model中 */
+        Goods goods2 = new Goods();
+        goods2.setName("goodsName2");
+        goods2.setPrice("goodsPrice2");
+        model.addAttribute("agoods",goods2);
+    }
+
     @RequestMapping("testModelAttribute")
     // 会自动把模型存放到model中  即使不写model参数，也会存到request域中
     public String testModelAttribute(@ModelAttribute("mygoods") Goods goods, Model model){ // @ModelAttribute 默认存对象 名字为对象的小写类名，用此注解可以起别名
         System.out.println(goods); // Goods{name='SEO', price='999'}
-        System.out.println(model.asMap()); // {mygoods=Goods{name='SEO', price='999'}
+        System.out.println(model.asMap()); // {{name=gaoxing, agoods=Goods{name='goodsName2', price='goodsPrice2'}, mygoods=Goods{name='SEO', price='999'}
         return "result3.jsp";
     }
 
