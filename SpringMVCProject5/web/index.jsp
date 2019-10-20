@@ -12,5 +12,7 @@
   </head>
   <body>
   <a href="${pageContext.request.contextPath}/testView">testView</a>
+  <hr>
+  <a href="${pageContext.request.contextPath}/testUpdata">testUpdata</a>
   </body>
 </html>
