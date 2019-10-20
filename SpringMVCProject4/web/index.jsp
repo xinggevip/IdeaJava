@@ -16,5 +16,7 @@
   <a href="${pageContext.request.contextPath}/testModel">测试testModel</a>
   <hr/>
   <a href="${pageContext.request.contextPath}/testMap">测试testMap</a>
+  <hr/>
+  <a href="${pageContext.request.contextPath}/testSession">测试testSession</a>
   </body>
 </html>

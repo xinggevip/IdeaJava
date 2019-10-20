@@ -4,6 +4,7 @@ import com.gaoxing.domain.Goods;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -11,6 +12,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
+/* 把model中key为name存到session */
+// @SessionAttributes("name")  or  @SessionAttributes(value = {"name1","name2})
+/* 把model中key的类型为Strig的全部存到session */
+@SessionAttributes(types = String.class)
 public class MyController {
     @RequestMapping(value = "testModelAndView")
     public ModelAndView testModelAndView(){
@@ -83,6 +88,13 @@ public class MyController {
         map.put("key1","value1");
         map.put("key2","value2");
         return "result.jsp";
+    }
+
+    @RequestMapping(value = "testSession")
+    public String testSession(Model model){
+        model.addAttribute("name","GaoXing");
+        model.addAttribute("name2","xinggevip");
+        return "result2.jsp";
     }
 
 }
