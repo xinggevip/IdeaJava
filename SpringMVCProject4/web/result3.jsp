@@ -12,5 +12,6 @@
 </head>
 <body>
 <h3>result3</h3>
+<h3>${requestScope.mygoods.name}----${requestScope.mygoods.price}</h3>
 </body>
 </html>

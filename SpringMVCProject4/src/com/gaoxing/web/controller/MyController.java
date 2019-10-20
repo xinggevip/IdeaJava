@@ -3,6 +3,7 @@ package com.gaoxing.web.controller;
 import com.gaoxing.domain.Goods;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -105,6 +106,14 @@ public class MyController {
      */
     public String testSession2(@SessionAttribute("name") String name){
         System.out.println(name);
+        return "result3.jsp";
+    }
+
+    @RequestMapping("testModelAttribute")
+    // 会自动把模型存放到model中  即使不写model参数，也会存到request域中
+    public String testModelAttribute(@ModelAttribute("mygoods") Goods goods, Model model){ // @ModelAttribute 默认存对象 名字为对象的小写类名，用此注解可以起别名
+        System.out.println(goods); // Goods{name='SEO', price='999'}
+        System.out.println(model.asMap()); // {mygoods=Goods{name='SEO', price='999'}
         return "result3.jsp";
     }
 

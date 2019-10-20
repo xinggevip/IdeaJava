@@ -20,5 +20,12 @@
   <a href="${pageContext.request.contextPath}/testSession">测试testSession</a>
   <hr/>
   <a href="${pageContext.request.contextPath}/testSession2">测试testSession2</a>
+
+  <form action="${pageContext.request.contextPath}/testModelAttribute">
+    名称：<input type="text" name="name">
+    价格：<input type="text" name="price">
+    <input type="submit" value="提交">
+  </form>
+
   </body>
 </html>
