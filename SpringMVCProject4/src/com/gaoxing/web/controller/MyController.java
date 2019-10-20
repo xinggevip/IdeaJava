@@ -4,6 +4,7 @@ import com.gaoxing.domain.Goods;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -95,6 +96,16 @@ public class MyController {
         model.addAttribute("name","GaoXing");
         model.addAttribute("name2","xinggevip");
         return "result2.jsp";
+    }
+
+    @RequestMapping("testSession2")
+    /**
+     * 使用@SessionAttribute来访问预先存在的全局会话属性
+     * 如果没有 则会报错
+     */
+    public String testSession2(@SessionAttribute("name") String name){
+        System.out.println(name);
+        return "result3.jsp";
     }
 
 }

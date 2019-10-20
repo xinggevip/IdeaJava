@@ -18,5 +18,7 @@
   <a href="${pageContext.request.contextPath}/testMap">测试testMap</a>
   <hr/>
   <a href="${pageContext.request.contextPath}/testSession">测试testSession</a>
+  <hr/>
+  <a href="${pageContext.request.contextPath}/testSession2">测试testSession2</a>
   </body>
 </html>
