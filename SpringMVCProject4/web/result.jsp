@@ -16,5 +16,8 @@
 <p>${requestScope.name}</p>
 <h2>取对象属性</h2>
 <p>${requestScope.goods.name}----${requestScope.goods.price}</p>
+<h3>取值</h3>
+<p>${requestScope.string}</p>
+<p>${requestScope.hot}</p>
 </body>
 </html>
