@@ -13,6 +13,6 @@
   <body>
   <a href="${pageContext.request.contextPath}/testView">testView</a>
   <hr>
-  <a href="${pageContext.request.contextPath}/testUpdata">testUpdata</a>
+  <a href="${pageContext.request.contextPath}/testUpdata/1">testUpdata</a>
   </body>
 </html>
