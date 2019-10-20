@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class MyController {
@@ -74,6 +75,13 @@ public class MyController {
         System.out.println(model.asMap()); // {name=tom, goods=Goods{name='苹果', price='100'}, hot=1000, string=字符串2}
 
         // 转发到指定网页
+        return "result.jsp";
+    }
+
+    @RequestMapping(value = "testMap")
+    public String testMap(Map map){
+        map.put("key1","value1");
+        map.put("key2","value2");
         return "result.jsp";
     }
 

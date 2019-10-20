@@ -19,5 +19,8 @@
 <h3>取值</h3>
 <p>${requestScope.string}</p>
 <p>${requestScope.hot}</p>
+<h3>Map传的值</h3>
+<p>${requestScope.key1}</p>
+<p>${requestScope.key2}</p>
 </body>
 </html>
