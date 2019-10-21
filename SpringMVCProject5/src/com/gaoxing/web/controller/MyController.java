@@ -1,5 +1,6 @@
 package com.gaoxing.web.controller;
 
+import com.gaoxing.domain.Pet;
 import com.gaoxing.domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,12 +13,28 @@ import java.util.ArrayList;
 public class MyController {
     @RequestMapping("testUpdata/{id}")
     public String testUpdata(@PathVariable Integer id, Model model){
+        ArrayList<Pet> petList = new ArrayList<>();
+        Pet pet1 = new Pet();
+        pet1.setId(1);
+        pet1.setName("猫");
+        Pet pet2 = new Pet();
+        pet2.setId(2);
+        pet2.setName("狗");
+        Pet pet3 = new Pet();
+        pet3.setId(3);
+        pet3.setName("王八");
+        petList.add(pet1);
+        petList.add(pet2);
+        petList.add(pet3);
+        model.addAttribute("petList",petList);
+
         System.out.println(id);
         User user = new User();
         user.setUsername("gaoxing");
         user.setAge("18");
         user.setGender(0);
         String[] hobby = new String[]{"跑步","乒乓球"};
+        user.setPet(pet2);
         user.setHobby(hobby);
         model.addAttribute("user",user);
         ArrayList<String> allhobbys = new ArrayList<>();

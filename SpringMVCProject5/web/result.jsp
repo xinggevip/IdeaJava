@@ -21,6 +21,7 @@
         <fm:radiobutton path="gender" value="1" label="女"/>
         <br>
         爱好：<fm:checkboxes path="hobby" items="${allhobbys}"/>
+        宠物：<fm:select path="pet.id" items="${petList}" itemValue="id" itemLabel="name"/>
         <input type="submit" value="提交">
     </fm:form>
 </body>

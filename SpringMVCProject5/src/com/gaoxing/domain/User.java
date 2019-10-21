@@ -10,4 +10,5 @@ public class User {
     private String age;
     private Integer gender;
     private String[] hobby;
+    private Pet pet;
 }
