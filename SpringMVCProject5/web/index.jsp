@@ -11,6 +11,7 @@
     <title>$Title$</title>
   </head>
   <body>
+  <img src="${pageContext.request.contextPath}/images/solo.png" alt="图片"> <br>
   <a href="${pageContext.request.contextPath}/testView">testView</a>
   <hr>
   <a href="${pageContext.request.contextPath}/testUpdata/1">testUpdata</a>

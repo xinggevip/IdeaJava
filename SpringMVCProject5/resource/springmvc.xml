@@ -20,6 +20,12 @@
     <context:component-scan base-package="com.gaoxing"/>
     <mvc:view-controller path="testView" view-name="/result.jsp"/>
 
+    <!-- 静态资源访问 -->
+    <!-- 如果是静态资源自动放行，动态资源再拦截 -->
+    <mvc:default-servlet-handler/>
+
+    <!-- 只要路径匹配mapping就找location 我试了试 没有成 -->
+    <!--<mvc:resources location="/images" mapping="/images/**"/>-->
     <mvc:annotation-driven/>
 
 </beans>
