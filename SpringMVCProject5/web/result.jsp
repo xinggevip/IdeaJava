@@ -14,8 +14,8 @@
 <body>
     <h1>result</h1>
     <fm:form modelAttribute="user" action="${pageContext.request.contextPath}/updata2">
-        姓名：<fm:input path="username"/>
-        年龄<fm:input path="age"/>
+        姓名：<fm:input path="username"/> <fm:errors path="username"/> <br>
+        年龄<fm:input path="age"/> <fm:errors path="age"/>
         <br>
         性别：<fm:radiobutton path="gender" value="0" label="男"/>
         <fm:radiobutton path="gender" value="1" label="女"/>

@@ -52,11 +52,39 @@ public class MyController {
     }
 
     @RequestMapping("updata2")
-    public String updata2(@Valid User user, BindingResult bindingResult){
-        List<FieldError> fieldErrors = bindingResult.getFieldErrors();
-        for (FieldError fieldError : fieldErrors) {
-            System.out.println(fieldError.getField() + ":" + fieldError.getDefaultMessage());
+    public String updata2(@Valid User user, BindingResult bindingResult,Model model){
+        System.out.println(user);
+        ArrayList<Pet> petList = new ArrayList<>();
+        Pet pet1 = new Pet();
+        pet1.setId(1);
+        pet1.setName("猫");
+        Pet pet2 = new Pet();
+        pet2.setId(2);
+        pet2.setName("狗");
+        Pet pet3 = new Pet();
+        pet3.setId(3);
+        pet3.setName("王八");
+        petList.add(pet1);
+        petList.add(pet2);
+        petList.add(pet3);
+        model.addAttribute("petList",petList);
+
+        ArrayList<String> allhobbys = new ArrayList<>();
+        allhobbys.add("跑步");
+        allhobbys.add("乒乓球");
+        allhobbys.add("网球");
+        allhobbys.add("羽毛球");
+        model.addAttribute("allhobbys",allhobbys);
+
+        if (bindingResult.getErrorCount() != 0){
+            List<FieldError> fieldErrors = bindingResult.getFieldErrors();
+            for (FieldError fieldError : fieldErrors) {
+                System.out.println(fieldError.getField() + ":" + fieldError.getDefaultMessage());
+            }
+            // 存在错误，返回原来的页面
+            return "/result.jsp";
         }
-        return "result2.jsp";
+
+        return "/result2.jsp";
     }
 }
