@@ -13,14 +13,6 @@
 </head>
 <body>
     <h1>结果页面2</h1>
-    <fm:form modelAttribute="user" action="${pageContext.request.contextPath}/updata2">
-        姓名：<fm:input path="username"/>
-        年龄<fm:input path="age"/>
-        <br>
-        性别：<fm:radiobutton path="gender" value="0" label="男"/>
-        <fm:radiobutton path="gender" value="1" label="女"/>
-        <br>
-        爱好：<fm:checkboxes path="hobby" items="${allhobbys}"/>
-    </fm:form>
+
 </body>
 </html>

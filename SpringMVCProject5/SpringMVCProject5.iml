@@ -48,5 +48,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.12" level="application_server_libraries" />
     <orderEntry type="library" name="SpringMVC" level="project" />
+    <orderEntry type="library" name="formcheck" level="project" />
   </component>
 </module>

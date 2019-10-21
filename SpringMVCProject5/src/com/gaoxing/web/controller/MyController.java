@@ -4,10 +4,14 @@ import com.gaoxing.domain.Pet;
 import com.gaoxing.domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class MyController {
@@ -48,15 +52,11 @@ public class MyController {
     }
 
     @RequestMapping("updata2")
-    public String updata2(User user,Model model){
-        System.out.println(user);
-        model.addAttribute("user",user);
-        ArrayList<String> allhobbys = new ArrayList<>();
-        allhobbys.add("跑步");
-        allhobbys.add("乒乓球");
-        allhobbys.add("网球");
-        allhobbys.add("羽毛球");
-        model.addAttribute("allhobbys",allhobbys);
+    public String updata2(@Valid User user, BindingResult bindingResult){
+        List<FieldError> fieldErrors = bindingResult.getFieldErrors();
+        for (FieldError fieldError : fieldErrors) {
+            System.out.println(fieldError.getField() + ":" + fieldError.getDefaultMessage());
+        }
         return "result2.jsp";
     }
 }
