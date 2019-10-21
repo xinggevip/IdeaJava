@@ -8,4 +8,6 @@ import lombok.ToString;
 public class User {
     private String username;
     private String age;
+    private Integer gender;
+    private String[] hobby;
 }
