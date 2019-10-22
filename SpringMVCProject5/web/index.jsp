@@ -27,6 +27,11 @@
     <input type="checkbox" name="hobby" value="足球"> 足球
   </form>
   <input type="button" id="formbtn" value="发送form">
+  <hr>
+  <form action="${pageContext.request.contextPath}/myform" method="post" enctype="multipart/form-data">
+    <input type="file" name="myfile"> <br>
+    <input type="submit" value="提交">
+  </form>
 
   <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
   <script>
