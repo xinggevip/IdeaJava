@@ -53,9 +53,37 @@
         })(jQuery);
         
         $("#formbtn").click(function () {
-            // 获取表单所有数据，并改成json格式
+            // 获取表单所有数据，并改成json格式 提交纯粹key：value的简单数据ok，其他error
             var serialize = $("#myform").serializeJson();
-            console.log(serialize);
+            console.log(serialize); // {username: "xinggevip", age: "18", hobby: "篮球"}
+            // JSON.stringify格式
+            console.log(JSON.stringify(serialize)); // {"username":"xinggevip","age":"18","hobby":"篮球"}
+            // 有化成Java都能接收的JSON.stringify格式
+            if (typeof serialize.hobby == "string") {
+                serialize.hobby = new Array(serialize.hobby);
+            }
+            console.log(JSON.stringify(serialize)); // {"username":"xinggevip","age":"18","hobby":["篮球"]}
+
+            // 提交纯粹key：value的简单数据
+            /*$.post("${pageContext.request.contextPath}/myForm",serialize,function (data) {
+                console.log(data);
+            });*/
+
+            // 提交复杂的带数组的Json数据
+            $.ajax({
+                type:"post",
+                url:"${pageContext.request.contextPath}/myForm",
+                dataType:'json', // 指定接收返回数据的类型
+                data:JSON.stringify(serialize), // 数据
+                contentType:'application/json', // 指定发送数据类型
+                success:function (data) { // 成功则执行
+                    console.log(data);
+                },
+                error:function (data) { // 失败则执行
+                    console.log("失败");
+                    console.log(data);
+                }
+            });
         });
         
         $("#btn").click(function () {

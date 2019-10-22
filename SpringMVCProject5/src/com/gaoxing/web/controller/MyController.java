@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -142,5 +143,12 @@ public class MyController {
         userList.add(user2);
         userList.add(user3);
         return userList;
+    }
+
+    @RequestMapping("myForm")
+    @ResponseBody
+    public User myForm(@RequestBody User user){
+        System.out.println(user);
+        return user;
     }
 }
