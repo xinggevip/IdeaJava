@@ -12,5 +12,10 @@
   </head>
   <body>
   <a href="${pageContext.request.contextPath}/test1">测试跳转</a>
+  <hr>
+  <a href="${pageContext.request.contextPath}/download/solo.png">下载solo.png</a>
+  <a href="${pageContext.request.contextPath}/download/妹子.jpg">下载妹子.jpg</a>
+
+
   </body>
 </html>
