@@ -51,6 +51,10 @@
         <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
             <property name="paramName" value="language"/>
         </bean>
+        <!-- 自定义 拦截器 -->
+        <bean class="com.gaoxing.web.interceptor.MyFirstInterceptor">
+
+        </bean>
     </mvc:interceptors>
 
 </beans>
