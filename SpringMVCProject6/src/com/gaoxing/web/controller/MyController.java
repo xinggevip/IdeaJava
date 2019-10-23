@@ -77,6 +77,14 @@ public class MyController {
         return "success";
     }
 
+    @RequestMapping("/local")
+    public String local(){
+
+        return "local";
+    }
+
+
+
     /**
      * 专门处理异常
      * @param ex  异常信息

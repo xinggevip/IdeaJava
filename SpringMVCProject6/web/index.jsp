@@ -23,5 +23,8 @@
   <hr>
   <a href="${pageContext.request.contextPath}/exception">专门处理异常</a>
 
+  <hr>
+  <a href="${pageContext.request.contextPath}/local">测试本地化</a>
+
   </body>
 </html>

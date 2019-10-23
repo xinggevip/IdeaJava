@@ -40,4 +40,9 @@
         <property name="maxUploadSize" value="102400000"/>
     </bean>
 
+    <!-- 配置国际化语言 -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="language"/>
+    </bean>
+
 </beans>
