@@ -20,6 +20,8 @@
     <input type="file" name="file"> <br>
     <input type="submit" value="上传">
   </form>
+  <hr>
+  <a href="${pageContext.request.contextPath}/exception">专门处理异常</a>
 
   </body>
 </html>

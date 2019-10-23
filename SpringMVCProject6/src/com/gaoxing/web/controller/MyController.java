@@ -70,4 +70,32 @@ public class MyController {
 
         return "success";
     }
+
+    @RequestMapping("/exception")
+    public String exception(){
+        int i = 1 / 0;
+        return "success";
+    }
+
+    /**
+     * 专门处理异常
+     * @param ex  异常信息
+     */
+    /*@ExceptionHandler(value = ArithmeticException.class) // 算术异常处理
+    public String doexception(Exception ex){
+        System.out.println(ex.getMessage());
+        return "error";
+    }
+
+    @ExceptionHandler(value = RuntimeException.class) // 运行时异常处理
+    public String doexception2(Exception ex){
+        System.out.println(ex.getMessage());
+        return "error";
+    }
+
+    @ExceptionHandler(value = Exception.class) // 所有异常处理
+    public String doexception3(Exception ex){
+        System.out.println(ex.getMessage());
+        return "error";
+    }*/
 }
