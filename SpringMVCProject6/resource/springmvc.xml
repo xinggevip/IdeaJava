@@ -51,10 +51,21 @@
         <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
             <property name="paramName" value="language"/>
         </bean>
-        <!-- 自定义 拦截器 -->
-        <bean class="com.gaoxing.web.interceptor.MyFirstInterceptor">
+        <!-- 自定义 拦截器 拦截所有请求 -->
+        <!--<bean class="com.gaoxing.web.interceptor.MyFirstInterceptor">-->
 
-        </bean>
+        <!--</bean>-->
+
+        <!-- 自定义 拦截器  -->
+        <mvc:interceptor>
+            <!-- 拦截指定请求 -->
+            <mvc:mapping path="/local"/>
+            <!-- 除了指定请求不拦截，其他的都拦截 -->
+            <!--<mvc:exclude-mapping path="/error"/>-->
+
+            <bean class="com.gaoxing.web.interceptor.MyFirstInterceptor"></bean>
+        </mvc:interceptor>
+
     </mvc:interceptors>
 
 </beans>
