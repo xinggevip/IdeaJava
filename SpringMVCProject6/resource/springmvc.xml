@@ -66,6 +66,8 @@
             <bean class="com.gaoxing.web.interceptor.MyFirstInterceptor"></bean>
         </mvc:interceptor>
 
+        <!-- 配置多个拦截器 -->
+        <bean class="com.gaoxing.web.interceptor.MySecondnterceptor"></bean>
     </mvc:interceptors>
 
 </beans>
