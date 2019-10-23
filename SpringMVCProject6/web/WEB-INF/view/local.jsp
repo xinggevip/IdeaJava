@@ -13,6 +13,8 @@
 </head>
 <body>
     <h1>local</h1>
+    <a href="?language=zh_CN"><fmt:message key="language.cn" /></a>
+    <a href="?language=en_US"><fmt:message key="language.en" /></a>
     <hr>
     <fmt:message key="welcome"/>
     <fmt:message key="name"/>
