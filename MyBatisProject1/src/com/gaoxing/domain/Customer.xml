@@ -7,4 +7,9 @@
     <select id="queryCustomerById" parameterType="Int" resultType="com.gaoxing.domain.Customer">
 	  SELECT * FROM `customer` WHERE cust_id  = #{cust_id}
 	</select>
+    <!-- 查询所有用户 -->
+    <select id="queryAllCustomer" resultType="com.gaoxing.domain.Customer">
+        select * from `customer`
+    </select>
+
 </mapper>

@@ -1,19 +1,18 @@
 package com.gaoxing.test;
 
-import org.apache.ibatis.io.Resources;
+import com.gaoxing.domain.Customer;
+import com.gaoxing.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.io.InputStream;
+import java.util.List;
 
 public class MyTest {
 
     @Test
     public void test() throws IOException {
-        // 1.SqlSessionFactoryBuilder加载配置文件
+        /*// 1.SqlSessionFactoryBuilder加载配置文件
         SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
 
         // 2.读取配置文件
@@ -23,7 +22,10 @@ public class MyTest {
         SqlSessionFactory sessionFactory = sqlSessionFactoryBuilder.build(resourceAsStream);
 
         // 4.获取会话  JDBC连接
-        SqlSession sqlSession = sessionFactory.openSession();
+        SqlSession sqlSession = sessionFactory.openSession();*/
+
+        // 调用抽取的工具类
+        SqlSession sqlSession = MybatisUtils.opensession();
 
         // 5.开始执行sql
         Object customerById = sqlSession.selectOne("queryCustomerById", 1);
@@ -31,5 +33,14 @@ public class MyTest {
 
         // 6.关闭session
         sqlSession.close();
+    }
+
+    @Test
+    public void test2(){
+        SqlSession sqlSession = MybatisUtils.opensession();
+        List<Customer> queryAllCustomer = sqlSession.selectList("queryAllCustomer");
+        for (Customer customer : queryAllCustomer) {
+            System.out.println(customer);
+        }
     }
 }
