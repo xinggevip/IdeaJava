@@ -25,5 +25,13 @@
         insert into customer (cust_name,cust_profession,cust_phone,email)
          values (#{cust_name},#{cust_profession},#{cust_phone},#{email})
     </insert>
+    <!-- 更新 -->
+    <update id="updataCustomer" parameterType="com.gaoxing.domain.Customer">
+        update customer set cust_name = #{cust_name},cust_profession = #{cust_profession},cust_phone = #{cust_phone},email = #{email} where cust_id = #{cust_id}
+    </update>
+    <!-- 删除 -->
+    <delete id="deleteCustomer" parameterType="com.gaoxing.domain.Customer">
+        delete from customer where cust_id = #{cust_id}
+    </delete>
 
 </mapper>

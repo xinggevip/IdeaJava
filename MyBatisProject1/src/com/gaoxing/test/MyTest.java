@@ -88,4 +88,31 @@ public class MyTest {
         // 关闭资源
         sqlSession.close();
     }
+
+    /* 更新 */
+    @Test
+    public void updata(){
+        SqlSession sqlSession = MybatisUtils.opensession();
+        Customer queryCustomerById = sqlSession.selectOne("queryCustomerById", 1);
+        queryCustomerById.setCust_name("小小布");
+        queryCustomerById.setCust_phone("15937067033");
+        sqlSession.update("updataCustomer",queryCustomerById);
+
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
+    /* 删除 */
+    @Test
+    public void delete(){
+        SqlSession sqlSession = MybatisUtils.opensession();
+
+        // sqlSession.delete("deleteCustomer",13); // 只传一个id可以删
+        Customer customerById = sqlSession.selectOne("queryCustomerById", 12);
+        sqlSession.delete("deleteCustomer",customerById); // 传一个对象删除也可以
+
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
 }
