@@ -15,5 +15,15 @@
     <select id="queryCustomerByName" parameterType="String" resultType="com.gaoxing.domain.Customer">
           SELECT * FROM customer WHERE cust_name LIKE #{cust_name}
     </select>
+    <!-- 添加 values字段必须和实体类保持一致-->
+    <insert id="insertCustom" parameterType="com.gaoxing.domain.Customer">
+
+        /* 获取插入的最后一个id */
+        <selectKey keyColumn="cust_id" keyProperty="cust_id" resultType="Integer" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+        insert into customer (cust_name,cust_profession,cust_phone,email)
+         values (#{cust_name},#{cust_profession},#{cust_phone},#{email})
+    </insert>
 
 </mapper>

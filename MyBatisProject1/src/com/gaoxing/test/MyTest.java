@@ -68,4 +68,24 @@ public class MyTest {
         List<Customer> customers = sqlSession.selectList("queryCustomerByName", "李%");
         sqlSession.close();
     }
+
+    /* 添加客户 */
+    @Test
+    public void insert(){
+        SqlSession sqlSession = MybatisUtils.opensession();
+
+        Customer customer = new Customer();
+        customer.setCust_name("星哥");
+        customer.setCust_profession("java初级开发工程师");
+        customer.setCust_phone("15937067033");
+        customer.setEmail("1511844263@qq.com");
+
+        sqlSession.insert("insertCustom",customer);
+
+        // 当改动数据库当中的记录时，执行sql时要执行提交事务
+        sqlSession.commit();
+        System.out.println(customer); // Customer(cust_id=13, cust_name=星哥, cust_profession=java初级开发工程师, cust_phone=15937067033, email=1511844263@qq.com)
+        // 关闭资源
+        sqlSession.close();
+    }
 }
