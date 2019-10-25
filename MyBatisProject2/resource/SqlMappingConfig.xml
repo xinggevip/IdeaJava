@@ -17,6 +17,14 @@
         <!-- 开启驼峰命名法 domain类的字段要用驼峰命名法接收 -->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
+
+    <!-- 定义别名 -->
+    <typeAliases>
+        <!-- 定义单个别名 -->
+        <!--<typeAlias alias="Customer" type="com.gaoxing.domain.Customer" />-->
+        <!-- 批量定义别名 别名为类名 -->
+        <package name="com.gaoxing.domain"/>
+    </typeAliases>
     <!-- spring整合后 environments配置将废除 使用spring中的连接池 -->
     <environments default="development">
         <environment id="development">
