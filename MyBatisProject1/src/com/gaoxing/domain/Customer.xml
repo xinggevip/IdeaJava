@@ -5,7 +5,7 @@
 <mapper namespace="myTest">
     <!--根据cust_id查询客户-->
     <select id="queryCustomerById" parameterType="Int" resultType="com.gaoxing.domain.Customer">
-	  SELECT * FROM `customer` WHERE cust_id  = #{cust_id}
+	  SELECT * FROM `customer` WHERE cust_id  = #{id}
 	</select>
     <!-- 查询所有用户 -->
     <select id="queryAllCustomer" resultType="com.gaoxing.domain.Customer">
