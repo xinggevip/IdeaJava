@@ -7,4 +7,10 @@
         select * from `customer` where cust_id = #{id}
     </select>
 
+    <!-- 传多个参数 -->
+    <!-- [arg1, arg0, param1, param2] -->
+    <select id="getCustomerWidthBoth" resultType="com.gaoxing.domain.Customer">
+        select * from `customer` where cust_id = #{id} and cust_name = #{name}
+    </select>
+
 </mapper>
