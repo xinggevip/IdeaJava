@@ -3,6 +3,8 @@ package com.gaoxing.mapper;
 import com.gaoxing.domain.Customer;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.Map;
+
 /**
  * 参数传递
  *
@@ -20,4 +22,6 @@ import org.apache.ibatis.annotations.Param;
 public interface CustomerMapper {
     public Customer getCustomerWidthId(Integer id);
     public Customer getCustomerWidthBoth(@Param("id") Integer id,@Param("name") String name);
+    public Customer getCustomerWidthBoth(Map<String,Object> map);
+    public Customer getCustomerWidthBoth(Customer customer);
 }
