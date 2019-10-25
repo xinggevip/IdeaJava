@@ -56,6 +56,14 @@
 
     </environments>
 
+    <!-- 定义数据库厂商 -->
+    <databaseIdProvider type="DB_VENDOR">
+        <property name="MYSQL" value="mysql"/>
+        <property name="DB2" value="db2"/>
+        <property name="Oracle" value="oracle" />
+        <property name="SQL Server" value="sqlserver"/>
+    </databaseIdProvider>
+
     <!--加载映射文件-->
     <mappers>
         <mapper resource="com/gaoxing/domain/Customer.xml"></mapper>
