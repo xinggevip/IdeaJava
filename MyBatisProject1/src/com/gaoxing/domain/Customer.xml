@@ -11,5 +11,9 @@
     <select id="queryAllCustomer" resultType="com.gaoxing.domain.Customer">
         select * from `customer`
     </select>
+    <!-- 根据用户名模糊查询客户 -->
+    <select id="queryCustomerByName" parameterType="String" resultType="com.gaoxing.domain.Customer">
+          SELECT * FROM customer WHERE cust_name LIKE #{cust_name}
+    </select>
 
 </mapper>

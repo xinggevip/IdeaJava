@@ -42,5 +42,30 @@ public class MyTest {
         for (Customer customer : queryAllCustomer) {
             System.out.println(customer);
         }
+        sqlSession.close();
+    }
+
+    @Test
+    public void test3(){
+        /**
+         * 表示一个占位符号，通过#{}可以实现preparedStatement向占位符中设置值
+         * 自动进行java类型和jdbc类型转换
+         * #{}可以有效防止sql注入******************
+         * #{}可以接收简单类型值或pojo属性值
+         * 如果parameterType传输单个简单类型值,#{}括号中可以是value或其它名称
+         * '#{cust_name}%' SELECT * FROM customer WHERE cust_name LIKE '?%'   ---  ？占位符自动转换参数，String会总动添加单引号
+         *
+         * *********************************************************************
+         *
+         * 不防sql注入************
+         * 表示拼接sql串
+         * 通过${}可以将parameterType 传入的内容拼接在sql中且不进行jdbc类型转换
+         * ${}可以接收简单类型值或pojo属性值
+         * 如果parameterType传输单个简单类型值，${}括号中只能是value
+         * '${value}%' SELECT * FROM customer WHERE cust_name LIKE '李%'      ---   不自动转换参数，参数原封不动传过去
+         */
+        SqlSession sqlSession = MybatisUtils.opensession();
+        List<Customer> customers = sqlSession.selectList("queryCustomerByName", "李%");
+        sqlSession.close();
     }
 }
