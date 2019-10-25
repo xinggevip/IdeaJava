@@ -39,6 +39,21 @@
                 <property name="password" value="${jdbc.password}" />
             </dataSource>
         </environment>
+
+        <environment id="test">  <!-- 把default值改成test 就会应用test的配置 -->
+            <!-- 使用jdbc事务管理 -->
+            <transactionManager type="JDBC" />
+            <!-- 数据库连接池 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}" />
+                <property name="url"
+                          value="${jdbc.url}" />
+                <property name="username" value="${jdbc.username}" />
+                <property name="password" value="${jdbc.password}" />
+            </dataSource>
+        </environment>
+
+
     </environments>
 
     <!--加载映射文件-->
