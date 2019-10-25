@@ -56,7 +56,7 @@
 
     </environments>
 
-    <!-- 定义数据库厂商 -->
+     <!-- 定义数据库厂商 -->
     <databaseIdProvider type="DB_VENDOR">
         <property name="MYSQL" value="mysql"/>
         <property name="DB2" value="db2"/>
@@ -66,6 +66,15 @@
 
     <!--加载映射文件-->
     <mappers>
-        <mapper resource="com/gaoxing/domain/Customer.xml"></mapper>
+        <!--<mapper resource="com/gaoxing/domain/Customer.xml"></mapper>-->
+
+        <!--
+         使用这种方式加载映射文件的条件：
+         1.xml文件和接口文件名称要一致
+         2.xml文件和接口文件要在同一目录
+         -->
+        <!--<mapper class="com.gaoxing.mapper.CustomerMapper"/>-->
+
+        <package name="com.gaoxing.mapper"/>
     </mappers>
 </configuration>
