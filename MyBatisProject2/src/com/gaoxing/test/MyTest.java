@@ -52,8 +52,10 @@ public class MyTest {
        /**
         * customer.xml里的参数必须和POJO类字段名称一样
         */
-       customer.setCust_id(1);
-       customer.setCust_name("高星");
+       /*customer.setCust_id(1);
+       customer.setCust_name("高星");*/
+       customer.setCustId(1);
+       customer.setCustName("高星");
        Customer customerWidthBoth = mapper.getCustomerWidthBoth(customer);
        System.out.println(customerWidthBoth); // Customer(cust_id=1, cust_name=高星, cust_profession=射手, cust_phone=15937067033, email=12341241@qq.com)
    }

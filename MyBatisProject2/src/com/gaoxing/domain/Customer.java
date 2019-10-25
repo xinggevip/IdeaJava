@@ -8,9 +8,9 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Customer {
-    private Integer cust_id;
-    private  String cust_name;
-    private String cust_profession;
-    private String cust_phone;
+    private Integer custId;
+    private  String custName;
+    private String custProfession;
+    private String custPhone;
     private String email;
 }
