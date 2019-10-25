@@ -3,6 +3,9 @@ package com.gaoxing.test;
 import com.gaoxing.dao.CustomerDao;
 import com.gaoxing.dao.CustomerDaoImpl;
 import com.gaoxing.domain.Customer;
+import com.gaoxing.mapper.CustomerMapper;
+import com.gaoxing.utils.MybatisUtils;
+import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
 import java.util.List;
@@ -35,5 +38,27 @@ public class MyTest2 {
         // 删除
         customerDao.deleteCUstomer(12);
 
+    }
+
+    @Test
+    public void test2(){
+        SqlSession sqlSession = MybatisUtils.opensession();
+        CustomerMapper customerMapper = sqlSession.getMapper(CustomerMapper.class);
+
+        Customer customer = customerMapper.queryCustomerById(1);
+        System.out.println(customer);
+
+        List<Customer> customers = customerMapper.queryAllCustomer();
+        for (Customer customer1 : customers) {
+            System.out.println(customer1);
+        }
+
+        List<Customer> customers1 = customerMapper.queryCustomerByName("%李%");
+        for (Customer customer1 : customers1) {
+            System.out.println(customer1);
+        }
+
+
+        sqlSession.close();
     }
 }

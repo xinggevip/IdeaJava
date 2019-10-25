@@ -14,7 +14,7 @@ public interface CustomerMapper {
     // 根据id查客户
     public Customer queryCustomerById(Integer id);
     // 根据姓名模糊查询客户
-    public Customer queryCustomerByName(String name);
+    public List<Customer> queryCustomerByName(String name);
     // 查所有客户
     public List<Customer> queryAllCustomer();
     // 添加客户

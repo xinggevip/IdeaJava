@@ -31,6 +31,4 @@ public class MybatisUtils {
     }
 
 
-    public MybatisUtils() throws IOException {
-    }
 }
