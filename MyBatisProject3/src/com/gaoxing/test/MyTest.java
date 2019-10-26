@@ -162,4 +162,15 @@ public class MyTest {
         sqlSession.close();
 
     }
+
+    @Test
+    public void getAllCustomers(){
+        SqlSession sqlSession = MybatisUtils.opensession();
+        CustomerMapper customerMapper = sqlSession.getMapper(CustomerMapper.class);
+        List<Customer> allCustomers = customerMapper.getAllCustomers();
+        for (Customer allCustomer : allCustomers) {
+            System.out.println(allCustomer);
+        }
+        sqlSession.close();
+    }
 }
