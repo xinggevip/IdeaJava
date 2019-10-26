@@ -8,7 +8,17 @@
     <select id="getAccountCustomer" resultType="Integer">
         select count(*) from `customer`
     </select>
-    <select id="getCustomer" resultType="com.gaoxing.damain.Customer">
+
+    <resultMap id="customerMap" type="com.gaoxing.damain.Customer">
+        <!-- column为数据库字段，property为映射类字段，双方字段不一致可以进行此设置 -->
+        <id column="cust_id" property="cust_ids"/>
+        <result column="cust_name" property="cust_names"/>
+        <result column="cust_profession" property="cust_professions"/>
+        <result column="cust_phone" property="cust_phones"/>
+        <result column="email" property="email"/>
+
+    </resultMap>
+    <select id="getCustomer" resultMap="customerMap">
         select * from `customer` where cust_id = #{id}
     </select>
     <select id="getCustomerWidthId" resultType="java.util.Map">
