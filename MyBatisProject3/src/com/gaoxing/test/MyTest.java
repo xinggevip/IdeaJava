@@ -1,7 +1,7 @@
 package com.gaoxing.test;
 
-import com.gaoxing.damain.Customer;
-import com.gaoxing.damain.Order;
+import com.gaoxing.domain.Customer;
+import com.gaoxing.domain.Order;
 import com.gaoxing.mapper.CustomerMapper;
 import com.gaoxing.mapper.OrderMapper;
 import com.gaoxing.util.MybatisUtils;

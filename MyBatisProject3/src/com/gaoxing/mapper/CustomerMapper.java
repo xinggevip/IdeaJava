@@ -1,6 +1,6 @@
 package com.gaoxing.mapper;
 
-import com.gaoxing.damain.Customer;
+import com.gaoxing.domain.Customer;
 import org.apache.ibatis.annotations.MapKey;
 
 import java.util.List;

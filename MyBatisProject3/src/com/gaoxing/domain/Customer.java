@@ -1,4 +1,4 @@
-package com.gaoxing.damain;
+package com.gaoxing.domain;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,6 +1,6 @@
 package com.gaoxing.mapper;
 
-import com.gaoxing.damain.Order;
+import com.gaoxing.domain.Order;
 
 import java.util.List;
 

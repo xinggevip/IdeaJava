@@ -18,7 +18,7 @@
         <result column="email" property="email"/>
 
     </resultMap>-->
-    <select id="getCustomer" resultType="com.gaoxing.damain.Customer">
+    <select id="getCustomer" resultType="com.gaoxing.domain.Customer">
         select * from `customer` where cust_id = #{id}
     </select>
     <select id="getCustomerWidthId" resultType="java.util.Map">
@@ -27,7 +27,7 @@
     <select id="getAllCustomer" resultType="java.util.Map">
         select * from `customer`
     </select>
-    <select id="getAllListCustomer" resultType="com.gaoxing.damain.Customer">
+    <select id="getAllListCustomer" resultType="com.gaoxing.domain.Customer">
         select * from `customer`
     </select>
 </mapper>
