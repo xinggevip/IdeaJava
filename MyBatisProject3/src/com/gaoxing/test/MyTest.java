@@ -1,7 +1,9 @@
 package com.gaoxing.test;
 
 import com.gaoxing.damain.Customer;
+import com.gaoxing.damain.Order;
 import com.gaoxing.mapper.CustomerMapper;
+import com.gaoxing.mapper.OrderMapper;
 import com.gaoxing.util.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
@@ -65,6 +67,22 @@ public class MyTest {
             /**
              * Customer(cust_id=1, cust_name=高星, cust_profession=射手, cust_phone=15937067033, email=12341241@qq.com)
              * Customer(cust_id=2, cust_name=李白, cust_profession=刺客, cust_phone=18977665521, email=libai@163.com)
+             * ...
+             */
+        }
+        sqlSession.close();
+    }
+
+    @Test
+    public void getAllOrder(){
+        SqlSession sqlSession = MybatisUtils.opensession();
+        OrderMapper mapper = sqlSession.getMapper(OrderMapper.class);
+        List<Order> allOrder = mapper.getAllOrder();
+        for (Order order : allOrder) {
+            System.out.println(order);
+            /**
+             * Order(order_id=1, order_name=订单名称1, order_num=1001, customer=Customer(cust_id=1, cust_name=高星, cust_profession=射手, cust_phone=15937067033, email=12341241@qq.com))
+             * Order(order_id=2, order_name=订单名称2, order_num=1002, customer=Customer(cust_id=3, cust_name=阿轲, cust_profession=刺客, cust_phone=18977665997, email=aike@qq.com))
              * ...
              */
         }
