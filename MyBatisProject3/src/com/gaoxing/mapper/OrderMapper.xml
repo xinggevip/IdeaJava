@@ -18,4 +18,20 @@
     <select id="getAllOrder" resultMap="OrderMap">
         select * from `order` as o LEFT JOIN `customer` c on o.cust_id = c.cust_id
     </select>
+    
+    <resultMap id="resultMap2" type="Order">
+        <id property="order_id" column="order_id"/>
+        <result property="order_name" column="order_name"/>
+        <result property="order_num" column="order_num"/>
+
+        <!-- 分步查询  把源查的字段结果当作条件继续查 -->
+        <association property="customer" javaType="Customer"
+        select="com.gaoxing.mapper.CustomerMapper.getCustomer" column="cust_id">
+
+        </association>
+
+    </resultMap>
+    <select id="getOrderWidthId" resultMap="resultMap2">
+        select * from `order` where order_id = #{id}
+    </select>
 </mapper>

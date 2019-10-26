@@ -88,4 +88,13 @@ public class MyTest {
         }
         sqlSession.close();
     }
+
+    @Test
+    public void getOrderWidthId(){
+        SqlSession sqlSession = MybatisUtils.opensession();
+        OrderMapper mapper = sqlSession.getMapper(OrderMapper.class);
+        Order orderWidthId = mapper.getOrderWidthId(1);
+        System.out.println(orderWidthId); // Order(order_id=1, order_name=订单名称1, order_num=1001, customer=Customer(cust_id=1, cust_name=高星, cust_profession=射手, cust_phone=15937067033, email=12341241@qq.com))
+        sqlSession.close();
+    }
 }
