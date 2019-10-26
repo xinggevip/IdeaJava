@@ -15,6 +15,13 @@
             <result property="email" column="email"/>
         </association>
     </resultMap>
+
+    <!-- 保存订单 -->
+    <insert id="insertOrder" parameterType="Order"
+            useGeneratedKeys="true"
+            keyColumn="order_id" keyProperty="order_id">
+        insert into `order` (order_name,order_num,cust_id) values (#{order_name},#{order_num},#{customer.cust_id})
+    </insert>
     <select id="getAllOrder" resultMap="OrderMap">
         select * from `order` as o LEFT JOIN `customer` c on o.cust_id = c.cust_id
     </select>

@@ -98,4 +98,68 @@ public class MyTest {
         //System.out.println(orderWidthId); // Order(order_id=1, order_name=订单名称1, order_num=1001, customer=Customer(cust_id=1, cust_name=高星, cust_profession=射手, cust_phone=15937067033, email=12341241@qq.com))
         sqlSession.close();
     }
+
+    @Test
+    public void saveBoth(){
+        /* 多对一添加操作 */
+        /* 把新的订单添加到新的客户 */
+        SqlSession sqlSession = MybatisUtils.opensession();
+        OrderMapper orderMapper = sqlSession.getMapper(OrderMapper.class);
+        CustomerMapper customerMapper = sqlSession.getMapper(CustomerMapper.class);
+
+        Customer customer = new Customer();
+        customer.setCust_name("新客户001");
+        customer.setCust_phone("15937067033");
+        customer.setCust_profession("护士");
+        customer.setEmail("1511844263@qq.com");
+
+        Order order = new Order();
+        order.setOrder_name("新订单001");
+        order.setOrder_num("201910260001");
+
+        order.setCustomer(customer);
+
+        /**
+         * 先添加客户 获取客户生成的id 再添加订单
+         */
+
+        // 保存客户
+        customerMapper.insertCustomer(customer);
+        System.out.println(customer); // Customer(cust_id=19, cust_name=新客户001, cust_profession=护士, cust_phone=15937067033, email=1511844263@qq.com)
+
+        // 保存订单
+        orderMapper.insertOrder(order);
+        System.out.println(order); // Order(order_id=7, order_name=新订单001, order_num=201910260001, customer=Customer(cust_id=19, cust_name=新客户001, cust_profession=护士, cust_phone=15937067033, email=1511844263@qq.com))
+
+        sqlSession.commit();
+        sqlSession.close();
+
+    }
+
+    @Test
+    public void test5(){
+        /* 把新的订单添加到获取的客户 */
+        SqlSession sqlSession = MybatisUtils.opensession();
+        CustomerMapper customerMapper = sqlSession.getMapper(CustomerMapper.class);
+        OrderMapper orderMapper = sqlSession.getMapper(OrderMapper.class);
+
+        Order order1 = new Order();
+        order1.setOrder_name("测试订单1");
+        order1.setOrder_num("0001");
+
+        Order order2 = new Order();
+        order2.setOrder_name("测试订单2");
+        order2.setOrder_num("0002");
+
+        Customer customer = customerMapper.getCustomer(1);
+        order1.setCustomer(customer);
+        order2.setCustomer(customer);
+
+        orderMapper.insertOrder(order1);
+        orderMapper.insertOrder(order2);
+
+        sqlSession.commit();
+        sqlSession.close();
+
+    }
 }

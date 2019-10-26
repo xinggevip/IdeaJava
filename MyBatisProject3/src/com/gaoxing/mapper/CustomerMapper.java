@@ -23,4 +23,7 @@ public interface CustomerMapper {
     /* 获取所有用户 返回list集合 */
     public List<Customer> getAllListCustomer();
 
+    /* 保存客户 */
+    public void insertCustomer(Customer customer);
+
 }
