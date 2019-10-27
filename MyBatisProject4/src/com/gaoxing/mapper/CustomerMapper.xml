@@ -111,9 +111,29 @@
     </select>
 
     <select id="getCustomerWidthId" parameterType="Integer" resultType="com.gaoxing.domain.Customer">
-    <bind name="newId" value="id+1"/>
-        select * from `customer` where cust_id = #{newId}
+    <!--<bind name="newId" value="id+1"/>-->
+        <include refid="selectId">
+          <property name="lk" value="2"/>
+        </include> where cust_id = #{id}
     </select>
+
+
+    <!--注意 在include当中定义的property 取的时候 要使用${} -->
+    <sql id="selectId">
+
+        <choose>
+            <when test="${lk} == 2">
+                select cust_name from `customer`
+            </when>
+            <when test="id == 3">
+                select cust_id from `customer`
+            </when>
+            <otherwise>
+                select * from `customer`
+            </otherwise>
+        </choose>
+
+    </sql>
 
 
 </mapper>

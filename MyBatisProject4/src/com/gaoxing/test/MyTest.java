@@ -69,7 +69,7 @@ public class MyTest {
         SqlSession sqlSession = MybatisUtils.opensession();
         CustomerMapper customerMapper = sqlSession.getMapper(CustomerMapper.class);
 
-        Customer customer = customerMapper.getCustomerWidthId(2);
+        Customer customer = customerMapper.getCustomerWidthId(5);
         System.out.println(customer); // Customer(cust_id=3, cust_name=阿轲, cust_profession=刺客, cust_phone=18977665997, email=aike@qq.com)
 
         sqlSession.close();
