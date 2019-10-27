@@ -14,7 +14,7 @@ public class MyTest {
         SqlSession sqlSession = MybatisUtils.opensession();
         CustomerMapper customerMapper = sqlSession.getMapper(CustomerMapper.class);
 
-        List<Customer> customers = customerMapper.getCustomer("李白", "刺客");
+        List<Customer> customers = customerMapper.getCustomer("", "");
         for (Customer customer : customers) {
             System.out.println(customer);
         }

@@ -29,7 +29,7 @@
         prefixOverrides：条件前覆盖  把第一个条件之前的and变成空
         suffixOverrides：条件后覆盖  把最后一个条件之后的and变成空
      -->
-    <select id="getCustomer" resultType="com.gaoxing.domain.Customer">
+    <select id="getCustomer3" resultType="com.gaoxing.domain.Customer">
         select * from `customer`
 
         <trim prefix="where" suffix=";" prefixOverrides="and" suffixOverrides="and">
@@ -43,6 +43,27 @@
 
         </trim>
 
+
+    </select>
+
+    <!--
+        choose
+        只要满足一个条件后面的条件都不执行
+    -->
+    <select id="getCustomer" resultType="com.gaoxing.domain.Customer">
+        select * from `customer`
+
+        <where>
+          <choose>
+              <when test="cust_name != null and cust_name != ''">
+                  `cust_name` = #{cust_name}
+              </when>
+              <when test="cust_profession != null and cust_profession != ''">
+                  `cust_profession` = #{cust_profession}
+              </when>
+              <otherwise>1 = 1</otherwise>
+          </choose>
+        </where>
 
     </select>
 </mapper>
