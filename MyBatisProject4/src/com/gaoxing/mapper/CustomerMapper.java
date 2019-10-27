@@ -18,4 +18,6 @@ public interface CustomerMapper {
     /*public List<Customer> getCustomers (List<Integer> arr);*/
     public List<Customer> getCustomers (QueryVo queryVo);
 
+    public Customer getCustomerWidthId(@Param("id") Integer id);
+
 }

@@ -63,4 +63,15 @@ public class MyTest {
 
         sqlSession.close();
     }
+
+    @Test
+    public void getCustomerWidthId(){
+        SqlSession sqlSession = MybatisUtils.opensession();
+        CustomerMapper customerMapper = sqlSession.getMapper(CustomerMapper.class);
+
+        Customer customer = customerMapper.getCustomerWidthId(2);
+        System.out.println(customer); // Customer(cust_id=3, cust_name=阿轲, cust_profession=刺客, cust_phone=18977665997, email=aike@qq.com)
+
+        sqlSession.close();
+    }
 }

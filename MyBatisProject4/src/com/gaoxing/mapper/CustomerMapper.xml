@@ -110,5 +110,10 @@
         </foreach>
     </select>
 
+    <select id="getCustomerWidthId" parameterType="Integer" resultType="com.gaoxing.domain.Customer">
+    <bind name="newId" value="id+1"/>
+        select * from `customer` where cust_id = #{newId}
+    </select>
+
 
 </mapper>
