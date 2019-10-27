@@ -35,4 +35,24 @@ public class MyTest {
 
     }
 
+    @Test
+    public void test1(){
+        SqlSession sqlSession = MybatisUtils.opensession();
+        CustomerMapper customerMapper = sqlSession.getMapper(CustomerMapper.class);
+
+        Customer customer = customerMapper.getCustomer(2);
+        System.out.println(customer);
+
+        sqlSession.close(); // 这句如果注释掉会发送两条sql
+        /* sqlSession关闭时，会把一级缓存放到二级缓存，所以第一个sqlSession关闭后，第二个sqlSession执行不会发送sql */
+
+        SqlSession sqlSession2 = MybatisUtils.opensession();
+        CustomerMapper customerMapper2 = sqlSession2.getMapper(CustomerMapper.class);
+
+        Customer customer2 = customerMapper2.getCustomer(2);
+        System.out.println(customer2);
+
+        sqlSession2.close();
+    }
+
 }

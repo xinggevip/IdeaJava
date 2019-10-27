@@ -17,6 +17,8 @@
         <!-- 开启驼峰命名法 domain类的字段要用驼峰命名法接收 -->
         <!--<setting name="mapUnderscoreToCamelCase" value="true"/>-->
         <setting name="lazyLoadingEnabled" value="true"/>
+        <!-- 耳机缓存开关 -->
+        <setting name="cacheEnabled" value="true"/>
     </settings>
 
     <!-- 定义别名 -->
