@@ -170,6 +170,10 @@ public class MyTest {
         List<Customer> allCustomers = customerMapper.getAllCustomers();
         for (Customer allCustomer : allCustomers) {
             System.out.println(allCustomer);
+            /**
+             * 先把所有的customer都查了出来，
+             * 打印的时候，打印一条记录，发送一条sql语句
+             */
         }
         sqlSession.close();
     }

@@ -11,4 +11,6 @@ public interface OrderMapper {
     public Order getOrderWidthId(Integer id);
     /* 保存订单 */
     public void insertOrder(Order order);
+    /* 根据cust_id查询订单 */
+    public Order getOrder(Integer id);
 }

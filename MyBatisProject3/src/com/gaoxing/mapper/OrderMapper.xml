@@ -41,4 +41,7 @@
     <select id="getOrderWidthId" resultMap="resultMap2">
         select * from `order` where order_id = #{id}
     </select>
+    <select id="getOrder" resultType="com.gaoxing.domain.Order">
+        select * from `order` where cust_id = #{id}
+    </select>
 </mapper>
