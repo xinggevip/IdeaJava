@@ -5,8 +5,11 @@
 <mapper namespace="com.gaoxing.mapper.CustomerMapper">
 
 
+    <!-- where标签能自动生成和删除 还能删除where第一个and -->
     <select id="getCustomer" resultType="com.gaoxing.domain.Customer">
-        select * from `customer` where
+        select * from `customer`
+
+        <where>
 
         <if test="cust_name != null and cust_name != ''">
             `cust_name` = #{cust_name}
@@ -14,6 +17,8 @@
         <if test="cust_profession != null and cust_profession != ''">
             and `cust_profession` = #{cust_profession}
         </if>
+
+        </where>
 
 
     </select>
