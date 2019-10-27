@@ -29,4 +29,7 @@ public interface CustomerMapper {
     /* 查询所有客户 */
     public List<Customer> getAllCustomers();
 
+    /* 删除客户 */
+    public void deleteCustomer(Integer cust_id);
+
 }

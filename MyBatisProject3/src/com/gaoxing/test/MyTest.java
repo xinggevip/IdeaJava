@@ -217,4 +217,20 @@ public class MyTest {
         sqlSession.close();
 
     }
+
+    @Test
+    public void deleteCustomer(){
+        SqlSession sqlSession = MybatisUtils.opensession();
+        CustomerMapper customerMapper = sqlSession.getMapper(CustomerMapper.class);
+        OrderMapper orderMapper = sqlSession.getMapper(OrderMapper.class);
+
+        // 一对多删除之前先打破外键关系 让订单的cust_id = null
+        orderMapper.updateRelationOrder(20);
+
+        // 删除客户
+        customerMapper.deleteCustomer(20);
+
+        sqlSession.commit();
+        sqlSession.close();
+    }
 }

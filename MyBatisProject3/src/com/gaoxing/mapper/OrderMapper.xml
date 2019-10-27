@@ -26,6 +26,10 @@
     <update id="updateOrder">
         update `order` set cust_id = #{cust_id} where order_id = #{order_id}
     </update>
+    <!-- 打破关系 -->
+    <update id="updateRelationOrder">
+        update `order` set cust_id = null where cust_id = #{cust_id}
+    </update>
     <select id="getAllOrder" resultMap="OrderMap">
         select * from `order` as o LEFT JOIN `customer` c on o.cust_id = c.cust_id
     </select>

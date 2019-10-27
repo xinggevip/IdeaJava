@@ -16,4 +16,6 @@ public interface OrderMapper {
     public Order getOrder(Integer id);
     /* 更新关系 */
     public void updateOrder(@Param("cust_id") Integer cust_id, @Param("order_id") Integer order_id);
+    /* 打破关系 */
+    public void updateRelationOrder(Integer cust_id);
 }
