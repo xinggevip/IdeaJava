@@ -30,6 +30,7 @@ public class MyTest {
         Customer customer2 = customerMapper.getCustomer(2);
         System.out.println(customer2);
 
+        sqlSession.commit();
         sqlSession.close();
 
     }
