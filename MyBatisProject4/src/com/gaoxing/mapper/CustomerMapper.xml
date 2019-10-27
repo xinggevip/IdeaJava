@@ -66,4 +66,24 @@
         </where>
 
     </select>
+
+    <!--
+        set标签：再update语句中自动添加set 并删除条件最后一个逗号
+    -->
+    <!-- 更新客户 -->
+    <update id="updateCustomer" parameterType="Customer">
+        update `customer`
+        <set>
+            <if test="cust_name != null and cust_name != ''">
+                cust_name = #{cust_name},
+            </if>
+            <if test="cust_profession != null and cust_profession != ''">
+                cust_profession = #{cust_profession},
+            </if>
+        </set>
+        where cust_id = #{cust_id}
+
+    </update>
+
+
 </mapper>

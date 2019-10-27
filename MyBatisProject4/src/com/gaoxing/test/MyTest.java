@@ -21,4 +21,20 @@ public class MyTest {
 
         sqlSession.close();
     }
+
+    @Test
+    public void test2(){
+        SqlSession sqlSession = MybatisUtils.opensession();
+        CustomerMapper customerMapper = sqlSession.getMapper(CustomerMapper.class);
+
+        Customer customer = new Customer();
+        customer.setCust_id(2);
+        customer.setCust_name("LiBai");
+        customer.setCust_profession("肉");
+
+        customerMapper.updateCustomer(customer);
+
+        sqlSession.commit();
+        sqlSession.close();
+    }
 }
