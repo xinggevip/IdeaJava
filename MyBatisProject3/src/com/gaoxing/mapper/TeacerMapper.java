@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface TeacerMapper {
     public List<Teacher> getTeachers();
+    public Teacher getTeacherWidthId(Integer id);
 
 }

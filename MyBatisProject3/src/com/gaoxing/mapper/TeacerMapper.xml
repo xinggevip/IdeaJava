@@ -10,6 +10,18 @@
         ON r.stu_id = s.stu_id
     </select>
 
+    <resultMap id="teacherMap2" type="Teacher">
+        <id column="teacher_id" property="teacher_id"/>
+        <result column="teacher_name" property="teacher_name"/>
+
+        <collection property="students" javaType="List" ofType="Student"
+                     select="com.gaoxing.mapper.StudentMapper.getStuByTeacher" column="teacher_id" />
+    </resultMap>
+    <!-- 根据老师id查询 -->
+    <select id="getTeacherWidthId" resultMap="teacherMap2">
+        SELECT * FROM teacher WHERE teacher_id = #{id}
+    </select>
+
     <resultMap id="teacherMap" type="Teacher">
         <id column="teacher_id" property="teacher_id"/>
         <result column="teacher_name" property="teacher_name"/>

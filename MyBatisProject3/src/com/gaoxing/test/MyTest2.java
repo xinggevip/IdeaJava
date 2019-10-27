@@ -21,4 +21,15 @@ public class MyTest2 {
 
         sqlSession.close();
     }
+
+    @Test
+    public void getStuByTeacher(){
+        SqlSession sqlSession = MybatisUtils.opensession();
+        TeacerMapper teacerMapper = sqlSession.getMapper(TeacerMapper.class);
+
+        Teacher teacherWidthId = teacerMapper.getTeacherWidthId(1);
+        System.out.println(teacherWidthId);
+
+        sqlSession.close();
+    }
 }
