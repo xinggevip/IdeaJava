@@ -1,6 +1,7 @@
 package com.gaoxing.test;
 
 import com.gaoxing.domain.Customer;
+import com.gaoxing.domain.QueryVo;
 import com.gaoxing.mapper.CustomerMapper;
 import com.gaoxing.util.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
@@ -35,6 +36,31 @@ public class MyTest {
         customerMapper.updateCustomer(customer);
 
         sqlSession.commit();
+        sqlSession.close();
+    }
+
+    @Test
+    public void test3(){
+        SqlSession sqlSession = MybatisUtils.opensession();
+        CustomerMapper customerMapper = sqlSession.getMapper(CustomerMapper.class);
+
+        /*Integer[] arr = new Integer[]{2,3,4};
+        List<Customer> customers = customerMapper.getCustomers(arr);*/
+
+        /*ArrayList<Integer> arrayList = new ArrayList<>();
+        arrayList.add(2);
+        arrayList.add(3);
+        arrayList.add(4);
+        List<Customer> customers = customerMapper.getCustomers(arrayList);*/
+
+        QueryVo queryVo = new QueryVo();
+        queryVo.setArr(new Integer[]{2,3,4});
+        List<Customer> customers = customerMapper.getCustomers(queryVo);
+
+        for (Customer customer : customers) {
+            System.out.println(customer);
+        }
+
         sqlSession.close();
     }
 }

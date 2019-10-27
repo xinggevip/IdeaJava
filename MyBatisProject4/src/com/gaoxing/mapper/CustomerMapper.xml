@@ -85,5 +85,30 @@
 
     </update>
 
+    <!-- 根据指定多个id查客户 -->
+    <!--
+    <select id="getCustomers" parameterType="Integer[]" resultType="com.gaoxing.domain.Customer">
+        select * from `customer` where `cust_id` in
+        <foreach collection="array" open="(" close=" )" separator="," item="ids">
+            #{ids}
+        </foreach>
+    </select>
+    -->
+
+    <!--
+    <select id="getCustomers" parameterType="List" resultType="com.gaoxing.domain.Customer">
+        select * from `customer` where `cust_id` in
+        <foreach collection="list" open="(" close=" )" separator="," item="ids">
+            #{ids}
+        </foreach>
+    </select>
+    -->
+    <select id="getCustomers" parameterType="QueryVo" resultType="com.gaoxing.domain.Customer">
+        select * from `customer` where `cust_id` in
+        <foreach collection="arr" open="(" close=" )" separator="," item="ids">
+            #{ids}
+        </foreach>
+    </select>
+
 
 </mapper>
