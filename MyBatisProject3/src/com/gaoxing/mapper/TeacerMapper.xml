@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.gaoxing.mapper.TeacerMapper">
+
+    <!-- 保存老师 -->
+    <insert id="insertTeacher" parameterType="Teacher" useGeneratedKeys="true"
+             keyColumn="teacher_id"
+             keyProperty="teacher_id"
+    >
+        insert into `teacher` (teacher_name) values (#{teacher_name})
+    </insert>
+
+    <!-- 插入关系 -->
+    <insert id="insertRelation">
+        insert into `stu_teacher_rel` (stu_id,teacher_id) values (#{stu_id},#{teacher_id})
+    </insert>
     <!-- 获取所有老师 和他的学生 -->
     <select id="getTeachers" resultMap="teacherMap">
         SELECT * FROM
