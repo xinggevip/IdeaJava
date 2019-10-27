@@ -6,6 +6,15 @@
 
 
     <select id="getCustomer" resultType="com.gaoxing.domain.Customer">
-        select * from `customer` where `cust_name` = #{cust_name} and `cust_profession` = #{cust_profession}
+        select * from `customer` where
+
+        <if test="cust_name != null and cust_name != ''">
+            `cust_name` = #{cust_name}
+        </if>
+        <if test="cust_profession != null and cust_profession != ''">
+            and `cust_profession` = #{cust_profession}
+        </if>
+
+
     </select>
 </mapper>
