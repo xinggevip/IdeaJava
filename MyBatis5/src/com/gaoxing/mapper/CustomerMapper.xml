@@ -10,14 +10,15 @@
     </cache>
 
     <!-- 根据id查询客户 -->
-    <select id="getCustomer" resultType="com.gaoxing.domain.Customer">
+    <select id="getCustomer" resultType="com.gaoxing.domain.Customer" useCache="true"> <!-- useCache默认为true 开启二级缓存 -->
         select * from `customer` where cust_id = #{id}
     </select>
 
-    <!-- 插入客户 -->
+    <!-- 插入客户 --> <!-- flushCache默认为true 会清空一级和二级缓存 -->
     <insert id="insertCustomer" parameterType="Customer" useGeneratedKeys="true"
              keyColumn="cust_id"
              keyProperty="cust_id"
+             flushCache="true"
     >
         insert into `customer` (cust_name,cust_phone,cust_profession) values (#{cust_name},#{cust_phone},#{cust_profession})
     </insert>
