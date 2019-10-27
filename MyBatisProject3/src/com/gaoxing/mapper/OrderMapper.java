@@ -1,6 +1,7 @@
 package com.gaoxing.mapper;
 
 import com.gaoxing.domain.Order;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -13,4 +14,6 @@ public interface OrderMapper {
     public void insertOrder(Order order);
     /* 根据cust_id查询订单 */
     public Order getOrder(Integer id);
+    /* 更新关系 */
+    public void updateOrder(@Param("cust_id") Integer cust_id, @Param("order_id") Integer order_id);
 }

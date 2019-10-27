@@ -177,4 +177,44 @@ public class MyTest {
         }
         sqlSession.close();
     }
+
+    @Test
+    public void test6(){
+        SqlSession sqlSession = MybatisUtils.opensession();
+        CustomerMapper customerMapper = sqlSession.getMapper(CustomerMapper.class);
+        OrderMapper orderMapper = sqlSession.getMapper(OrderMapper.class);
+
+        Customer customer = new Customer();
+        customer.setCust_name("新客户");
+
+        Order order1 = new Order();
+        order1.setOrder_name("订单1");
+        order1.setOrder_num("111111");
+
+        Order order2 = new Order();
+        order2.setOrder_name("订单2");
+        order2.setOrder_num("222222");
+
+        /*List<Order> orders = new ArrayList<>();
+        orders.add(order1);
+        orders.add(order2);
+        customer.setOrders(orders);*/
+
+        customer.getOrders().add(order1);
+        customer.getOrders().add(order2);
+
+        // 保存客户
+        customerMapper.insertCustomer(customer);
+        // 保存订单
+        orderMapper.insertOrder(order1);
+        orderMapper.insertOrder(order2);
+        // 更新关系
+        for (Order order : customer.getOrders()) {
+            orderMapper.updateOrder(customer.getCust_id(),order.getOrder_id());
+        }
+
+        sqlSession.commit();
+        sqlSession.close();
+
+    }
 }

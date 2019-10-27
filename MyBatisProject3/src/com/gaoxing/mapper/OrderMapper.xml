@@ -22,6 +22,10 @@
             keyColumn="order_id" keyProperty="order_id">
         insert into `order` (order_name,order_num,cust_id) values (#{order_name},#{order_num},#{customer.cust_id})
     </insert>
+    <!-- 更新关系 -->
+    <update id="updateOrder">
+        update `order` set cust_id = #{cust_id} where order_id = #{order_id}
+    </update>
     <select id="getAllOrder" resultMap="OrderMap">
         select * from `order` as o LEFT JOIN `customer` c on o.cust_id = c.cust_id
     </select>
