@@ -48,5 +48,6 @@
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.12" level="application_server_libraries" />
     <orderEntry type="library" name="spring" level="project" />
     <orderEntry type="library" name="springMVC" level="project" />
+    <orderEntry type="library" name="lombok" level="project" />
   </component>
 </module>
