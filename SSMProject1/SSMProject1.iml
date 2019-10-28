@@ -49,5 +49,6 @@
     <orderEntry type="library" name="spring" level="project" />
     <orderEntry type="library" name="springMVC" level="project" />
     <orderEntry type="library" name="lombok" level="project" />
+    <orderEntry type="library" name="ssmmybatis" level="project" />
   </component>
 </module>
