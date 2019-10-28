@@ -50,4 +50,15 @@ public class Customer {
     public void setEmail(String email) {
         this.email = email == null ? null : email.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "custId=" + custId +
+                ", custName='" + custName + '\'' +
+                ", custProfession='" + custProfession + '\'' +
+                ", custPhone='" + custPhone + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

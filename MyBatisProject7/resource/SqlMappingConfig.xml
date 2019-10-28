@@ -31,6 +31,10 @@
         <package name="com.gaoxing.domain"/>
     </typeAliases>
 
+    <!-- 分页插件 -->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
 
     <!-- spring整合后 environments配置将废除 使用spring中的连接池 -->
     <environments default="development">
