@@ -1,6 +1,7 @@
 package com.gaoxing.test;
 
 import com.gaoxing.domain.Customer;
+import com.gaoxing.domain.CustomerExample;
 import com.gaoxing.mapper.CustomerMapper;
 import com.gaoxing.util.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
@@ -29,10 +30,37 @@ public class MyTest {
 
     @Test
     public void test2(){
-        SqlSession sqlSession = MybatisUtils.opensession();
+       /* SqlSession sqlSession = MybatisUtils.opensession();
         CustomerMapper customerMapper = sqlSession.getMapper(CustomerMapper.class);
 
         List<Customer> customers = customerMapper.selectAll();
+        for (Customer customer : customers) {
+            System.out.println(customer);
+        }
+
+        sqlSession.close();*/
+    }
+
+    @Test
+    public void test3(){
+        SqlSession sqlSession = MybatisUtils.opensession();
+        CustomerMapper customerMapper = sqlSession.getMapper(CustomerMapper.class);
+
+        CustomerExample customerExample = new CustomerExample();
+
+        CustomerExample.Criteria criteria1 = customerExample.createCriteria();
+        criteria1.andEmailLike("%163%");
+
+        CustomerExample.Criteria criteria2 = customerExample.createCriteria();
+        criteria2.andCustProfessionEqualTo("刺客");
+
+        customerExample.or(criteria2);
+
+        /**
+         * and条件可以链式操作，or要重新创建和其他操作
+         */
+
+        List<Customer> customers = customerMapper.selectByExample(customerExample);
         for (Customer customer : customers) {
             System.out.println(customer);
         }

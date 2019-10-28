@@ -10,7 +10,7 @@
     MyBatis3:
     MyBatis3Simple:简单增删改查
     -->
-    <context id="DB2Tables" targetRuntime="MyBatis3Simple">
+    <context id="DB2Tables" targetRuntime="MyBatis3">
         <!--
            不要生成日期和备注
         -->
