@@ -8,6 +8,6 @@
     </settings>
     <typeAliases>
         <!-- 批量别名定义，扫描整个包下的类，别名为类名（大小写不敏感） -->
-        <package name="com.myxq.domain" />
+        <package name="com.gaoxing.domain" />
     </typeAliases>
 </configuration>
