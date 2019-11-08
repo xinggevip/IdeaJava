@@ -28,7 +28,7 @@ public class AlbumSeriveImpl implements AlbumService {
         try {
             System.out.println("1");
             // 这个返回的是插入了几条记录
-            Integer insert = albumMapper.insert(album);
+            int insert = albumMapper.insert(album);
             System.out.println("插入了------------" + insert + "条记录");
             System.out.println("获取最后插入的id为：----------" + album.getAlbumId());
             if (album.getAlbumId() > 0){

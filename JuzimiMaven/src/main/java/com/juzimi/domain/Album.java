@@ -11,6 +11,8 @@ public class Album {
 
     private String albumPicture;
 
+    private String userId;
+
     public Integer getAlbumId() {
         return albumId;
     }
@@ -51,15 +53,11 @@ public class Album {
         this.albumPicture = albumPicture == null ? null : albumPicture.trim();
     }
 
-    @Override
-    public String toString() {
-        return "Album{" +
-                "albumId=" + albumId +
-                ", albumName='" + albumName + '\'' +
-                ", albumDetails='" + albumDetails + '\'' +
-                ", classifyId=" + classifyId +
-                ", albumPicture='" + albumPicture + '\'' +
-                '}';
+    public String getUserId() {
+        return userId;
     }
 
+    public void setUserId(String userId) {
+        this.userId = userId == null ? null : userId.trim();
+    }
 }

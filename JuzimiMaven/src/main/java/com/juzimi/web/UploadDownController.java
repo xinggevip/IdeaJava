@@ -93,16 +93,6 @@ public class UploadDownController {
     public Result deletepicture(@RequestBody Album album, HttpServletRequest request){
         System.out.println("来到了delpicture");
         System.out.println(album.getAlbumPicture());
-        //获取文件在服务器的储存位置
-//        String path = request.getSession().getServletContext().getRealPath("/");
-//        File filePath = new File(path);
-//        System.out.println("服务器文件路径：" + path);
-
-        /**
-         * 1.判断是否存在此文件
-         * 2.存在则删除
-         * 3.不存在则return信息文件不存在
-         */
 
         //获取文件在服务器的储存位置
         String path = request.getSession().getServletContext().getRealPath(album.getAlbumPicture());
