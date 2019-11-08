@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.juzimi.mapper.AlbumMapper" >
+  <resultMap id="BaseResultMap" type="com.juzimi.domain.Album" >
+    <id column="album_id" property="albumId" jdbcType="INTEGER" />
+    <result column="album_name" property="albumName" jdbcType="VARCHAR" />
+    <result column="album_details" property="albumDetails" jdbcType="VARCHAR" />
+    <result column="classify_id" property="classifyId" jdbcType="INTEGER" />
+    <result column="album_picture" property="albumPicture" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from album
+    where album_id = #{albumId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.juzimi.domain.Album" >
+    /* 获取插入的最后一个id */
+    <selectKey keyColumn="album_id" keyProperty="albumId" resultType="Integer" order="AFTER">
+      select last_insert_id()
+    </selectKey>
+    insert into album (album_name, album_details,
+      classify_id, album_picture)
+    values (#{albumName}, #{albumDetails},
+      #{classifyId}, #{albumPicture})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.juzimi.domain.Album" >
+    update album
+    set album_name = #{albumName,jdbcType=VARCHAR},
+      album_details = #{albumDetails,jdbcType=VARCHAR},
+      classify_id = #{classifyId,jdbcType=INTEGER},
+      album_picture = #{albumPicture,jdbcType=VARCHAR}
+    where album_id = #{albumId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select album_id, album_name, album_details, classify_id, album_picture
+    from album
+    where album_id = #{albumId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select album_id, album_name, album_details, classify_id, album_picture
+    from album
+  </select>
+    <select id="selectAlbumByClassifyId" resultType="com.juzimi.domain.Album" resultMap="BaseResultMap">
+      SELECT * FROM album WHERE classify_id = #{classifyId}
+    </select>
+</mapper>
