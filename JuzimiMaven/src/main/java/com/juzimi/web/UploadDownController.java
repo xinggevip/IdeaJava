@@ -86,4 +86,46 @@ public class UploadDownController {
         }
         return new Result(false, "创建失败",-1);
     }
+
+
+    @RequestMapping("/delpicture")
+    @ResponseBody
+    public Result deletepicture(@RequestBody Album album, HttpServletRequest request){
+        System.out.println("来到了delpicture");
+        System.out.println(album.getAlbumPicture());
+        //获取文件在服务器的储存位置
+//        String path = request.getSession().getServletContext().getRealPath("/");
+//        File filePath = new File(path);
+//        System.out.println("服务器文件路径：" + path);
+
+        /**
+         * 1.判断是否存在此文件
+         * 2.存在则删除
+         * 3.不存在则return信息文件不存在
+         */
+
+        //获取文件在服务器的储存位置
+        String path = request.getSession().getServletContext().getRealPath(album.getAlbumPicture());
+        System.out.println("文件在服务器的储存位置:=====" + path);
+
+        File filePath = new File(path);
+        System.out.println("文件的保存路径：" + path);
+        // 判断文件是否存在
+        if (!filePath.exists() && !filePath.isDirectory()) {
+            // 不存在则返回信息
+            System.out.println("文件不存在");
+            return new Result(false,"文件不存在，删除失败");
+        }else{
+            // 存在则删除并返回信息
+            System.out.println("存在文件，开始删吧");
+            boolean delete = filePath.delete();
+            if (delete == true){
+                return new Result(true,"删除成功");
+            }else{
+                return new Result(false,"删除失败");
+            }
+        }
+
+    }
+
 }
