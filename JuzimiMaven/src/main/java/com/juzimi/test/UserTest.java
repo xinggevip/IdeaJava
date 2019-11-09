@@ -3,10 +3,7 @@ package com.juzimi.test;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.juzimi.domain.Album;
-import com.juzimi.domain.Result;
-import com.juzimi.domain.Sentence;
-import com.juzimi.domain.Users;
+import com.juzimi.domain.*;
 import com.juzimi.service.AlbumService;
 import com.juzimi.service.SentenceSerive;
 import com.juzimi.service.UsersService;
@@ -95,6 +92,20 @@ public class UserTest {
         Result result = sentenceSerive.addSentence(sentence);
         System.out.println(result);
 
+
+    }
+
+    @Test
+    public void SentenceTest1(){
+        // 根据句子专辑id查句子测试
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        SentenceSerive sentenceSerive = springApp.getBean(SentenceSerive.class);
+
+        AutoSentence autoSentence = sentenceSerive.selectSentenceByAlbumId(2, 2, 2);
+        for (Sentence sentence : autoSentence.getSentenceList()) {
+            System.out.println(sentence);
+        }
+        System.out.println(autoSentence.getNext());
 
     }
 

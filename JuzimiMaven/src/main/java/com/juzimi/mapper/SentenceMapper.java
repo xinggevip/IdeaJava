@@ -13,4 +13,7 @@ public interface SentenceMapper {
     List<Sentence> selectAll();
 
     int updateByPrimaryKey(Sentence record);
+
+    /* 根据专辑id查句子 */
+    List<Sentence> selectByAlbumId(Integer albumId);
 }

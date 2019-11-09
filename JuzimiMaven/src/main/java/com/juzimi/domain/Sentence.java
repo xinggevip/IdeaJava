@@ -72,4 +72,17 @@ public class Sentence {
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
+
+    @Override
+    public String toString() {
+        return "Sentence{" +
+                "sentenceId=" + sentenceId +
+                ", sentenceTxt='" + sentenceTxt + '\'' +
+                ", albumId=" + albumId +
+                ", classfiyId=" + classfiyId +
+                ", authorName='" + authorName + '\'' +
+                ", userId='" + userId + '\'' +
+                ", createDate=" + createDate +
+                '}';
+    }
 }

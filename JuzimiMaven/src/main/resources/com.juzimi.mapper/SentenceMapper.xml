@@ -45,4 +45,7 @@
     select sentence_id, sentence_txt, album_id, classfiy_id, author_name, user_id, create_date
     from sentence
   </select>
+  <select id="selectByAlbumId" resultType="com.juzimi.domain.Sentence" resultMap="BaseResultMap">
+    SELECT * FROM sentence WHERE album_id = #{albumId,jdbcType=INTEGER}
+  </select>
 </mapper>
