@@ -52,9 +52,12 @@ public class AlbumSeriveImpl implements AlbumService {
     public AutoAlbums getAutoAlbums(Integer classifyId, Integer pageNum, Integer pageSize) {
 
         /* 配置分页查询 从第几页开始查，一页查多少条记录 */
-        Page<Album> pageIn = PageHelper.startPage(pageNum,pageSize);
+        String orderBy = "album_id  desc";//按照排序字段 倒序 排序
+        Page<Album> pageIn = PageHelper.startPage(pageNum,pageSize,orderBy);
 
         List<Album> albumList = getAlbumsByClassifyId(classifyId);
+        // 集合反转
+//        Collections.reverse(albumList);
 
         /* 信息更加详细 配置导航显示几条页码 */
         PageInfo<Album> pageInfo = new PageInfo<>(albumList, 3);
