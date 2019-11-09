@@ -82,5 +82,11 @@ public class AlbumSeriveImpl implements AlbumService {
         return autoAlbums;
     }
 
+    @Override
+    public Album selectById(Integer albumId) {
+        Album album = albumMapper.selectByPrimaryKey(albumId);
+        return album;
+    }
+
 
 }

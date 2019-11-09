@@ -44,6 +44,17 @@ public class AlbumController {
         return autoAlbums;
     }
 
+    @RequestMapping("/selectalbumbyid")
+    @ResponseBody
+    public Album selectalbumbyid(Integer albumId){
+        // 根据专辑id查
+        System.out.println("来到了web层-----selectalbumbyid----");
+        System.out.println(albumId);
+        Album album = albumService.selectById(albumId);
+
+        return album;
+    }
+
 
 
 }

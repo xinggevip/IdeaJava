@@ -1,5 +1,7 @@
 package com.juzimi.domain;
 
+import java.util.Date;
+
 public class Album {
     private Integer albumId;
 
@@ -12,6 +14,8 @@ public class Album {
     private String albumPicture;
 
     private String userId;
+
+    private Date createDate;
 
     public Integer getAlbumId() {
         return albumId;
@@ -59,5 +63,13 @@ public class Album {
 
     public void setUserId(String userId) {
         this.userId = userId == null ? null : userId.trim();
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 }

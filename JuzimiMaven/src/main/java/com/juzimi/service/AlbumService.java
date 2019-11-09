@@ -9,4 +9,6 @@ public interface AlbumService {
     public List<Album> getAlbumsByClassifyId(Integer classifyId);
     public Integer save(Album album);
     public AutoAlbums getAutoAlbums(Integer classifyId, Integer pageNum, Integer pageSize);
+    // 根据专辑id查
+    public Album selectById(Integer albumId);
 }
