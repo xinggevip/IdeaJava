@@ -6,6 +6,7 @@ import com.github.pagehelper.PageInfo;
 import com.juzimi.domain.AutoSentence;
 import com.juzimi.domain.Result;
 import com.juzimi.domain.Sentence;
+import com.juzimi.domain.SentenceCount;
 import com.juzimi.mapper.SentenceMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,8 @@ public class SentenceSeriveImpl implements SentenceSerive {
     private SentenceMapper sentenceMapper;
     @Autowired
     private AutoSentence autoSentence;
+    @Autowired
+    private SentenceCount sentenceCount;
 
     @Override
     public Result addSentence(Sentence sentence) {
@@ -83,6 +86,14 @@ public class SentenceSeriveImpl implements SentenceSerive {
         autoSentence.setNext(pageInfo.isHasNextPage());
 
         return autoSentence;
+    }
+
+    @Override
+    public SentenceCount selectSentenceCount(Integer albumId) {
+        /* 根据专辑id查询记录个数 */
+        int count = sentenceMapper.selectSentenceCount(albumId);
+        sentenceCount.setSentenceCount(count);
+        return sentenceCount;
     }
 
 

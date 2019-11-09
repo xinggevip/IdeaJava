@@ -109,5 +109,17 @@ public class UserTest {
 
     }
 
+    @Test
+    public void SentenceTest2() {
+        /* 根据专辑id查询记录个数 */
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        SentenceSerive sentenceSerive = springApp.getBean(SentenceSerive.class);
+
+        SentenceCount count = sentenceSerive.selectSentenceCount(2);
+        System.out.println(count);
+
+
+    }
+
 
 }

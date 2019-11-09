@@ -16,4 +16,7 @@ public interface SentenceMapper {
 
     /* 根据专辑id查句子 */
     List<Sentence> selectByAlbumId(Integer albumId);
+
+    /* 根据专辑id查询记录个数 */
+    int selectSentenceCount(Integer albumId);
 }

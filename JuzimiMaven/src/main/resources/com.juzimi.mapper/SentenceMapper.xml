@@ -48,4 +48,7 @@
   <select id="selectByAlbumId" resultType="com.juzimi.domain.Sentence" resultMap="BaseResultMap">
     SELECT * FROM sentence WHERE album_id = #{albumId,jdbcType=INTEGER}
   </select>
+  <select id="selectSentenceCount" resultType="java.lang.Integer">
+    SELECT COUNT(*) FROM sentence WHERE album_id = #{albumId}
+  </select>
 </mapper>

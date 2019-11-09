@@ -1,9 +1,6 @@
 package com.juzimi.web;
 
-import com.juzimi.domain.AutoSentence;
-import com.juzimi.domain.Result;
-import com.juzimi.domain.Sentence;
-import com.juzimi.domain.SentenceRequestByAuto;
+import com.juzimi.domain.*;
 import com.juzimi.service.SentenceSerive;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,6 +33,18 @@ public class SentenceController {
 
         return autoSentence;
     }
+
+    @RequestMapping("/selectsentencecount")
+    @ResponseBody
+    public SentenceCount selectsentencecount(Integer albumId){
+        /* 根据专辑id查询记录个数 */
+        System.out.println("===========+++++++++++++++++++++====================");
+        System.out.println(albumId);
+        SentenceCount sentenceCount = sentenceSerive.selectSentenceCount(albumId);
+
+        return sentenceCount;
+    }
+
 
 
 }
