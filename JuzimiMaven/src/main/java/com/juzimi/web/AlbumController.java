@@ -1,9 +1,12 @@
 package com.juzimi.web;
 
 import com.juzimi.domain.Album;
+import com.juzimi.domain.AlbumRequestByAuto;
+import com.juzimi.domain.AutoAlbums;
 import com.juzimi.service.AlbumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -26,6 +29,19 @@ public class AlbumController {
 
 
         return albumsByClassifyId;
+    }
+
+    @RequestMapping("/autogetalbums")
+    @ResponseBody
+    public AutoAlbums autogetalbums(@RequestBody AlbumRequestByAuto albumRequestByAuto){
+        // 分页查询请求
+        System.out.println("来到了web层---------------");
+        // 已成功获取到前端数据
+        System.out.println(albumRequestByAuto);
+
+        AutoAlbums autoAlbums = albumService.getAutoAlbums(albumRequestByAuto.getClassifyId(), albumRequestByAuto.getPageNum(), albumRequestByAuto.getPageSize());
+
+        return autoAlbums;
     }
 
 
