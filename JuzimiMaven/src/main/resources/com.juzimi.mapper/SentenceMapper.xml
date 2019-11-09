@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.juzimi.mapper.SentenceMapper" >
+  <resultMap id="BaseResultMap" type="com.juzimi.domain.Sentence" >
+    <id column="sentence_id" property="sentenceId" jdbcType="INTEGER" />
+    <result column="sentence_txt" property="sentenceTxt" jdbcType="VARCHAR" />
+    <result column="album_id" property="albumId" jdbcType="INTEGER" />
+    <result column="classfiy_id" property="classfiyId" jdbcType="INTEGER" />
+    <result column="author_name" property="authorName" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from sentence
+    where sentence_id = #{sentenceId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.juzimi.domain.Sentence" >
+    /* 获取插入的最后一个id */
+    <selectKey keyColumn="sentence_id" keyProperty="sentenceId" resultType="Integer" order="AFTER">
+      select last_insert_id()
+    </selectKey>
+    insert into sentence (sentence_txt, album_id,
+      classfiy_id, author_name, user_id, 
+      create_date)
+    values (#{sentenceTxt,jdbcType=VARCHAR}, #{albumId,jdbcType=INTEGER},
+      #{classfiyId,jdbcType=INTEGER}, #{authorName,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.juzimi.domain.Sentence" >
+    update sentence
+    set sentence_txt = #{sentenceTxt,jdbcType=VARCHAR},
+      album_id = #{albumId,jdbcType=INTEGER},
+      classfiy_id = #{classfiyId,jdbcType=INTEGER},
+      author_name = #{authorName,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP}
+    where sentence_id = #{sentenceId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select sentence_id, sentence_txt, album_id, classfiy_id, author_name, user_id, create_date
+    from sentence
+    where sentence_id = #{sentenceId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select sentence_id, sentence_txt, album_id, classfiy_id, author_name, user_id, create_date
+    from sentence
+  </select>
+</mapper>

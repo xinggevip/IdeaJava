@@ -50,4 +50,12 @@ public class Result implements Serializable {
         return success;
     }
 
+    @Override
+    public String toString() {
+        return "Result{" +
+                "success=" + success +
+                ", message='" + message + '\'' +
+                ", albumId=" + albumId +
+                '}';
+    }
 }
