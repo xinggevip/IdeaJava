@@ -121,5 +121,20 @@ public class UserTest {
 
     }
 
+    @Test
+    public void SentenceTest3(){
+        /* 查所有句子展示在首页 */
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        SentenceSerive sentenceSerive = springApp.getBean(SentenceSerive.class);
+
+        AutoSentencePro autoSentencePro = sentenceSerive.selectAllSentence(1, 10);
+
+        for (SentencePro sentencePro : autoSentencePro.getSentenceProList()) {
+            System.out.println(sentencePro);
+        }
+
+        System.out.println(autoSentencePro.getNext());
+    }
+
 
 }

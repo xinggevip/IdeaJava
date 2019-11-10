@@ -46,5 +46,17 @@ public class SentenceController {
     }
 
 
+    @RequestMapping("/selectallsentence")
+    @ResponseBody
+    public AutoSentencePro selectallsentence(@RequestBody SentenceRequestByAuto sentenceRequestByAuto) {
+        // 经测试已接收到前端传参
+        System.out.println(sentenceRequestByAuto);
+
+        AutoSentencePro autoSentencePro = sentenceSerive.selectAllSentence(sentenceRequestByAuto.getPageNum(), sentenceRequestByAuto.getPageSize());
+
+
+
+        return autoSentencePro;
+    }
 
 }

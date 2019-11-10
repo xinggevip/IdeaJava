@@ -1,6 +1,7 @@
 package com.juzimi.mapper;
 
 import com.juzimi.domain.Sentence;
+
 import java.util.List;
 
 public interface SentenceMapper {
@@ -19,4 +20,6 @@ public interface SentenceMapper {
 
     /* 根据专辑id查询记录个数 */
     int selectSentenceCount(Integer albumId);
+
+
 }
