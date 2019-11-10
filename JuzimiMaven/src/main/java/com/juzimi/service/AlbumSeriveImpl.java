@@ -10,7 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -33,7 +36,10 @@ public class AlbumSeriveImpl implements AlbumService {
     @Override
     public Integer save(Album album) {
         try {
-            System.out.println("1");
+            //时间转换
+            String nowTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+            //上传时间
+            album.setCreateDate(Timestamp.valueOf(nowTime));
             // 这个返回的是插入了几条记录
             int insert = albumMapper.insert(album);
             System.out.println("插入了------------" + insert + "条记录");
