@@ -1,6 +1,7 @@
 package com.juzimi.service;
 
 import com.juzimi.domain.Users;
+import com.juzimi.mapper.AdminMapper;
 import com.juzimi.mapper.UsersMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,13 +16,20 @@ import java.util.Date;
 public class UsersServiceImpl implements UsersService {
     @Autowired
     private UsersMapper usersMapper;
+    @Autowired
+    private AdminMapper adminMapper;
 
     @Override
     public Users login(Users user) {
-        System.out.println("来到了service----login");
-        Users loginUser = usersMapper.selectByIdBypassword(user);
-        System.out.println("service--loginUser" + loginUser);
-        return loginUser;
+        // 如果管理员开启了审核，直接返回用户信息，如果没有开启审核则把用户的激活状态设置已激活
+        if (adminMapper.selectByPrimaryKey("admin").getIsOpenActive() == 1){
+            Users loginUser = usersMapper.selectByIdBypassword(user);
+            return loginUser;
+        }else {
+            Users loginUser = usersMapper.selectByIdBypassword(user);
+            loginUser.setIsActive(1);
+            return loginUser;
+        }
     }
 
     @Override
