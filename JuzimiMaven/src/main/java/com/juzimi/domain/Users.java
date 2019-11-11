@@ -1,5 +1,7 @@
 package com.juzimi.domain;
 
+import java.util.Date;
+
 public class Users {
     private String userId;
 
@@ -14,6 +16,14 @@ public class Users {
     private String userEmail;
 
     private String userSlogan;
+
+    private Integer isActive;
+
+    private Date createDate;
+
+    private String userProfile;
+
+    private String userPicture;
 
     public String getUserId() {
         return userId;
@@ -71,16 +81,35 @@ public class Users {
         this.userSlogan = userSlogan == null ? null : userSlogan.trim();
     }
 
-    @Override
-    public String toString() {
-        return "Users{" +
-                "userId='" + userId + '\'' +
-                ", userPassword='" + userPassword + '\'' +
-                ", userName='" + userName + '\'' +
-                ", userSex='" + userSex + '\'' +
-                ", userPhone='" + userPhone + '\'' +
-                ", userEmail='" + userEmail + '\'' +
-                ", userSlogan='" + userSlogan + '\'' +
-                '}';
+    public Integer getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Integer isActive) {
+        this.isActive = isActive;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public String getUserProfile() {
+        return userProfile;
+    }
+
+    public void setUserProfile(String userProfile) {
+        this.userProfile = userProfile == null ? null : userProfile.trim();
+    }
+
+    public String getUserPicture() {
+        return userPicture;
+    }
+
+    public void setUserPicture(String userPicture) {
+        this.userPicture = userPicture == null ? null : userPicture.trim();
     }
 }

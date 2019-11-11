@@ -98,7 +98,7 @@
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 
-		<table tableName="sentence"></table>
+		<table tableName="users"></table>
 
 	</context>
 </generatorConfiguration>

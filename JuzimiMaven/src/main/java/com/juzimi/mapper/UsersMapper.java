@@ -6,7 +6,6 @@ import java.util.List;
 public interface UsersMapper {
     int deleteByPrimaryKey(String userId);
 
-    /* 注册 */
     int insert(Users record);
 
     Users selectByPrimaryKey(String userId);
@@ -14,6 +13,7 @@ public interface UsersMapper {
     List<Users> selectAll();
 
     int updateByPrimaryKey(Users record);
+
     /* 登录 */
     Users selectByIdBypassword(Users user);
 }
