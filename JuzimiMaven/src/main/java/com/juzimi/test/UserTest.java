@@ -175,6 +175,20 @@ public class UserTest {
 
     }
 
+    @Test
+    public void getAlbumPageData(){
+        // 获取专辑中的所有句子
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        FirstPageDataSerive albumPageDataSerive = springApp.getBean(FirstPageDataSerive.class);
+
+        ResultFirstPageData albumPagedata = albumPageDataSerive.getAlbumPagedata("xing", 2, 1, 10);
+        for (FirstPageData firstPageData : albumPagedata.getFirstPageDataList()) {
+            System.out.println(firstPageData);
+        }
+        System.out.println(albumPagedata.getNext());
+
+    }
+
 
 
 }

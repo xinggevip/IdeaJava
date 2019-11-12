@@ -59,4 +59,12 @@ public class SentenceController {
         return autoSentencePro;
     }
 
+    @RequestMapping("/delsenbysenid")
+    @ResponseBody
+    public Result delsenbysenid(Integer sentenceId){
+        Result result = sentenceSerive.delSentenceById(sentenceId);
+
+        return result;
+    }
+
 }

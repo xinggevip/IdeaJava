@@ -4,9 +4,11 @@ import com.juzimi.domain.Userlikesen;
 import java.util.List;
 
 public interface UserlikesenMapper {
-    // 添加收藏
+    // 根据收藏id删除
     int deleteByPrimaryKey(Integer userLikesenId);
-
+    // 根据句子id删除
+    int deleteBySenId(Integer sentenceId);
+    // 添加收藏
     int insert(Userlikesen record);
 
     Userlikesen selectByPrimaryKey(Integer userLikesenId);

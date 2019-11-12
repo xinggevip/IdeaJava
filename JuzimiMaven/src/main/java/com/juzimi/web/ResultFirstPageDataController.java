@@ -24,5 +24,17 @@ public class ResultFirstPageDataController {
         return firstPageData;
     }
 
+    @RequestMapping("/getalbumpagedata")
+    @ResponseBody
+    public ResultFirstPageData getalbumpagedata(@RequestBody RequestByFirstPageDate requestByFirstPageDate){
+
+        System.out.println(requestByFirstPageDate);
+        ResultFirstPageData albumPagedata = firstPageDataSerive.getAlbumPagedata(requestByFirstPageDate.getUserId(), requestByFirstPageDate.getAlbumId(), requestByFirstPageDate.getPageNum(), requestByFirstPageDate.getPageSize());
+
+
+        return albumPagedata;
+    }
+
+
 
 }

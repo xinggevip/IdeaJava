@@ -42,4 +42,25 @@ public class FirstPageDataSeriveImpl implements FirstPageDataSerive {
 
         return resultFirstPageData;
     }
+
+    @Override
+    public ResultFirstPageData getAlbumPagedata(String userId, Integer albumId, Integer pageNum, Integer pageSize) {
+
+        /* 配置分页查询 从第几页开始查，一页查多少条记录 */
+        String orderBy = "sentence_id  desc";//按照排序字段 倒序 排序
+        Page<FirstPageData> pageIn = PageHelper.startPage(pageNum,pageSize,orderBy);
+
+        List<FirstPageData> albumDataList = firstPageDataMapper.selectAlbumPageData(userId, albumId);
+
+        /* 信息更加详细 配置导航显示几条页码 */
+        PageInfo<FirstPageData> firstPageDataPageInfo = new PageInfo<>(albumDataList, 3);
+
+        resultFirstPageData.setFirstPageDataList(albumDataList);
+        resultFirstPageData.setNext(firstPageDataPageInfo.isHasNextPage());
+
+
+        return resultFirstPageData;
+    }
+
+
 }

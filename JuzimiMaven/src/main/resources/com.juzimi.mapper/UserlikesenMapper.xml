@@ -13,6 +13,9 @@
   <delete id="deleteByUserIdSenId" parameterType="com.juzimi.domain.Userlikesen" >
     DELETE FROM userlikesen WHERE userlikesen.user_id = #{userId} AND userlikesen.sentence_id = #{sentenceId}
   </delete>
+  <delete id="deleteBySenId" parameterType="java.lang.Integer">
+    DELETE FROM userlikesen WHERE sentence_id = #{sentenceId}
+  </delete>
   <insert id="insert" parameterType="com.juzimi.domain.Userlikesen" >
     /* 获取插入的最后一个id */
     <selectKey keyColumn="user_likesen_id" keyProperty="userLikesenId" resultType="Integer" order="AFTER">

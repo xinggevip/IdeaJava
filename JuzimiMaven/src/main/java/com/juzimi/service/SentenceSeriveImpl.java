@@ -6,6 +6,7 @@ import com.github.pagehelper.PageInfo;
 import com.juzimi.domain.*;
 import com.juzimi.mapper.SentenceMapper;
 import com.juzimi.mapper.SentenceProMapper;
+import com.juzimi.mapper.UserlikesenMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,6 +31,8 @@ public class SentenceSeriveImpl implements SentenceSerive {
     private SentenceCount sentenceCount;
     @Autowired
     private AutoSentencePro autoSentencePro;
+    @Autowired
+    private UserlikesenMapper userlikesenMapper;
 
     @Override
     public Result addSentence(Sentence sentence) {
@@ -128,6 +131,23 @@ public class SentenceSeriveImpl implements SentenceSerive {
         autoSentencePro.setNext(pageInfo.isHasNextPage());
 
         return autoSentencePro;
+    }
+
+    @Override
+    public Result delSentenceById(Integer sentenceId) {
+        // 删除已发布的句子
+        try {
+            int res1 = userlikesenMapper.deleteBySenId(sentenceId);
+            int res2 = sentenceMapper.deleteByPrimaryKey(sentenceId);
+            if (res1 > 0 && res2 > 0){
+                return new Result(true,"删除成功");
+            }
+        }catch (Exception e){
+            System.out.println(e.getLocalizedMessage());
+            return new Result(true,"删除成功");
+        }
+
+        return new Result(false,"删除失败");
     }
 
 

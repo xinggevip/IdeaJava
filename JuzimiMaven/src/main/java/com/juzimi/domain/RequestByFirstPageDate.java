@@ -4,6 +4,7 @@ public class RequestByFirstPageDate {
     private String userId;
     private Integer pageNum;
     private Integer pageSize;
+    private Integer albumId;
 
     public String getUserId() {
         return userId;
@@ -29,12 +30,21 @@ public class RequestByFirstPageDate {
         this.pageSize = pageSize;
     }
 
+    public Integer getAlbumId() {
+        return albumId;
+    }
+
+    public void setAlbumId(Integer albumId) {
+        this.albumId = albumId;
+    }
+
     @Override
     public String toString() {
         return "RequestByFirstPageDate{" +
                 "userId='" + userId + '\'' +
                 ", pageNum=" + pageNum +
                 ", pageSize=" + pageSize +
+                ", albumId=" + albumId +
                 '}';
     }
 }
