@@ -162,13 +162,13 @@ public class UserTest {
 
     @Test
     public void toNolike(){
-        // 收藏功能测试
+        // 取消收藏功能测试
         ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
         UserlikesenSerive userlikesenSerive = springApp.getBean(UserlikesenSerive.class);
 
         Userlikesen userlikesen = new Userlikesen();
         userlikesen.setUserId("xing");
-        userlikesen.setSentenceId(48);
+        userlikesen.setSentenceId(44);
 
         Result result = userlikesenSerive.toNoLike(userlikesen);
         System.out.println(result);

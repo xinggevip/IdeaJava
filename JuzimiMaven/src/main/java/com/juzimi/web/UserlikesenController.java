@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserlikesenController {
     @Autowired
     private UserlikesenSerive userlikesenSerive;
+
     @RequestMapping("/tolike")
     @ResponseBody
     public Result tolike(@RequestBody Userlikesen userlikesen){
@@ -22,4 +23,11 @@ public class UserlikesenController {
         return result;
     }
 
+    @RequestMapping("/tonolike")
+    @ResponseBody
+    public Result tonolike(@RequestBody Userlikesen userlikesen){
+        System.out.println(userlikesen);
+        Result result = userlikesenSerive.toNoLike(userlikesen);
+        return result;
+    }
 }

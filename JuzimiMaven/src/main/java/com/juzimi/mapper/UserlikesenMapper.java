@@ -15,6 +15,6 @@ public interface UserlikesenMapper {
 
     int updateByPrimaryKey(Userlikesen record);
 
-    // 根据用户名和句子id删除
+    // 根据用户名和句子id删除  取消收藏功能
     int deleteByUserIdSenId(Userlikesen userlikesen);
 }
