@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.juzimi.mapper.FirstPageDataMapper">
+    <resultMap id="BaseResultMap" type="com.juzimi.domain.FirstPageData" >
+        <id column="sentence_id" property="sentenceId" jdbcType="INTEGER" />
+        <result column="sentence_txt" property="sentenceTxt" jdbcType="VARCHAR" />
+        <result column="album_id" property="albumId" jdbcType="INTEGER" />
+        <result column="album_name" property="albumName" jdbcType="VARCHAR" />
+        <result column="classfiy_id" property="classfiyId" jdbcType="INTEGER" />
+        <result column="classify_name" property="classifyName" jdbcType="VARCHAR" />
+        <result column="author_name" property="authorName" jdbcType="VARCHAR" />
+        <result column="user_id" property="userId" jdbcType="VARCHAR" />
+        <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+        <result column="user_picture" property="userPicture" jdbcType="VARCHAR" />
+        <result column="is_like" property="isLike" jdbcType="INTEGER" />
+
+    </resultMap>
+
+    <select id="selectFirstPageData" resultMap="BaseResultMap" resultType="com.juzimi.domain.FirstPageData">
+        SELECT
+        sentence.sentence_id,
+        sentence.sentence_txt,
+        sentence.album_id,
+        sentence.classfiy_id,
+        sentence.author_name,
+        sentence.user_id,
+        sentence.create_date,
+        users.user_picture,
+        album.album_name,
+        classify.classify_name,
+        (select count(*) from userlikesen where user_id=#{userId} and sentence_id=sentence.sentence_id) AS is_like
+        FROM
+        sentence
+        INNER JOIN users ON sentence.user_id = users.user_id
+        INNER JOIN album ON sentence.album_id = album.album_id
+        INNER JOIN classify ON album.classify_id = classify.classify_id
+    </select>
+
+
+
+
+
+
+</mapper>

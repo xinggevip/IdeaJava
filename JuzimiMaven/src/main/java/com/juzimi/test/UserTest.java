@@ -5,6 +5,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.juzimi.domain.*;
 import com.juzimi.service.AlbumService;
+import com.juzimi.service.FirstPageDataSerive;
 import com.juzimi.service.SentenceSerive;
 import com.juzimi.service.UsersService;
 import org.junit.jupiter.api.Test;
@@ -135,6 +136,19 @@ public class UserTest {
 
         System.out.println(autoSentencePro.getNext());
     }
+
+    @Test
+    public void firstdataTest(){
+        /* 查所有句子展示在首页 */
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        FirstPageDataSerive firstPageDataSerive = springApp.getBean(FirstPageDataSerive.class);
+        ResultFirstPageData resultFirstPageData = firstPageDataSerive.getFirstPageData("xing", 1, 50);
+        for (FirstPageData firstPageData : resultFirstPageData.getFirstPageDataList()) {
+            System.out.println(firstPageData);
+        }
+        System.out.println(resultFirstPageData.getNext());
+    }
+
 
 
 }
