@@ -4,10 +4,7 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.juzimi.domain.*;
-import com.juzimi.service.AlbumService;
-import com.juzimi.service.FirstPageDataSerive;
-import com.juzimi.service.SentenceSerive;
-import com.juzimi.service.UsersService;
+import com.juzimi.service.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -147,6 +144,35 @@ public class UserTest {
             System.out.println(firstPageData);
         }
         System.out.println(resultFirstPageData.getNext());
+    }
+
+    @Test
+    public void tolike(){
+        // 收藏功能测试
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserlikesenSerive userlikesenSerive = springApp.getBean(UserlikesenSerive.class);
+
+        Userlikesen userlikesen = new Userlikesen();
+        userlikesen.setUserId("xing");
+        userlikesen.setSentenceId(31);
+        Result result = userlikesenSerive.toLike(userlikesen);
+        System.out.println(result);
+
+    }
+
+    @Test
+    public void toNolike(){
+        // 收藏功能测试
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserlikesenSerive userlikesenSerive = springApp.getBean(UserlikesenSerive.class);
+
+        Userlikesen userlikesen = new Userlikesen();
+        userlikesen.setUserId("xing");
+        userlikesen.setSentenceId(48);
+
+        Result result = userlikesenSerive.toNoLike(userlikesen);
+        System.out.println(result);
+
     }
 
 
