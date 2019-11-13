@@ -13,4 +13,6 @@ public interface SentenceSerive {
     public AutoSentencePro selectAllSentence(Integer pageNum, Integer pageSize);
     // 删除句子
     public Result delSentenceById(Integer sentenceId);
+    // 更新句子
+    public Result updataSen(Sentence sentence);
 }

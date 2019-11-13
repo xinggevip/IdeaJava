@@ -139,15 +139,34 @@ public class SentenceSeriveImpl implements SentenceSerive {
         try {
             int res1 = userlikesenMapper.deleteBySenId(sentenceId);
             int res2 = sentenceMapper.deleteByPrimaryKey(sentenceId);
-            if (res1 > 0 && res2 > 0){
+            if (res2 > 0){
                 return new Result(true,"删除成功");
             }
         }catch (Exception e){
             System.out.println(e.getLocalizedMessage());
-            return new Result(true,"删除成功");
+            return new Result(false,"删除失败");
         }
 
         return new Result(false,"删除失败");
+    }
+
+    @Override
+    public Result updataSen(Sentence sentence) {
+
+        try {
+            //时间转换
+            String nowTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+            //上传时间
+            sentence.setCreateDate(Timestamp.valueOf(nowTime));
+            int update = sentenceMapper.updateByPrimaryKey(sentence);
+            if (update > 0){
+                return new Result(true,"更新成功");
+            }
+        }catch (Exception e){
+            System.out.println(e.getLocalizedMessage());
+            return new Result(false,"更新失败");
+        }
+        return new Result(false,"更新失败");
     }
 
 

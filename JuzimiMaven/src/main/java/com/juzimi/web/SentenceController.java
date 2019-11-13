@@ -62,9 +62,20 @@ public class SentenceController {
     @RequestMapping("/delsenbysenid")
     @ResponseBody
     public Result delsenbysenid(Integer sentenceId){
+        // 删除句子
         Result result = sentenceSerive.delSentenceById(sentenceId);
 
         return result;
     }
+
+    @RequestMapping("/updatasen")
+    @ResponseBody
+    public Result updataSen(@RequestBody Sentence sentence){
+
+        Result result = sentenceSerive.updataSen(sentence);
+
+        return result;
+    }
+
 
 }

@@ -1,11 +1,16 @@
 package com.juzimi.test;
 
 import com.juzimi.domain.Result;
+import com.juzimi.domain.Sentence;
 import com.juzimi.service.SentenceSerive;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SentenceTest {
+
+
     @Test
     public void delSenTest(){
         // 删除句子
@@ -17,4 +22,24 @@ public class SentenceTest {
 
 
     }
+
+    @Test
+    public void updataSen(){
+        // 更新句子
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        SentenceSerive sentenceSerive = springApp.getBean(SentenceSerive.class);
+
+
+        Sentence sentence = new Sentence();
+        sentence.setSentenceId(41);
+        sentence.setSentenceTxt("人生一切难题，知识给你答案");
+        sentence.setUserId("xing");
+        sentence.setAuthorName("李笑来");
+        sentence.setAlbumId(7);
+        sentence.setClassfiyId(1);
+
+        sentenceSerive.updataSen(sentence);
+
+    }
+
 }
