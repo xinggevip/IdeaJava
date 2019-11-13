@@ -23,6 +23,16 @@ public class FirstPageData {
 
     private Integer isLike;
 
+    private Integer userLikesenId;
+
+    public Integer getUserLikesenId() {
+        return userLikesenId;
+    }
+
+    public void setUserLikesenId(Integer userLikesenId) {
+        this.userLikesenId = userLikesenId;
+    }
+
     public Integer getSentenceId() {
         return sentenceId;
     }
@@ -125,6 +135,7 @@ public class FirstPageData {
                 ", createDate=" + createDate +
                 ", userPicture='" + userPicture + '\'' +
                 ", isLike=" + isLike +
+                ", userLikesenId=" + userLikesenId +
                 '}';
     }
 }

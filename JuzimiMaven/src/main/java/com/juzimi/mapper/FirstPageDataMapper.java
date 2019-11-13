@@ -11,4 +11,8 @@ public interface FirstPageDataMapper {
 
     // 查找专辑中的所有句子
     public List<FirstPageData> selectAlbumPageData(@Param("userId") String userId, @Param("albumId") Integer albumId);
+
+    // 根据用户id查句子
+    public List<FirstPageData> selectSenByUserId(String userId);
+
 }

@@ -1,7 +1,10 @@
 package com.juzimi.test;
 
+import com.juzimi.domain.FirstPageData;
 import com.juzimi.domain.Result;
+import com.juzimi.domain.ResultFirstPageData;
 import com.juzimi.domain.Sentence;
+import com.juzimi.service.FirstPageDataSerive;
 import com.juzimi.service.SentenceSerive;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -39,6 +42,21 @@ public class SentenceTest {
         sentence.setClassfiyId(1);
 
         sentenceSerive.updataSen(sentence);
+
+    }
+
+    @Test
+    public void getSenByUserIdTest(){
+        // 根据用户id查句子
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        FirstPageDataSerive firstPageDataSerive = springApp.getBean(FirstPageDataSerive.class);
+
+        ResultFirstPageData userSenRes = firstPageDataSerive.getSenByUserId("xinggevip", 1, 10);
+        for (FirstPageData firstPageData : userSenRes.getFirstPageDataList()) {
+            System.out.println(firstPageData);
+        }
+        System.out.println(userSenRes.getNext());
+
 
     }
 

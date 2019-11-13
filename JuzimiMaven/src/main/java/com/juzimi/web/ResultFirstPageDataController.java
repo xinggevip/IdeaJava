@@ -35,6 +35,17 @@ public class ResultFirstPageDataController {
         return albumPagedata;
     }
 
+    @RequestMapping("/getsenbyuserid")
+    @ResponseBody
+    public ResultFirstPageData getsenbyuserid(@RequestBody RequestByFirstPageDate requestByFirstPageDate){
+        System.out.println(requestByFirstPageDate);
+        ResultFirstPageData senByUserId = firstPageDataSerive.getSenByUserId(requestByFirstPageDate.getUserId(), requestByFirstPageDate.getPageNum(), requestByFirstPageDate.getPageSize());
+
+        return senByUserId;
+    }
+
+
+
 
 
 }
