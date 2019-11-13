@@ -15,6 +15,7 @@ public class ResultFirstPageDataController {
     @Autowired
     private FirstPageDataSerive firstPageDataSerive;
 
+    // 获取首页句子
     @RequestMapping("/getfirstpagedata")
     @ResponseBody
     public ResultFirstPageData getFirstPageData(@RequestBody RequestByFirstPageDate requestByFirstPageDate){
@@ -24,6 +25,7 @@ public class ResultFirstPageDataController {
         return firstPageData;
     }
 
+    // 获取专辑页句子
     @RequestMapping("/getalbumpagedata")
     @ResponseBody
     public ResultFirstPageData getalbumpagedata(@RequestBody RequestByFirstPageDate requestByFirstPageDate){
@@ -35,6 +37,7 @@ public class ResultFirstPageDataController {
         return albumPagedata;
     }
 
+    // 获取用户发布的句子
     @RequestMapping("/getsenbyuserid")
     @ResponseBody
     public ResultFirstPageData getsenbyuserid(@RequestBody RequestByFirstPageDate requestByFirstPageDate){
@@ -42,6 +45,15 @@ public class ResultFirstPageDataController {
         ResultFirstPageData senByUserId = firstPageDataSerive.getSenByUserId(requestByFirstPageDate.getUserId(), requestByFirstPageDate.getPageNum(), requestByFirstPageDate.getPageSize());
 
         return senByUserId;
+    }
+
+    // 获取用户收藏的句子
+    @RequestMapping("/getlikesenbyuserid")
+    @ResponseBody
+    public ResultFirstPageData getlikesenbyuserid(@RequestBody RequestByFirstPageDate requestByFirstPageDate){
+        System.out.println(requestByFirstPageDate);
+        ResultFirstPageData likeSenByUserIdRes = firstPageDataSerive.getLikeSenByUserId(requestByFirstPageDate.getUserId(), requestByFirstPageDate.getPageNum(), requestByFirstPageDate.getPageSize());
+        return likeSenByUserIdRes;
     }
 
 

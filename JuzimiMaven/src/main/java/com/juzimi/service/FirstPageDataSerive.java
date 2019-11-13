@@ -9,5 +9,7 @@ public interface FirstPageDataSerive {
     public  ResultFirstPageData getAlbumPagedata(String userId,Integer albumId,Integer pageNum,Integer pageSize);
     // 查用户发布的句子
     public  ResultFirstPageData getSenByUserId(String userId, Integer pageNum, Integer pageSize);
+    // 查用户收藏的句子
+    public ResultFirstPageData getLikeSenByUserId(String userId, Integer pageNum, Integer pageSize);
 
 }

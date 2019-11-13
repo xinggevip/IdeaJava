@@ -15,4 +15,7 @@ public interface FirstPageDataMapper {
     // 根据用户id查句子
     public List<FirstPageData> selectSenByUserId(String userId);
 
+    // 查根据用户id询用户已收藏的句子
+    public List<FirstPageData> selectLikeSenByUserId(String userId);
+
 }

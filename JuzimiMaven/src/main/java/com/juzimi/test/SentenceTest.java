@@ -60,4 +60,18 @@ public class SentenceTest {
 
     }
 
+    @Test
+    public void getLikeSenByUserId(){
+        // 根据用户id查句子
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        FirstPageDataSerive firstPageDataSerive = springApp.getBean(FirstPageDataSerive.class);
+
+        ResultFirstPageData likeSenByUserIdRes = firstPageDataSerive.getLikeSenByUserId("xinggevip", 1, 10);
+        for (FirstPageData firstPageData : likeSenByUserIdRes.getFirstPageDataList()) {
+            System.out.println(firstPageData);
+        }
+        System.out.println(likeSenByUserIdRes.getNext());
+
+    }
+
 }
