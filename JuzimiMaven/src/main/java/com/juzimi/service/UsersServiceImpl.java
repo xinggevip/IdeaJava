@@ -58,4 +58,16 @@ public class UsersServiceImpl implements UsersService {
 
         return "fail";
     }
+
+    @Override
+    public Users getProFile(String userId) {
+        try {
+            Users users = usersMapper.selectByPrimaryKey(userId);
+            users.setUserPassword("NaThingWidthPassWord");
+            return users;
+        }catch (Exception e){
+            System.out.println(e.getLocalizedMessage());
+            return null;
+        }
+    }
 }

@@ -112,4 +112,21 @@ public class Users {
     public void setUserPicture(String userPicture) {
         this.userPicture = userPicture == null ? null : userPicture.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Users{" +
+                "userId='" + userId + '\'' +
+                ", userPassword='" + userPassword + '\'' +
+                ", userName='" + userName + '\'' +
+                ", userSex='" + userSex + '\'' +
+                ", userPhone='" + userPhone + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", userSlogan='" + userSlogan + '\'' +
+                ", isActive=" + isActive +
+                ", createDate=" + createDate +
+                ", userProfile='" + userProfile + '\'' +
+                ", userPicture='" + userPicture + '\'' +
+                '}';
+    }
 }

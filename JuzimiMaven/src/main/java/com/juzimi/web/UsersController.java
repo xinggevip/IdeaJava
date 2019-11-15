@@ -45,4 +45,11 @@ public class UsersController {
         return isRegister;
     }
 
+    @RequestMapping("/getprofilebyuserid")
+    @ResponseBody
+    public Users getprofilebyuserid(String userId){
+        Users proFile = usersService.getProFile(userId);
+        return proFile;
+    }
+
 }

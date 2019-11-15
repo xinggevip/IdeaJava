@@ -17,6 +17,14 @@ import java.util.List;
 public class UserTest {
 
     @Test
+    public void getProfile(){
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        UsersService us = springApp.getBean(UsersService.class);
+        Users proFile = us.getProFile("xing");
+        System.out.println(proFile);
+    }
+
+    @Test
     public void userServiceTest(){
         ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
         UsersService us = springApp.getBean(UsersService.class);
