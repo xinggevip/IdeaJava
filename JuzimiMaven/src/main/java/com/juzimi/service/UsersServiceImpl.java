@@ -1,5 +1,6 @@
 package com.juzimi.service;
 
+import com.juzimi.domain.Result;
 import com.juzimi.domain.Users;
 import com.juzimi.mapper.AdminMapper;
 import com.juzimi.mapper.UsersMapper;
@@ -44,7 +45,8 @@ public class UsersServiceImpl implements UsersService {
         user.setCreateDate(Timestamp.valueOf(nowTime));
         // 设置默认签名
         user.setUserSlogan("又是元气满满的一天");
-
+        // 设置默认性别
+        user.setUserSex("男");
         try {
             int insert = usersMapper.insert(user);
             System.out.println("serive----register-----" + insert);
@@ -70,4 +72,21 @@ public class UsersServiceImpl implements UsersService {
             return null;
         }
     }
+
+    @Override
+    public Result updataUser(Users user) {
+        try {
+            int i = usersMapper.updateByPrimaryKey(user);
+            if (i > 0){
+                return new Result(true,"更新成功");
+            }else {
+                return new Result(false,"更新失败");
+            }
+        }catch (Exception e){
+            System.out.println(e.getLocalizedMessage());
+            return new Result(false,"更新失败");
+        }
+    }
+
+
 }

@@ -15,6 +15,22 @@ import java.util.Date;
 import java.util.List;
 
 public class UserTest {
+    // 更新用户
+    @Test
+    public void updataUser(){
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        UsersService us = springApp.getBean(UsersService.class);
+        Users user = new Users();
+        user.setUserId("xinggege");
+        user.setUserPassword("123");
+        user.setUserSex("女");
+        user.setUserSlogan("种瓜的瓜");
+        user.setUserPhone("15915874455");
+        user.setIsActive(1);
+        Result result = us.updataUser(user);
+        System.out.println(result);
+    }
+
 
     @Test
     public void getProfile(){
