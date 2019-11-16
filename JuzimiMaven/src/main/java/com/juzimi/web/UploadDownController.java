@@ -16,6 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api")
 public class UploadDownController {
 
