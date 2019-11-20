@@ -90,4 +90,19 @@ public class Admin {
     public void setAdminOtherFive(String adminOtherFive) {
         this.adminOtherFive = adminOtherFive == null ? null : adminOtherFive.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "adminId='" + adminId + '\'' +
+                ", adminPassword='" + adminPassword + '\'' +
+                ", isOpenActive=" + isOpenActive +
+                ", adminPicture='" + adminPicture + '\'' +
+                ", adminOtherOne='" + adminOtherOne + '\'' +
+                ", adminOtherTwo='" + adminOtherTwo + '\'' +
+                ", adminOtherThree='" + adminOtherThree + '\'' +
+                ", adminOtherFour='" + adminOtherFour + '\'' +
+                ", adminOtherFive='" + adminOtherFive + '\'' +
+                '}';
+    }
 }

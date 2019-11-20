@@ -1,6 +1,7 @@
 package com.juzimi.mapper;
 
 import com.juzimi.domain.Admin;
+
 import java.util.List;
 
 public interface AdminMapper {
@@ -13,4 +14,7 @@ public interface AdminMapper {
     List<Admin> selectAll();
 
     int updateByPrimaryKey(Admin record);
+
+    // 登录 根据用户名密码
+    Admin selectByUidWidthPwd(Admin record);
 }

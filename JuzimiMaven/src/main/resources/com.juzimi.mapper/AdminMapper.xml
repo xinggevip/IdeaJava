@@ -49,4 +49,8 @@
     admin_other_two, admin_other_three, admin_other_four, admin_other_five
     from admin
   </select>
+  <!-- 登录 -->
+  <select id="selectByUidWidthPwd" resultMap="BaseResultMap" resultType="com.juzimi.domain.Admin">
+    SELECT * FROM admin WHERE admin_id = #{adminId} AND admin_password = #{adminPassword}
+  </select>
 </mapper>
