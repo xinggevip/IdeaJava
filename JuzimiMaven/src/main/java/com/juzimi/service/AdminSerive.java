@@ -16,5 +16,9 @@ public interface AdminSerive {
     public Result delOneUser(Users user);
     // 批量删除
     public Result delSomeUser(List<Users> usersList);
+    // 分页获取句子
+    public PageInfo getSentenceResult(Integer pageNum,Integer pageSize);
+    // 分页获取句子带专辑名称
+    public PageInfo getSensPro(Integer pageNum,Integer pageSize);
 
 }

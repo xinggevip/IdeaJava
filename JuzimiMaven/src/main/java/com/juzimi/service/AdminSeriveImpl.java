@@ -3,10 +3,10 @@ package com.juzimi.service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.juzimi.domain.Admin;
-import com.juzimi.domain.Result;
-import com.juzimi.domain.Users;
+import com.juzimi.domain.*;
 import com.juzimi.mapper.AdminMapper;
+import com.juzimi.mapper.SentenceMapper;
+import com.juzimi.mapper.SentenceProMapper;
 import com.juzimi.mapper.UsersMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +22,10 @@ public class AdminSeriveImpl implements AdminSerive {
     private AdminMapper adminMapper;
     @Autowired
     private UsersMapper usersMapper;
+    @Autowired
+    private SentenceMapper sentenceMapper;
+    @Autowired
+    private SentenceProMapper sentenceProMapper;
 
     // 管理员登录
     @Override
@@ -106,6 +110,43 @@ public class AdminSeriveImpl implements AdminSerive {
         }catch (Exception e){
             System.out.println(e.getLocalizedMessage());
             return new Result(false,"操作失败");
+        }
+    }
+
+    // 分页获取句子
+    @Override
+    public PageInfo getSentenceResult(Integer pageNum, Integer pageSize) {
+        try {
+            /* 配置分页查询 从第几页开始查，一页查多少条记录 */
+            String orderBy = "create_date  desc";//按照排序字段 倒序 排序
+            Page<Sentence> pageIn = PageHelper.startPage(pageNum,pageSize,orderBy);
+
+            List<Sentence> sentenceList = sentenceMapper.selectAll();
+
+            /* 信息更加详细 配置导航显示几条页码 */
+            PageInfo<Sentence> pageInfo = new PageInfo<>(sentenceList, 4);
+            return pageInfo;
+        }catch (Exception e){
+            System.out.println(e.getLocalizedMessage());
+            return null;
+        }
+    }
+
+    @Override
+    public PageInfo getSensPro(Integer pageNum, Integer pageSize) {
+        try {
+            /* 配置分页查询 从第几页开始查，一页查多少条记录 */
+            String orderBy = "create_date  desc";//按照排序字段 倒序 排序
+            Page<SentencePro> pageIn = PageHelper.startPage(pageNum,pageSize,orderBy);
+
+            List<SentencePro> sentenceList = sentenceProMapper.selectAllPro();
+
+            /* 信息更加详细 配置导航显示几条页码 */
+            PageInfo<SentencePro> pageInfo = new PageInfo<>(sentenceList, 4);
+            return pageInfo;
+        }catch (Exception e){
+            System.out.println(e.getLocalizedMessage());
+            return null;
         }
     }
 

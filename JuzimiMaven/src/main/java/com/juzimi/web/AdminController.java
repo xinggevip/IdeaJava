@@ -1,11 +1,9 @@
 package com.juzimi.web;
 
 import com.github.pagehelper.PageInfo;
-import com.juzimi.domain.Admin;
-import com.juzimi.domain.Result;
-import com.juzimi.domain.SentenceRequestByAuto;
-import com.juzimi.domain.Users;
+import com.juzimi.domain.*;
 import com.juzimi.service.AdminSerive;
+import com.juzimi.service.SentenceSerive;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,6 +19,8 @@ import java.util.List;
 public class AdminController {
     @Autowired
     private AdminSerive adminSerive;
+    @Autowired
+    private SentenceSerive sentenceSerive;
 
     @RequestMapping("/adminlogin")
     @ResponseBody
@@ -60,5 +60,30 @@ public class AdminController {
         Result result = adminSerive.delSomeUser(usersList);
         return result;
     }
+
+    //分页获取句子
+    @RequestMapping("/admingetsentence")
+    @ResponseBody
+    public PageInfo admingetsentence(@RequestBody SentenceRequestByAuto request){
+        PageInfo<Sentence> pageInfo = adminSerive.getSentenceResult(request.getPageNum(), request.getPageSize());
+        return pageInfo;
+    }
+    // 分页获取句子带专辑名称
+    @RequestMapping("/admingetsenpro")
+    @ResponseBody
+    public PageInfo admingetsenpro(@RequestBody SentenceRequestByAuto request){
+        PageInfo<SentencePro> pageInfo = adminSerive.getSensPro(request.getPageNum(), request.getPageSize());
+        return pageInfo;
+    }
+
+    // 批量删除句子
+    @RequestMapping("/admindelsomesen")
+    @ResponseBody
+    public Result admindelsomesen(@RequestBody List<Sentence> sentenceList){
+        Result result = sentenceSerive.delSomeSen(sentenceList);
+        return result;
+    }
+
+
 
 }

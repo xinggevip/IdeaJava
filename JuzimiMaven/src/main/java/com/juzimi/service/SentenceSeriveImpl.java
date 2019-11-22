@@ -151,6 +151,23 @@ public class SentenceSeriveImpl implements SentenceSerive {
     }
 
     @Override
+    public Result delSomeSen(List<Sentence> sentenceList) {
+        // 批量删除已发布的句子
+        try {
+            for (Sentence sentence : sentenceList) {
+                int res1 = userlikesenMapper.deleteBySenId(sentence.getSentenceId());
+                int res2 = sentenceMapper.deleteByPrimaryKey(sentence.getSentenceId());
+            }
+            return new Result(true,"批量删除成功");
+
+        }catch (Exception e){
+            System.out.println(e.getLocalizedMessage());
+            return new Result(false,"批量删除失败");
+        }
+    }
+
+
+    @Override
     public Result updataSen(Sentence sentence) {
 
         try {
