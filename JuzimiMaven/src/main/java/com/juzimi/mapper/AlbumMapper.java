@@ -16,4 +16,7 @@ public interface AlbumMapper {
 
     /* 根据分类id查专辑 */
     List<Album> selectAlbumByClassifyId(Integer classifyId);
+
+    // 获取热门专辑
+    List<Album> selectHotAlbum();
 }

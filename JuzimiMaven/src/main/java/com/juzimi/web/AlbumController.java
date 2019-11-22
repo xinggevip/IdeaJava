@@ -57,6 +57,14 @@ public class AlbumController {
         return album;
     }
 
+    // 获取推荐专辑
+    @RequestMapping("/getpushalbum")
+    @ResponseBody
+    public List<Album> getpushalbum(){
+        List<Album> albumList = albumService.getPushAlbum();
+        return albumList;
+    }
+
 
 
 }

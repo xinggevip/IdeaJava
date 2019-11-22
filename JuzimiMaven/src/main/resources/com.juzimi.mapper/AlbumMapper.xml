@@ -50,4 +50,15 @@
   <select id="selectAlbumByClassifyId" resultMap="BaseResultMap" resultType="com.juzimi.domain.Album">
       SELECT * FROM album WHERE classify_id = #{classifyId}
   </select>
+
+
+
+
+  <select id="selectHotAlbum" resultMap="BaseResultMap">
+    SELECT COUNT(*) as ss, a.*
+    from album a, sentence s
+    WHERE a.album_id = s.album_id
+    GROUP BY s.album_id
+    ORDER BY ss DESC
+  </select>
 </mapper>

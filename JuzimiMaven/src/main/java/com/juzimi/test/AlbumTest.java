@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class AlbumTest {
     @Test
@@ -26,5 +27,16 @@ public class AlbumTest {
         System.out.println("是否有上一页:"+pageInfo.isHasPreviousPage());
         System.out.println("是否有下一页:"+pageInfo.isHasNextPage());
         System.out.println("导航页码:"+ Arrays.toString(pageInfo.getNavigatepageNums()));
+    }
+
+    @Test
+    public void getPushAlbum(){
+        // 获取推荐列表测试
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        AlbumService albumService = springApp.getBean(AlbumService.class);
+        List<Album> albumList = albumService.getPushAlbum();
+        for (Album album : albumList) {
+            System.out.println(album);
+        }
     }
 }

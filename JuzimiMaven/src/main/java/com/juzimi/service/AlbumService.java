@@ -21,4 +21,6 @@ public interface AlbumService {
     public  Result delAlbum(Album album);
     // 批量删除专辑
     public Result delSomeAlbum(List<Album> albumList);
+    // 获取最推荐专辑
+    public List<Album> getPushAlbum();
 }
