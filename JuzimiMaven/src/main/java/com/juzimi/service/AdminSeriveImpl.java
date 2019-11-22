@@ -150,5 +150,20 @@ public class AdminSeriveImpl implements AdminSerive {
         }
     }
 
+    @Override
+    public Result updataAdmin(Admin admin) {
+        try {
+            int i = adminMapper.updateByPrimaryKey(admin);
+            if (i > 0){
+                return new Result(true,"操作成功");
+            }else {
+                return new Result(false,"操作失败");
+            }
+        }catch (Exception e){
+            System.out.println(e.getLocalizedMessage());
+            return new Result(false,"操作失败");
+        }
+    }
+
 
 }

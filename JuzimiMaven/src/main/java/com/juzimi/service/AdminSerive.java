@@ -20,5 +20,7 @@ public interface AdminSerive {
     public PageInfo getSentenceResult(Integer pageNum,Integer pageSize);
     // 分页获取句子带专辑名称
     public PageInfo getSensPro(Integer pageNum,Integer pageSize);
+    // 更新管理员（开始关闭审核状态）
+    public Result updataAdmin(Admin admin);
 
 }

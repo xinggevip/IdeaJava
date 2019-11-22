@@ -118,9 +118,12 @@ public class AdminController {
         return result;
     }
 
-
-
-
-
+    // 更新管理员信息（开启关闭审核用户）
+    @RequestMapping("/adminupdataself")
+    @ResponseBody
+    public Result adminupdataself(@RequestBody Admin admin){
+        Result result = adminSerive.updataAdmin(admin);
+        return result;
+    }
 
 }
