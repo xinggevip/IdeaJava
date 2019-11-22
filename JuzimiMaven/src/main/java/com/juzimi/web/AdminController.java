@@ -3,6 +3,7 @@ package com.juzimi.web;
 import com.github.pagehelper.PageInfo;
 import com.juzimi.domain.*;
 import com.juzimi.service.AdminSerive;
+import com.juzimi.service.AlbumService;
 import com.juzimi.service.SentenceSerive;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,8 @@ public class AdminController {
     private AdminSerive adminSerive;
     @Autowired
     private SentenceSerive sentenceSerive;
+    @Autowired
+    private AlbumService albumService;
 
     @RequestMapping("/adminlogin")
     @ResponseBody
@@ -83,6 +86,40 @@ public class AdminController {
         Result result = sentenceSerive.delSomeSen(sentenceList);
         return result;
     }
+
+    // 分页获取专辑
+    @RequestMapping("/admingetalbums")
+    @ResponseBody
+    public PageInfo admingetalbums(@RequestBody SentenceRequestByAuto request){
+        PageInfo<Album> pageInfo = albumService.getAllAlbum(request.getPageNum(), request.getPageSize());
+        return pageInfo;
+    }
+
+    // 更新专辑
+    @RequestMapping("/adminupdataalbum")
+    @ResponseBody
+    public Result adminupdataalbum(@RequestBody Album album){
+        Result result = albumService.updataAlbum(album);
+        return result;
+    }
+    // 删除专辑
+    @RequestMapping("/admindelalbum")
+    @ResponseBody
+    public Result admindelalbum(@RequestBody Album album){
+        Result result = albumService.delAlbum(album);
+        return result;
+    }
+
+    // 批量删除专辑
+    @RequestMapping("/admindelsomealbum")
+    @ResponseBody
+    public Result admindelsomealbum(@RequestBody List<Album> albumList){
+        Result result = albumService.delSomeAlbum(albumList);
+        return result;
+    }
+
+
+
 
 
 

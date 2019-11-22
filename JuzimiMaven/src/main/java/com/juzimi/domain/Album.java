@@ -72,4 +72,17 @@ public class Album {
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
+
+    @Override
+    public String toString() {
+        return "Album{" +
+                "albumId=" + albumId +
+                ", albumName='" + albumName + '\'' +
+                ", albumDetails='" + albumDetails + '\'' +
+                ", classifyId=" + classifyId +
+                ", albumPicture='" + albumPicture + '\'' +
+                ", userId='" + userId + '\'' +
+                ", createDate=" + createDate +
+                '}';
+    }
 }
