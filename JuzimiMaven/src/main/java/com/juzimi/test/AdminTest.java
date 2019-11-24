@@ -2,6 +2,7 @@ package com.juzimi.test;
 
 import com.github.pagehelper.PageInfo;
 import com.juzimi.domain.*;
+import com.juzimi.mapper.AdminMapper;
 import com.juzimi.service.AdminSerive;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -84,5 +85,37 @@ public class AdminTest {
         for (CountListResult result : countListResult) {
             System.out.println(result);
         }
+    }
+
+    // 搜索用户
+    @Test
+    public void searchUsersTest(){
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        AdminSerive adminSerive = springApp.getBean(AdminSerive.class);
+        PageInfo<Users> pageInfo = adminSerive.searchUsersByIdOrName("x", 1, 10);
+        for (Users user : pageInfo.getList()) {
+            System.out.println(user);
+        }
+
+        System.out.println("当前页:"+pageInfo.getPageNum());
+        System.out.println("每页显示记录数:"+pageInfo.getPageSize());
+        System.out.println("总页数:"+pageInfo.getPages());
+        System.out.println("总记录数:"+pageInfo.getTotal());
+        System.out.println("是否有上一页:"+pageInfo.isHasPreviousPage());
+        System.out.println("是否有下一页:"+pageInfo.isHasNextPage());
+        System.out.println("导航页码:"+ Arrays.toString(pageInfo.getNavigatepageNums()));
+    }
+
+    @Test
+    public  void selectUsersByIdOrNameTest(){
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        AdminMapper adminSerive = springApp.getBean(AdminMapper.class);
+
+        List<Users> usesList = adminSerive.selectUsersByIdOrName("高");
+
+        for (Users users : usesList) {
+            System.out.println(users);
+        }
+
     }
 }

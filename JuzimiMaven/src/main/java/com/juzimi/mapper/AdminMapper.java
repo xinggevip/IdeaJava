@@ -1,6 +1,7 @@
 package com.juzimi.mapper;
 
 import com.juzimi.domain.Admin;
+import com.juzimi.domain.Users;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -24,4 +25,6 @@ public interface AdminMapper {
     int selectCountTodayNum(@Param("tabName") String tabName);
     // 根据表名和前n天统计新增数据
     int selectCountNewData(@Param("tabName") String tabName, @Param("num") Integer num);
+    // 根据id或姓名搜索用户
+    List<Users> selectUsersByIdOrName(@Param("key") String key);
 }

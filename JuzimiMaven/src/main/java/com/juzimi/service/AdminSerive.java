@@ -24,5 +24,7 @@ public interface AdminSerive {
     public CountResult getCountResult();
     // 统计新增数据
     public List<CountListResult> getCountListResult(Integer num);
+    // 根据id或姓名搜索用户
+    public PageInfo<Users> searchUsersByIdOrName(String key,Integer pageNum,Integer pageSize);
 
 }

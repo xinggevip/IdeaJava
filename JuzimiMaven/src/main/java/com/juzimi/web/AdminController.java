@@ -142,5 +142,13 @@ public class AdminController {
         return listResult;
     }
 
+    // 搜索用户
+    @RequestMapping("/adminsearchusers")
+    @ResponseBody
+    public PageInfo<Users> adminsearchusers(String key,Integer pageNum,Integer pageSize){
+        PageInfo<Users> pageInfo = adminSerive.searchUsersByIdOrName(key, pageNum, pageSize);
+        return pageInfo;
+    }
+
 
 }

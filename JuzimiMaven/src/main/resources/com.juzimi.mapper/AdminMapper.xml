@@ -64,4 +64,25 @@
     from ${tabName}
     where date(create_date) = curdate() - ${num}
   </select>
+
+  <resultMap id="BaseResultMap1" type="com.juzimi.domain.Users" >
+    <id column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="user_password" property="userPassword" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="user_sex" property="userSex" jdbcType="VARCHAR" />
+    <result column="user_phone" property="userPhone" jdbcType="VARCHAR" />
+    <result column="user_email" property="userEmail" jdbcType="VARCHAR" />
+    <result column="user_slogan" property="userSlogan" jdbcType="VARCHAR" />
+    <result column="is_active" property="isActive" jdbcType="INTEGER" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="user_profile" property="userProfile" jdbcType="VARCHAR" />
+    <result column="user_picture" property="userPicture" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <select id="selectUsersByIdOrName"  parameterType="String" resultMap="BaseResultMap1">
+    select user_id, user_password, user_name, user_sex, user_phone, user_email, user_slogan,
+    is_active, create_date, user_profile, user_picture
+    FROM users
+    WHERE user_id LIKE '%${key}%' OR user_name LIKE '%${key}%'
+  </select>
 </mapper>
