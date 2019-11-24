@@ -100,4 +100,18 @@
     FROM album
     WHERE album_name LIKE '%${key}%' OR album_details LIKE '%${key}%'
   </select>
+  <resultMap id="BaseResultMap3" type="com.juzimi.domain.Sentence" >
+    <id column="sentence_id" property="sentenceId" jdbcType="INTEGER" />
+    <result column="sentence_txt" property="sentenceTxt" jdbcType="VARCHAR" />
+    <result column="album_id" property="albumId" jdbcType="INTEGER" />
+    <result column="classfiy_id" property="classfiyId" jdbcType="INTEGER" />
+    <result column="author_name" property="authorName" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <select id="selectSentenceByTxt" resultMap="BaseResultMap3">
+    SELECT sentence_id, sentence_txt, album_id, classfiy_id, author_name, user_id, create_date
+    FROM sentence
+    WHERE sentence_txt LIKE '%${key}%' OR author_name LIKE '%${key}%'
+  </select>
 </mapper>

@@ -28,5 +28,7 @@ public interface AdminSerive {
     public PageInfo<Users> searchUsersByIdOrName(String key,Integer pageNum,Integer pageSize);
     // 根据专辑名称或专辑详情搜索专辑
     public PageInfo<Album> searchAlbumByNameOrDetails(String key,Integer pageNum,Integer pageSize);
+    // 根据句子内容或句子作者跟搜索句子
+    public PageInfo<Sentence> searchSentenceByTxtOrAuthorName(String key,Integer pageNum,Integer pageSize);
 
 }

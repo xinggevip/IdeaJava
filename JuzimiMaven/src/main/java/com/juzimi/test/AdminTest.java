@@ -128,4 +128,15 @@ public class AdminTest {
             System.out.println(album);
         }
     }
+
+    // 搜索句子测试
+    @Test
+    public void searchSentenceByTxtOrAuthorNameTest(){
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        AdminSerive adminSerive = springApp.getBean(AdminSerive.class);
+        PageInfo<Sentence> pageInfo = adminSerive.searchSentenceByTxtOrAuthorName("你", 1, 10);
+        for (Sentence sentence : pageInfo.getList()) {
+            System.out.println(sentence);
+        }
+    }
 }

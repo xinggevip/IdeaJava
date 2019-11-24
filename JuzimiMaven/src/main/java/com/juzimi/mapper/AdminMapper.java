@@ -2,6 +2,7 @@ package com.juzimi.mapper;
 
 import com.juzimi.domain.Admin;
 import com.juzimi.domain.Album;
+import com.juzimi.domain.Sentence;
 import com.juzimi.domain.Users;
 import org.apache.ibatis.annotations.Param;
 
@@ -30,4 +31,6 @@ public interface AdminMapper {
     List<Users> selectUsersByIdOrName(@Param("key") String key);
     // 根据专辑名称或专辑详情搜索专辑
     List<Album> selectAlbumByNameOrDetails(@Param("key") String key);
+    // 根据句子内容或句子作者跟搜索句子
+    List<Sentence> selectSentenceByTxt(@Param("key") String key);
 }
