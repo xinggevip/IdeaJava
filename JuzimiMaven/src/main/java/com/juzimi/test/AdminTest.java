@@ -1,14 +1,13 @@
 package com.juzimi.test;
 
 import com.github.pagehelper.PageInfo;
-import com.juzimi.domain.Admin;
-import com.juzimi.domain.Sentence;
-import com.juzimi.domain.Users;
+import com.juzimi.domain.*;
 import com.juzimi.service.AdminSerive;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class AdminTest {
     @Test
@@ -65,5 +64,25 @@ public class AdminTest {
         System.out.println("是否有下一页:"+pageInfo.isHasNextPage());
         System.out.println("导航页码:"+ Arrays.toString(pageInfo.getNavigatepageNums()));
 
+    }
+
+    // 获取统计信息
+    @Test
+    public void getCountResultTest(){
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        AdminSerive adminSerive = springApp.getBean(AdminSerive.class);
+        CountResult countResult = adminSerive.getCountResult();
+        System.out.println(countResult);
+    }
+
+    // 统计新增数据
+    @Test
+    public void getCountListResultTest(){
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        AdminSerive adminSerive = springApp.getBean(AdminSerive.class);
+        List<CountListResult> countListResult = adminSerive.getCountListResult(7);
+        for (CountListResult result : countListResult) {
+            System.out.println(result);
+        }
     }
 }

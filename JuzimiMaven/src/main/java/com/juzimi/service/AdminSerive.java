@@ -1,9 +1,7 @@
 package com.juzimi.service;
 
 import com.github.pagehelper.PageInfo;
-import com.juzimi.domain.Admin;
-import com.juzimi.domain.Result;
-import com.juzimi.domain.Users;
+import com.juzimi.domain.*;
 
 import java.util.List;
 
@@ -22,5 +20,9 @@ public interface AdminSerive {
     public PageInfo getSensPro(Integer pageNum,Integer pageSize);
     // 更新管理员（开始关闭审核状态）
     public Result updataAdmin(Admin admin);
+    // 获取统计信息
+    public CountResult getCountResult();
+    // 统计新增数据
+    public List<CountListResult> getCountListResult(Integer num);
 
 }

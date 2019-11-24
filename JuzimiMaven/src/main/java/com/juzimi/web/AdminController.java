@@ -125,5 +125,22 @@ public class AdminController {
         Result result = adminSerive.updataAdmin(admin);
         return result;
     }
+    
+    // 获取统计信息
+    @RequestMapping("/admingetcount")
+    @ResponseBody
+    public CountResult admingetcount(){
+        CountResult countResult = adminSerive.getCountResult();
+        return countResult;
+    }
+
+    // 获取新增统计信息
+    @RequestMapping("/admingetcountlist")
+    @ResponseBody
+    public List<CountListResult> admingetcountlist(Integer num){
+        List<CountListResult> listResult = adminSerive.getCountListResult(num);
+        return listResult;
+    }
+
 
 }

@@ -1,6 +1,7 @@
 package com.juzimi.mapper;
 
 import com.juzimi.domain.Admin;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -17,4 +18,10 @@ public interface AdminMapper {
 
     // 登录 根据用户名密码
     Admin selectByUidWidthPwd(Admin record);
+    /* 统计总用户或总句子数量 */
+    int selectCountAll(@Param("tabName") String tabName);
+    /* 统计今日注册用户和今日发布的句子 */
+    int selectCountTodayNum(@Param("tabName") String tabName);
+    // 根据表名和前n天统计新增数据
+    int selectCountNewData(@Param("tabName") String tabName, @Param("num") Integer num);
 }

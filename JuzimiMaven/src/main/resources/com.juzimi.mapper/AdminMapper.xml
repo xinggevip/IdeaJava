@@ -53,4 +53,15 @@
   <select id="selectByUidWidthPwd" resultMap="BaseResultMap" resultType="com.juzimi.domain.Admin">
     SELECT * FROM admin WHERE admin_id = #{adminId} AND admin_password = #{adminPassword}
   </select>
+  <select id="selectCountAll" resultType="java.lang.Integer">
+    SELECT COUNT(*) FROM ${tabName}
+  </select>
+  <select id="selectCountTodayNum" resultType="java.lang.Integer">
+    select COUNT(*) from ${tabName} where date(create_date) = curdate();
+  </select>
+  <select id="selectCountNewData" resultType="java.lang.Integer">
+    select count(*)
+    from ${tabName}
+    where date(create_date) = curdate() - ${num}
+  </select>
 </mapper>

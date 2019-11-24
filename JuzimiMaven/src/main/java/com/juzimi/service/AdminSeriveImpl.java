@@ -12,6 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -163,6 +167,52 @@ public class AdminSeriveImpl implements AdminSerive {
             System.out.println(e.getLocalizedMessage());
             return new Result(false,"操作失败");
         }
+    }
+
+    @Override
+    public CountResult getCountResult() {
+        try {
+            // 获取所有用户数量
+            int users = adminMapper.selectCountAll("users");
+            // 获取所有句子数量
+            int sentences = adminMapper.selectCountAll("sentence");
+            // 获取今日注册用户数量
+            int todayUsers = adminMapper.selectCountTodayNum("users");
+            // 获取今日发布句子数量
+            int todaySens = adminMapper.selectCountTodayNum("sentence");
+            return new CountResult(users,todayUsers,sentences,todaySens);
+        }catch (Exception e){
+            System.out.println(e.getLocalizedMessage());
+            return null;
+        }
+    }
+
+    @Override
+    public List<CountListResult> getCountListResult(Integer num) {
+        try {
+            List<CountListResult> listResults = new ArrayList<>();
+            for (int i = num - 1;i >= 0;i--){
+                Integer usersCount =  adminMapper.selectCountNewData("users",i);
+                Integer sensCount =  adminMapper.selectCountNewData("sentence",i);
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(Calendar.DAY_OF_YEAR, calendar.get(Calendar.DAY_OF_YEAR) - i);
+                Date today = calendar.getTime();
+                listResults.add(new CountListResult(today,usersCount,sensCount));
+            }
+            return listResults;
+        }catch (Exception e){
+            System.out.println(e.getLocalizedMessage());
+            return null;
+        }
+    }
+
+    public String getPastDate(int past) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.DAY_OF_YEAR, calendar.get(Calendar.DAY_OF_YEAR) - past);
+        Date today = calendar.getTime();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String result = format.format(today);
+        return result;
     }
 
 
