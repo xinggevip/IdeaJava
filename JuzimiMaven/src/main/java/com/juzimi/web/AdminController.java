@@ -150,5 +150,13 @@ public class AdminController {
         return pageInfo;
     }
 
+    // 搜索专辑
+    @RequestMapping("/adminsearchalbum")
+    @ResponseBody
+    public PageInfo<Album> adminsearchalbum(String key,Integer pageNum,Integer pageSize){
+        PageInfo<Album> pageInfo = adminSerive.searchAlbumByNameOrDetails(key, pageNum, pageSize);
+        return pageInfo;
+    }
+
 
 }

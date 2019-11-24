@@ -1,6 +1,7 @@
 package com.juzimi.mapper;
 
 import com.juzimi.domain.Admin;
+import com.juzimi.domain.Album;
 import com.juzimi.domain.Users;
 import org.apache.ibatis.annotations.Param;
 
@@ -27,4 +28,6 @@ public interface AdminMapper {
     int selectCountNewData(@Param("tabName") String tabName, @Param("num") Integer num);
     // 根据id或姓名搜索用户
     List<Users> selectUsersByIdOrName(@Param("key") String key);
+    // 根据专辑名称或专辑详情搜索专辑
+    List<Album> selectAlbumByNameOrDetails(@Param("key") String key);
 }

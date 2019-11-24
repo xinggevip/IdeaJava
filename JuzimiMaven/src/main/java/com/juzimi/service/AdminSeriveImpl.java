@@ -225,6 +225,24 @@ public class AdminSeriveImpl implements AdminSerive {
         }
     }
 
+    @Override
+    public PageInfo<Album> searchAlbumByNameOrDetails(String key, Integer pageNum, Integer pageSize) {
+        try {
+            /* 配置分页查询 从第几页开始查，一页查多少条记录 */
+            String orderBy = "create_date  desc";//按照排序字段 倒序 排序
+            Page<Album> pageIn = PageHelper.startPage(pageNum,pageSize,orderBy);
+
+            List<Album> albumList = adminMapper.selectAlbumByNameOrDetails(key);
+
+            /* 信息更加详细 配置导航显示几条页码 */
+            PageInfo<Album> pageInfo = new PageInfo<>(albumList, 4);
+            return pageInfo;
+        }catch (Exception e){
+            System.out.println(e.getLocalizedMessage());
+            return null;
+        }
+    }
+
     // 日期格式化
     public String getPastDate(int past) {
         Calendar calendar = Calendar.getInstance();

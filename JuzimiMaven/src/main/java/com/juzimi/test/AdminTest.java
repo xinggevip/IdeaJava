@@ -118,4 +118,14 @@ public class AdminTest {
         }
 
     }
+
+    @Test
+    public void searchAlbumByNameOrDetailsTest(){
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        AdminSerive adminSerive = springApp.getBean(AdminSerive.class);
+        PageInfo<Album> pageInfo = adminSerive.searchAlbumByNameOrDetails("家", 1, 10);
+        for (Album album : pageInfo.getList()) {
+            System.out.println(album);
+        }
+    }
 }

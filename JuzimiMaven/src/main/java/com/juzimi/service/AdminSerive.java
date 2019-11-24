@@ -26,5 +26,7 @@ public interface AdminSerive {
     public List<CountListResult> getCountListResult(Integer num);
     // 根据id或姓名搜索用户
     public PageInfo<Users> searchUsersByIdOrName(String key,Integer pageNum,Integer pageSize);
+    // 根据专辑名称或专辑详情搜索专辑
+    public PageInfo<Album> searchAlbumByNameOrDetails(String key,Integer pageNum,Integer pageSize);
 
 }
