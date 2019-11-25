@@ -96,5 +96,30 @@ public class FirstPageDataSeriveImpl implements FirstPageDataSerive {
         return resultFirstPageData;
     }
 
+    @Override
+    public ResultFirstPageData searchSen(String userId,String key, Integer pageNum, Integer pageSize) {
+        try {
+            /* 配置分页查询 从第几页开始查，一页查多少条记录 */
+            String orderBy = "sentence_id  desc";//按照排序字段 倒序 排序
+            Page<FirstPageData> pageIn = PageHelper.startPage(pageNum,pageSize,orderBy);
+
+            List<FirstPageData> firstPageDatas = firstPageDataMapper.selectSearchSen(userId,key);
+            // 集合反转
+//        Collections.reverse(albumList);
+
+            /* 信息更加详细 配置导航显示几条页码 */
+            PageInfo<FirstPageData> firstPageDataPageInfo = new PageInfo<>(firstPageDatas, 3);
+
+            resultFirstPageData.setFirstPageDataList(firstPageDatas);
+            resultFirstPageData.setNext(firstPageDataPageInfo.isHasNextPage());
+
+            return resultFirstPageData;
+        }catch (Exception e){
+            System.out.println(e.getLocalizedMessage());
+            return null;
+        }
+
+    }
+
 
 }

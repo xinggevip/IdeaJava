@@ -23,4 +23,6 @@ public interface AlbumService {
     public Result delSomeAlbum(List<Album> albumList);
     // 获取最推荐专辑
     public List<Album> getPushAlbum();
+    // 搜索专辑
+    public AutoAlbums getSearchAlbum(String key, Integer pageNum, Integer pageSize);
 }

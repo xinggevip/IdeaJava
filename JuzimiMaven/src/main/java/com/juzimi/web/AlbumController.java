@@ -3,6 +3,7 @@ package com.juzimi.web;
 import com.juzimi.domain.Album;
 import com.juzimi.domain.AlbumRequestByAuto;
 import com.juzimi.domain.AutoAlbums;
+import com.juzimi.domain.RequestByFirstPageDate;
 import com.juzimi.service.AlbumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,6 +46,15 @@ public class AlbumController {
 
         return autoAlbums;
     }
+
+    // 搜索专辑
+    @RequestMapping("/searchalbum")
+    @ResponseBody
+    public AutoAlbums searchalbum(@RequestBody RequestByFirstPageDate requestByFirstPageDate){
+        AutoAlbums searchAlbum = albumService.getSearchAlbum(requestByFirstPageDate.getKeyy(), requestByFirstPageDate.getPageNum(), requestByFirstPageDate.getPageSize());
+        return searchAlbum;
+    }
+
 
     @RequestMapping("/selectalbumbyid")
     @ResponseBody

@@ -27,6 +27,15 @@ public class ResultFirstPageDataController {
         return firstPageData;
     }
 
+    // 搜索句子
+    @RequestMapping("/getsearchsen")
+    @ResponseBody
+    public ResultFirstPageData getsearchsen(@RequestBody RequestByFirstPageDate requestByFirstPageDate){
+        ResultFirstPageData resultFirstPageData = firstPageDataSerive.searchSen(requestByFirstPageDate.getUserId(), requestByFirstPageDate.getKeyy(), requestByFirstPageDate.getPageNum(), requestByFirstPageDate.getPageSize());
+        return resultFirstPageData;
+    }
+
+
     // 获取专辑页句子
     @RequestMapping("/getalbumpagedata")
     @ResponseBody

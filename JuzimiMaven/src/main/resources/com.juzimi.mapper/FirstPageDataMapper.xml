@@ -104,6 +104,26 @@
         ) AS res
         WHERE res.is_like = 1
     </select>
+    <select id="selectSearchSen" resultMap="BaseResultMap" resultType="com.juzimi.domain.FirstPageData">
+        SELECT
+        sentence.sentence_id,
+        sentence.sentence_txt,
+        sentence.album_id,
+        sentence.classfiy_id,
+        sentence.author_name,
+        sentence.user_id,
+        sentence.create_date,
+        users.user_picture,
+        album.album_name,
+        classify.classify_name,
+        (select count(*) from userlikesen where user_id=#{userId} and sentence_id=sentence.sentence_id) AS is_like
+        FROM
+        sentence
+        INNER JOIN users ON sentence.user_id = users.user_id
+        INNER JOIN album ON sentence.album_id = album.album_id
+        INNER JOIN classify ON album.classify_id = classify.classify_id
+        WHERE sentence.sentence_txt LIKE '%${key}%' OR sentence.author_name LIKE '%${key}%'
+    </select>
 
 
 </mapper>

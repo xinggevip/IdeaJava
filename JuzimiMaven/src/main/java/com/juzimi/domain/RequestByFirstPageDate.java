@@ -5,6 +5,15 @@ public class RequestByFirstPageDate {
     private Integer pageNum;
     private Integer pageSize;
     private Integer albumId;
+    private String keyy;
+
+    public String getKeyy() {
+        return keyy;
+    }
+
+    public void setKeyy(String keyy) {
+        this.keyy = keyy;
+    }
 
     public String getUserId() {
         return userId;
@@ -45,6 +54,7 @@ public class RequestByFirstPageDate {
                 ", pageNum=" + pageNum +
                 ", pageSize=" + pageSize +
                 ", albumId=" + albumId +
+                ", keyy='" + keyy + '\'' +
                 '}';
     }
 }

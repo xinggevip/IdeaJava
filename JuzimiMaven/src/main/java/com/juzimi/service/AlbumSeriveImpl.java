@@ -231,7 +231,30 @@ public class AlbumSeriveImpl implements AlbumService {
         return null;
     }
 
+    @Override
+    public AutoAlbums getSearchAlbum(String key, Integer pageNum, Integer pageSize) {
+        try {
+            /* 配置分页查询 从第几页开始查，一页查多少条记录 */
+            String orderBy = "album_id  desc";//按照排序字段 倒序 排序
+            Page<Album> pageIn = PageHelper.startPage(pageNum,pageSize,orderBy);
 
+            List<Album> albumList = albumMapper.selectSearchAlbums(key);
+            // 集合反转
+//        Collections.reverse(albumList);
+
+            /* 信息更加详细 配置导航显示几条页码 */
+            PageInfo<Album> pageInfo = new PageInfo<>(albumList, 3);
+
+            autoAlbums.setAlbumList(albumList);
+            autoAlbums.setNext(pageInfo.isHasNextPage());
+
+            return autoAlbums;
+        }catch (Exception e){
+            System.out.println(e.getLocalizedMessage());
+            return null;
+        }
+
+    }
 
 
 }

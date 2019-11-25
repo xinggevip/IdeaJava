@@ -11,5 +11,7 @@ public interface FirstPageDataSerive {
     public  ResultFirstPageData getSenByUserId(String userId, Integer pageNum, Integer pageSize);
     // 查用户收藏的句子
     public ResultFirstPageData getLikeSenByUserId(String userId, Integer pageNum, Integer pageSize);
+    // 搜索句子
+    public ResultFirstPageData searchSen(String userId,String key, Integer pageNum, Integer pageSize);
 
 }

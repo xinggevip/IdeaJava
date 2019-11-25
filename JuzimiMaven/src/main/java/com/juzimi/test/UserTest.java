@@ -15,6 +15,16 @@ import java.util.Date;
 import java.util.List;
 
 public class UserTest {
+    // 搜索句子
+    @Test
+    public void searchSenTest(){
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        FirstPageDataSerive dataSerive = springApp.getBean(FirstPageDataSerive.class);
+        ResultFirstPageData resultFirstPageData = dataSerive.searchSen("xing", "鲁迅", 1, 10);
+        for (FirstPageData firstPageData : resultFirstPageData.getFirstPageDataList()) {
+            System.out.println(firstPageData);
+        }
+    }
     // 更新用户
     @Test
     public void updataUser(){

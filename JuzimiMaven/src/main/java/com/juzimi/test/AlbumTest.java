@@ -2,6 +2,7 @@ package com.juzimi.test;
 
 import com.github.pagehelper.PageInfo;
 import com.juzimi.domain.Album;
+import com.juzimi.domain.AutoAlbums;
 import com.juzimi.service.AlbumService;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -10,6 +11,17 @@ import java.util.Arrays;
 import java.util.List;
 
 public class AlbumTest {
+    // 搜索专辑
+    @Test
+    public void getSearchAlbum(){
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        AlbumService albumService = springApp.getBean(AlbumService.class);
+        AutoAlbums albums = albumService.getSearchAlbum("的", 1, 10);
+        for (Album album : albums.getAlbumList()) {
+            System.out.println(album);
+        }
+        System.out.println(albums.getNext());
+    }
     @Test
     public void getAllAlbumTest(){
         // 管理员登录测试

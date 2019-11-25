@@ -1,6 +1,8 @@
 package com.juzimi.mapper;
 
 import com.juzimi.domain.Album;
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 public interface AlbumMapper {
@@ -19,4 +21,7 @@ public interface AlbumMapper {
 
     // 获取热门专辑
     List<Album> selectHotAlbum();
+
+    // 搜索专辑
+    List<Album> selectSearchAlbums(@Param("key") String key);
 }

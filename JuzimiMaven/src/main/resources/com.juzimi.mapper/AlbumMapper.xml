@@ -61,4 +61,8 @@
     GROUP BY s.album_id
     ORDER BY ss DESC
   </select>
+  <!-- 搜索专辑 -->
+  <select id="selectSearchAlbums" resultMap="BaseResultMap">
+    SELECT * FROM album WHERE album_name LIKE '%${key}%' OR album_details LIKE '%${key}%'
+  </select>
 </mapper>
