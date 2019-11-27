@@ -134,8 +134,8 @@ public class AdminTest {
     public void searchSentenceByTxtOrAuthorNameTest(){
         ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
         AdminSerive adminSerive = springApp.getBean(AdminSerive.class);
-        PageInfo<Sentence> pageInfo = adminSerive.searchSentenceByTxtOrAuthorName("你", 1, 10);
-        for (Sentence sentence : pageInfo.getList()) {
+        PageInfo<SentencePro> pageInfo = adminSerive.searchSentenceByTxtOrAuthorName("你", 1, 10);
+        for (SentencePro sentence : pageInfo.getList()) {
             System.out.println(sentence);
         }
     }

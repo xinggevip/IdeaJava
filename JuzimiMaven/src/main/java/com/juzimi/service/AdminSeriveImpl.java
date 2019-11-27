@@ -244,16 +244,16 @@ public class AdminSeriveImpl implements AdminSerive {
     }
 
     @Override
-    public PageInfo<Sentence> searchSentenceByTxtOrAuthorName(String key, Integer pageNum, Integer pageSize) {
+    public PageInfo<SentencePro> searchSentenceByTxtOrAuthorName(String key, Integer pageNum, Integer pageSize) {
         try {
             /* 配置分页查询 从第几页开始查，一页查多少条记录 */
             String orderBy = "create_date  desc";//按照排序字段 倒序 排序
-            Page<Sentence> pageIn = PageHelper.startPage(pageNum,pageSize,orderBy);
+            Page<SentencePro> pageIn = PageHelper.startPage(pageNum,pageSize,orderBy);
 
-            List<Sentence> sentenceList = adminMapper.selectSentenceByTxt(key);
+            List<SentencePro> sentenceList = adminMapper.selectSentenceByTxt(key);
 
             /* 信息更加详细 配置导航显示几条页码 */
-            PageInfo<Sentence> pageInfo = new PageInfo<>(sentenceList, 4);
+            PageInfo<SentencePro> pageInfo = new PageInfo<>(sentenceList, 4);
             return pageInfo;
         }catch (Exception e){
             System.out.println(e.getLocalizedMessage());

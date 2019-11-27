@@ -161,8 +161,8 @@ public class AdminController {
     // 搜索句子
     @RequestMapping("/adminsearchsentence")
     @ResponseBody
-    public PageInfo<Sentence> adminsearchsentence(String key,Integer pageNum,Integer pageSize){
-        PageInfo<Sentence> pageInfo = adminSerive.searchSentenceByTxtOrAuthorName(key, pageNum, pageSize);
+    public PageInfo<SentencePro> adminsearchsentence(String key,Integer pageNum,Integer pageSize){
+        PageInfo<SentencePro> pageInfo = adminSerive.searchSentenceByTxtOrAuthorName(key, pageNum, pageSize);
         return pageInfo;
     }
 
