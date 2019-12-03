@@ -56,4 +56,19 @@ public class TFlagServiceImpl implements TFlagService {
             return new ResultInfo(false,"发布失败");
         }
     }
+
+    // 更新flag
+    @Override
+    public ResultInfo updataFlag(TFlag tFlag) {
+        try {
+            int i = tFlagMapper.updateByPrimaryKey(tFlag);
+            if (i > 0){
+                return new ResultInfo(true,"更新成功");
+            }else {
+                return new ResultInfo(false,"更新失败");
+            }
+        }catch (Exception e){
+            return new ResultInfo(false,"更新失败");
+        }
+    }
 }

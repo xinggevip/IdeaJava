@@ -12,7 +12,25 @@ import java.util.Arrays;
 import java.util.Date;
 
 public class TFlagTest {
-    // 获取所有任务
+    // 更新flag
+    @Test
+    public void updataFlag(){
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        TFlagService tFlagService = springApp.getBean(TFlagService.class);
+        TFlag flag = new TFlag();
+        flag.setFid(11);
+        flag.setHname("学习数学");
+        flag.setTypeid(1);
+        flag.setHdate(new Date());
+        flag.setImplement("学会数理化，走遍天下都不怕");
+        flag.setWord("不蒸馒头争口气");
+        flag.setUserid(3);
+        flag.setClick(1);
+        ResultInfo resultInfo = tFlagService.updataFlag(flag);
+        System.out.println(resultInfo);
+    }
+
+    // 获取所有flag
     @Test
     public void getAllFlagByUidAndKey(){
         ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");

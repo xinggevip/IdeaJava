@@ -10,4 +10,6 @@ public interface TFlagService {
     public PageInfo<TFlagPro> getAllFlagByUidAndKey(Integer userid, String key, Integer pageNum, Integer pageSize);
     // 发布flag
     public ResultInfo insertFlag(TFlag tFlag);
+    // 更新flag
+    public ResultInfo updataFlag(TFlag tFlag);
 }

@@ -19,7 +19,15 @@ public class TFlagController {
     @Autowired
     private TFlagService tFlagService;
 
-    // 获取所有任务
+    // 更新flag
+    @RequestMapping("/updataflag")
+    @ResponseBody
+    public ResultInfo updataflag(@RequestBody TFlag tFlag){
+        ResultInfo resultInfo = tFlagService.updataFlag(tFlag);
+        return resultInfo;
+    }
+
+    // 获取所有flag
     @RequestMapping("/getallflag")
     @ResponseBody
     public PageInfo<TFlagPro> getallflag(Integer userid, String key, Integer pageNum, Integer pageSize){

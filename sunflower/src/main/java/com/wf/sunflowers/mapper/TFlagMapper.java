@@ -16,6 +16,7 @@ public interface TFlagMapper {
 
     List<TFlag> selectAll();
 
+    // 更新任务
     int updateByPrimaryKey(TFlag record);
 
     // 根据用户id和搜索关键词获取所有任务
