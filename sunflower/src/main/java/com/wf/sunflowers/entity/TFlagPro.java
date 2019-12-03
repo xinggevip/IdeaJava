@@ -2,7 +2,7 @@ package com.wf.sunflowers.entity;
 
 import java.util.Date;
 
-public class TFlag {
+public class TFlagPro {
     private Integer fid;
 
     private String hname;
@@ -19,6 +19,8 @@ public class TFlag {
 
     private Integer click;
 
+    private String tname;
+
     public Integer getFid() {
         return fid;
     }
@@ -32,7 +34,7 @@ public class TFlag {
     }
 
     public void setHname(String hname) {
-        this.hname = hname == null ? null : hname.trim();
+        this.hname = hname;
     }
 
     public Integer getTypeid() {
@@ -56,7 +58,7 @@ public class TFlag {
     }
 
     public void setImplement(String implement) {
-        this.implement = implement == null ? null : implement.trim();
+        this.implement = implement;
     }
 
     public String getWord() {
@@ -64,7 +66,7 @@ public class TFlag {
     }
 
     public void setWord(String word) {
-        this.word = word == null ? null : word.trim();
+        this.word = word;
     }
 
     public Integer getUserid() {
@@ -83,9 +85,17 @@ public class TFlag {
         this.click = click;
     }
 
+    public String getTname() {
+        return tname;
+    }
+
+    public void setTname(String tname) {
+        this.tname = tname;
+    }
+
     @Override
     public String toString() {
-        return "TFlag{" +
+        return "TFlagPro{" +
                 "fid=" + fid +
                 ", hname='" + hname + '\'' +
                 ", typeid=" + typeid +
@@ -94,6 +104,7 @@ public class TFlag {
                 ", word='" + word + '\'' +
                 ", userid=" + userid +
                 ", click=" + click +
+                ", tname='" + tname + '\'' +
                 '}';
     }
 }

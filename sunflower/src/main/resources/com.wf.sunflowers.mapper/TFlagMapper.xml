@@ -16,6 +16,10 @@
     where fid = #{fid,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.wf.sunflowers.entity.TFlag" >
+    /* 获取插入的最后一个id */
+    <selectKey keyColumn="fid" keyProperty="fid" resultType="Integer" order="AFTER">
+      select last_insert_id()
+    </selectKey>
     insert into t_flag (fid, hname, typeid, 
       hdate, implement, word, 
       userid, click)
@@ -43,4 +47,21 @@
     select fid, hname, typeid, hdate, implement, word, userid, click
     from t_flag
   </select>
+  <select id="selectAllByUidAndKey" resultType="com.wf.sunflowers.entity.TFlagPro">
+    SELECT
+    t_flag.fid,
+    t_flag.hname,
+    t_flag.typeid,
+    t_flag.hdate,
+    t_flag.implement,
+    t_flag.word,
+    t_flag.userid,
+    t_flag.click,
+    t_type.tname
+    FROM
+    t_type ,
+    t_flag
+    WHERE t_type.tid = t_flag.typeid AND t_flag.userid = #{userid} AND (t_flag.hname LIKE '%${key}%' OR t_flag.implement LIKE '%${key}%')
+
+   </select>
 </mapper>

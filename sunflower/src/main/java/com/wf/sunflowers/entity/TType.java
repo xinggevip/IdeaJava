@@ -20,4 +20,12 @@ public class TType {
     public void setTname(String tname) {
         this.tname = tname == null ? null : tname.trim();
     }
+
+    @Override
+    public String toString() {
+        return "TType{" +
+                "tid=" + tid +
+                ", tname='" + tname + '\'' +
+                '}';
+    }
 }
