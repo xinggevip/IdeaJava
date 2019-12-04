@@ -1,5 +1,6 @@
 package com.wf.sunflowers.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.wf.sunflowers.domain.ResultInfo;
 import com.wf.sunflowers.entity.TUser;
 import com.wf.sunflowers.service.TUserService;
@@ -16,6 +17,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class TUserController {
     @Autowired
     private TUserService tUserService;
+
+    // 根据关键词获取所有用户
+    @RequestMapping("/getalluserbykey")
+    @ResponseBody
+    public PageInfo<TUser> getalluserbykey(String key, Integer pageNum, Integer pageSize){
+        PageInfo<TUser> pageInfo = tUserService.getAllUser(key, pageNum, pageSize);
+        return pageInfo;
+    }
 
     // 更新资料
     @RequestMapping("/edit")

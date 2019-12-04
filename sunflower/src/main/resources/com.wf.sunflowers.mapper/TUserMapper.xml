@@ -42,4 +42,8 @@
   <select id="selectByEmailAndPwd" resultMap="BaseResultMap">
     select * from t_user where email=#{email} and password=#{password}
   </select>
+  <select id="selectByKey" resultMap="BaseResultMap">
+    SELECT * from t_user
+    WHERE username LIKE '%${key}%' OR email LIKE '%${key}%'
+  </select>
 </mapper>
