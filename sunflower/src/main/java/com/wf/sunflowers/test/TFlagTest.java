@@ -8,10 +8,37 @@ import com.wf.sunflowers.service.TFlagService;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 public class TFlagTest {
+    // 批量删除flag
+    @Test
+    public void delFlagsTest(){
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        TFlagService tFlagService = springApp.getBean(TFlagService.class);
+        List<TFlag> tFlagList = new ArrayList<>();
+        TFlag flag1 = new TFlag();
+        flag1.setFid(6);
+        TFlag flag2 = new TFlag();
+        flag2.setFid(7);
+        tFlagList.add(flag1);
+        tFlagList.add(flag2);
+        ResultInfo resultInfo = tFlagService.delFlags(tFlagList);
+        System.out.println(resultInfo);
+    }
+    // 删除flag
+    @Test
+    public void delFlagTest(){
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        TFlagService tFlagService = springApp.getBean(TFlagService.class);
+        TFlag flag = new TFlag();
+        flag.setFid(14);
+        ResultInfo resultInfo = tFlagService.delFalg(flag);
+        System.out.println(resultInfo);
+    }
     // 更新flag
     @Test
     public void updataFlag(){

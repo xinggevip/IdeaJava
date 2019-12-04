@@ -12,12 +12,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/api")
 @CrossOrigin
 public class TFlagController {
     @Autowired
     private TFlagService tFlagService;
+
+    // 批量删除flag
+    @RequestMapping("/delflags")
+    @ResponseBody
+    public ResultInfo delflags(@RequestBody List<TFlag> flagList){
+        ResultInfo resultInfo = tFlagService.delFlags(flagList);
+        return resultInfo;
+    }
+
+
+    // 删除单个flag
+    @RequestMapping("/delflag")
+    @ResponseBody
+    public ResultInfo delflag(@RequestBody TFlag tFlag){
+        ResultInfo resultInfo = tFlagService.delFalg(tFlag);
+        return resultInfo;
+    }
 
     // 更新flag
     @RequestMapping("/updataflag")

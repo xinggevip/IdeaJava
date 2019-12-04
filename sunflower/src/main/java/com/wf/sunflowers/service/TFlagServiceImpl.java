@@ -71,4 +71,32 @@ public class TFlagServiceImpl implements TFlagService {
             return new ResultInfo(false,"更新失败");
         }
     }
+
+    // 删除flag
+    @Override
+    public ResultInfo delFalg(TFlag tFlag) {
+        try {
+            int i = tFlagMapper.deleteByPrimaryKey(tFlag.getFid());
+            if (i > 0){
+                return new ResultInfo(true,"删除成功");
+            }else {
+                return new ResultInfo(false,"删除失败");
+            }
+        }catch (Exception e){
+            return new ResultInfo(false,"删除失败");
+        }
+    }
+
+    // 批量删除flag
+    @Override
+    public ResultInfo delFlags(List<TFlag> tFlags) {
+        try {
+            for (TFlag tFlag : tFlags) {
+                tFlagMapper.deleteByPrimaryKey(tFlag.getFid());
+            }
+            return new ResultInfo(true,"批量删除成功");
+        }catch (Exception e){
+            return new ResultInfo(false,"批量删除失败");
+        }
+    }
 }
