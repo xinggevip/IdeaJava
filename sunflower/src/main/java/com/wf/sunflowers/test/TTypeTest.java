@@ -17,4 +17,12 @@ public class TTypeTest {
             System.out.println(allTtype);
         }
     }
+
+    @Test
+    public void test1(){
+        TType tType = new TType();
+        tType.setTname("哈哈");
+        Integer tid = tType.getTid();
+        System.out.println(tid);
+    }
 }
