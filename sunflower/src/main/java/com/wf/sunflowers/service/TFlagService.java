@@ -18,4 +18,6 @@ public interface TFlagService {
     public ResultInfo delFalg(TFlag tFlag);
     // 批量删除flag
     public ResultInfo delFlags(List<TFlag> tFlags);
+    // 批量设置flag完成状态
+    public ResultInfo setFlagsState(List<TFlag> tFlags);
 }

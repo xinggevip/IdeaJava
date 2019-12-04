@@ -19,6 +19,7 @@ public class TFlagServiceImpl implements TFlagService {
     @Autowired
     private TFlagMapper tFlagMapper;
 
+    // 获取所有flag
     @Override
     public PageInfo<TFlagPro> getAllFlagByUidAndKey(Integer userid, String key, Integer pageNum, Integer pageSize) {
         try {
@@ -97,6 +98,19 @@ public class TFlagServiceImpl implements TFlagService {
             return new ResultInfo(true,"批量删除成功");
         }catch (Exception e){
             return new ResultInfo(false,"批量删除失败");
+        }
+    }
+
+    // 批量设置flag完成状态
+    @Override
+    public ResultInfo setFlagsState(List<TFlag> tFlags) {
+        try {
+            for (TFlag tFlag : tFlags) {
+                tFlagMapper.updateByPrimaryKey(tFlag);
+            }
+            return new ResultInfo(true,"操作成功");
+        }catch (Exception e){
+            return new ResultInfo(false,"操作失败");
         }
     }
 }

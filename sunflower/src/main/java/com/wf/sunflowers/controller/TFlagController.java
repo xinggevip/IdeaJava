@@ -21,6 +21,14 @@ public class TFlagController {
     @Autowired
     private TFlagService tFlagService;
 
+    // 批量设置flag状态
+    @RequestMapping("/setflagsstate")
+    @ResponseBody
+    public ResultInfo setflagsstate(@RequestBody List<TFlag> flagList){
+        ResultInfo resultInfo = tFlagService.setFlagsState(flagList);
+        return resultInfo;
+    }
+
     // 批量删除flag
     @RequestMapping("/delflags")
     @ResponseBody
