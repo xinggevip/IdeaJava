@@ -11,12 +11,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/api")
 @CrossOrigin
 public class TUserController {
     @Autowired
     private TUserService tUserService;
+
+    // 批量删除用户
+    @RequestMapping("/delusers")
+    @ResponseBody
+    public ResultInfo delusers(@RequestBody List<TUser> tUserList){
+        ResultInfo resultInfo = tUserService.delUsers(tUserList);
+        return resultInfo;
+    }
+
+    // 删除用户
+    @RequestMapping("/deluser")
+    @ResponseBody
+    public ResultInfo deluser(@RequestBody TUser user){
+        ResultInfo resultInfo = tUserService.delUser(user);
+        return resultInfo;
+    }
 
     // 根据关键词获取所有用户
     @RequestMapping("/getalluserbykey")

@@ -78,4 +78,31 @@ public class TUserServiceImpl implements TUserService {
         }
 
     }
+
+    // 删除用户
+    @Override
+    public ResultInfo delUser(TUser user) {
+        try {
+            int i = tUserMapper.deleteByPrimaryKey(user.getUid());
+            if (i > 0){
+                return new  ResultInfo(true,"删除成功");
+            }else {
+                return new  ResultInfo(false,"删除失败");
+            }
+        }catch (Exception e){
+            return new  ResultInfo(false,"删除失败");
+        }
+    }
+
+    @Override
+    public ResultInfo delUsers(List<TUser> tUserList) {
+        try {
+            for (TUser user : tUserList) {
+                tUserMapper.deleteByPrimaryKey(user.getUid());
+            }
+            return new  ResultInfo(true,"操作成功");
+        }catch (Exception e){
+            return new  ResultInfo(false,"操作失败");
+        }
+    }
 }

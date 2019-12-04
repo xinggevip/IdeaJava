@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface TUserMapper {
+    // 删除用户
     int deleteByPrimaryKey(Integer uid);
 
     // 注册

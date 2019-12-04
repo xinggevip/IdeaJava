@@ -10,6 +10,16 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.util.Arrays;
 
 public class TUserTest {
+    // 删除用户
+    @Test
+    public void delUserTest(){
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        TUserService tUserService = springApp.getBean(TUserService.class);
+        TUser user = new TUser();
+        user.setUid(12);
+        ResultInfo resultInfo = tUserService.delUser(user);
+        System.out.println(resultInfo);
+    }
     // 根据关键词获取所有用户
     @Test
     public void getAllUserTest(){
