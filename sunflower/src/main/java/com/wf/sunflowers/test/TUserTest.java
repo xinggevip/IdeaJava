@@ -7,6 +7,21 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TUserTest {
+    // 更新测试
+    @Test
+    public void editTest(){
+        ClassPathXmlApplicationContext springApp = new ClassPathXmlApplicationContext("applicationContext.xml");
+        TUserService tUserService = springApp.getBean(TUserService.class);
+        TUser tUser = new TUser();
+        tUser.setUid(12);
+        tUser.setUsername("王雨");
+        tUser.setEmail("1511844263@qq.com");
+        tUser.setPhone("15937067033");
+        tUser.setPassword("123");
+        tUser.setRole("pupil");
+        ResultInfo resultInfo = tUserService.edit(tUser);
+        System.out.println(resultInfo);
+    }
     // 注册测试
     @Test
     public void regTest(){

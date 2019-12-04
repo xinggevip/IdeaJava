@@ -17,6 +17,14 @@ public class TUserController {
     @Autowired
     private TUserService tUserService;
 
+    // 更新资料
+    @RequestMapping("/edit")
+    @ResponseBody
+    public ResultInfo edit(@RequestBody TUser user){
+        ResultInfo resultInfo = tUserService.edit(user);
+        return resultInfo;
+    }
+
     // 注册
     @RequestMapping("/reg")
     @ResponseBody

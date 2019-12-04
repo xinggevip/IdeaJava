@@ -13,6 +13,7 @@ public interface TUserMapper {
 
     List<TUser> selectAll();
 
+    // 更新
     int updateByPrimaryKey(TUser record);
 
     // 登录

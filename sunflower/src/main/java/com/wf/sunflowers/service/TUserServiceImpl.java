@@ -38,4 +38,19 @@ public class TUserServiceImpl implements TUserService {
             return null;
         }
     }
+
+    // 更细资料
+    @Override
+    public ResultInfo edit(TUser user) {
+        try {
+            int i = tUserMapper.updateByPrimaryKey(user);
+            if (i > 0){
+                return new  ResultInfo(true,"更新成功");
+            }else {
+                return new  ResultInfo(false,"更新失败");
+            }
+        }catch (Exception e){
+            return new  ResultInfo(false,"更新失败");
+        }
+    }
 }

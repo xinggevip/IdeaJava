@@ -8,4 +8,6 @@ public interface TUserService {
     public ResultInfo reg(TUser user);
     // 登录
     public TUser login(TUser user);
+    // 更新资料
+    public ResultInfo edit(TUser user);
 }
