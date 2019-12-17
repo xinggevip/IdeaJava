@@ -12,8 +12,11 @@
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
 
+
+
   <!--配置前端控制器-->
   <servlet>
+
     <servlet-name>SpringMVC</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
@@ -41,5 +44,7 @@
     <filter-name>CharacterEncoding</filter-name>
     <url-pattern>/nothing</url-pattern>
   </filter-mapping>
+
+
 
 </web-app>
