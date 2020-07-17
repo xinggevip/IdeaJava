@@ -2,14 +2,19 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/aop
-        http://www.springframework.org/schema/aop/spring-aop.xsd">
+        http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!--<context:annotation-config/>-->
+    <context:component-scan base-package="com.gaoxing.demo1"/>
     <!-- 开启注解 -->
     <aop:aspectj-autoproxy/>
-    <bean id="goodsDao" class="com.gaoxing.demo1.GoodsDaoImpl"></bean>
-    <bean id="goodsAspect" class="com.gaoxing.demo1.GoodsDaoAspect"></bean>
-    <bean id="userDao" class="com.gaoxing.demo1.UserDao"></bean>
+
+    <!--<bean id="goodsDao" class="com.gaoxing.demo1.GoodsDaoImpl"></bean>-->
+    <!--<bean id="goodsAspect" class="com.gaoxing.demo1.GoodsDaoAspect"></bean>-->
+    <!--<bean id="testAspect" class="com.gaoxing.demo1.TestAspect"></bean>-->
+    <!--<bean id="userDao" class="com.gaoxing.demo1.UserDao"></bean>-->
 </beans>

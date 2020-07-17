@@ -1,8 +1,11 @@
 package com.gaoxing.demo1;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class GoodsDaoImpl implements GoodsDao {
     @Override
-    public void save() {
+    public void save(int i,int j) {
         System.out.println("保存操作");
     }
 

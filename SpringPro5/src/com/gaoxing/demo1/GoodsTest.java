@@ -2,6 +2,7 @@ package com.gaoxing.demo1;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -10,13 +11,13 @@ import javax.annotation.Resource;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext.xml")
 public class GoodsTest {
-    @Resource(name = "goodsDao")
+    @Autowired
     private GoodsDao goodsDao;
-    @Resource(name = "userDao")
+    @Autowired
     private UserDao userDao;
     @Test
     public void test(){
-        goodsDao.save();
+        goodsDao.save(1,2);
         goodsDao.update();
         goodsDao.delete();
         goodsDao.find();
